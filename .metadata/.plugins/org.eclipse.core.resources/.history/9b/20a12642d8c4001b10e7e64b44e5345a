@@ -1,0 +1,26 @@
+package service;
+
+import java.util.List;
+import java.util.Map;
+
+import util.DBUtil;
+
+public class TypeService {
+	private DBUtil db = new DBUtil();
+
+//	读取分类列表
+	public List<Map<String, String>> getTypes(String s_tn) {
+		String sql = null;
+		String[] params = null;
+		
+		if (s_tn == null || s_tn.equals("")) {
+//			无条件搜索
+
+		} else {
+//			条件查询
+
+		}
+
+		return null;
+	}
+}

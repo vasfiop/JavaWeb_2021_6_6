@@ -1,0 +1,11 @@
+package service;
+
+import util.DBUtil;
+
+public class FoodService {
+	private DBUtil db = new DBUtil();
+
+	public int addFodd(String fn,String  feo,String mat,String price,String type,String pic,String comm) {
+		
+	}
+}

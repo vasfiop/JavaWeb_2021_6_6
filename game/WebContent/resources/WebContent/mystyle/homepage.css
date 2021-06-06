@@ -1,0 +1,22 @@
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.ul-not-style {
+    list-style: none;
+    padding-left: 0;
+}
+
+.nav-small-title {
+    font-size: 80%;
+    color: black;
+    font-weight: bold;
+}
+
+.margin_bottom{
+    margin-bottom: 0;
+}
