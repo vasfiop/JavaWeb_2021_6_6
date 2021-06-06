@@ -17,6 +17,22 @@
     font-weight: bold;
 }
 
-.margin_bottom{
+.margin_bottom {
     margin-bottom: 0;
+}
+
+.bg-gray {
+    background-color: #f0f3ef;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.bg-titlegray {
+    background-color: #dfdfdf;
+}
+
+.bg-red {
+    background-color: red;
 }

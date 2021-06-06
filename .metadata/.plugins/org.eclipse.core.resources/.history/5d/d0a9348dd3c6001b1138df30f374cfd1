@@ -1,0 +1,41 @@
+<%@ page pageEncoding="utf-8" %>
+  <!doctype html>
+  <html lang="en">
+
+  <head>
+    <title>京东</title>
+
+    <%@ include file="head.jsp" %>
+
+  </head>
+
+  <body>
+    <div class="container-fluidy">
+      <div class="row">
+        <div class="col-md-12 bg-gray">
+
+          <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>品类齐全，轻松购物</th>
+                    <th>多仓直发，极速配送</th>
+                    <th>正品行货，精致服务</th>
+                    <th>天天低价，畅选无忧</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <div class="col-md-1">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+
+  </html>
