@@ -45,7 +45,7 @@ public class DBUtil {
 
 	public DBUtil() {
 		driver = "com.mysql.cj.jdbc.Driver";
-		url = "jdbc:mysql://localhost:3306/meal?characterEncoding=utf8&serverTimezone=UTC&useSSL=false";	// 数据库名meal可变
+		url = "jdbc:mysql://localhost:3306/jingdong?characterEncoding=utf8&serverTimezone=UTC&useSSL=false";	// 数据库名meal可变
 		username = "root";
 		password = "root";	// 数据库密码可变
 	}
