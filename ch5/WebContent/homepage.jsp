@@ -51,7 +51,7 @@
 					<c:forEach var="f" items="${hot }">
 						<div class="list-group-item">
 							<img alt="${f.foodname }" src="./resources/${f.picture }"
-								class="rounded" /> <a href="first?id=${f.id }" target="_blank">${f.foodname }</a>
+								class="rounded" /> <a href="detail?id=${f.id }" target="_blank">${f.foodname }</a>
 							${f.price }元
 						</div>
 					</c:forEach>
@@ -67,7 +67,7 @@
 					<c:forEach var="f" items="${today }">
 						<div class="list-group-item">
 							<img alt="${f.foodname }" src="./resources/${f.picture }"
-								class="rounded" /> <a href="first.html" target="_blank">${f.foodname }</a>
+								class="rounded" /> <a href="detail?id=${f.id }" target="_blank">${f.foodname }</a>
 							${f.comment }元
 						</div>
 					</c:forEach>
@@ -84,7 +84,7 @@
 					<c:forEach var="f" items="${cooker }">
 						<div class="list-group-item">
 							<img alt="${f.foodname }" src="./resources/${f.picture }"
-								class="rounded" /> <a href="first.html" target="_blank">${f.foodname }</a>
+								class="rounded" /> <a href="detail?id=${f.id }" target="_blank">${f.foodname }</a>
 							${f.price }元
 						</div>
 					</c:forEach>

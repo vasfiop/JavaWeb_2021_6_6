@@ -8,6 +8,13 @@ import util.DBUtil;
 public class TypeService {
 	private DBUtil db = new DBUtil();
 
+//	删除分类信息
+	public int delType(String id) {
+		String sql = "delete from foodtype where id=?";
+		String[] parames = { id };
+		return db.update(sql, parames);
+	}
+
 //	读取分类列表
 	public List<Map<String, String>> getTypes(String s_tn) {
 		String sql = null;

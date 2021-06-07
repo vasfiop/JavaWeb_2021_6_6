@@ -8,6 +8,14 @@ import util.DBUtil;
 public class FoodService {
 	private DBUtil db = new DBUtil();
 
+//	根据id读取菜品信息
+	public Map<String, String> getFoodById(String id) {
+		String sql = "select f.*,ft.typename from food f join foodtype ft on f.type=ft.id where f.id = ? ";
+		String[] params = {id};
+		
+		return db.getMap(sql,params);
+	}
+
 	public int addFodd(String fn, String feo, String mat, String price, String type, String pic, String comm) {
 		String sql = "insert into food values(null,?,?,?,?,?,?,'0',?)";
 		String[] params = { fn, feo, mat, price, type, pic, comm };

@@ -36,3 +36,15 @@
 .bg-red {
     background-color: red;
 }
+
+.text-dark {
+    color: black;
+}
+
+.text-small {
+    font-size: 12px
+}
+
+.text-middle {
+    font-size: 14px;
+}
