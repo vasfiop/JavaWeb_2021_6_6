@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import service.UserService;
-import util.DBUtil;
 
 /**
  * Servlet implementation class Log_In

@@ -12,4 +12,3 @@
 
 
   <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/WebContent/mystyle/homepage.css">
-  <script src="${pageContext.request.contextPath }/resources/WebContent/mystyle/mejs.js"></script>

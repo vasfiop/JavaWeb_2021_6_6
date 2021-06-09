@@ -514,7 +514,7 @@
                   </a>
                   <div class="dropdown-menu">
                     <a class="dropdown-item" href="user/user_homepage">个人中心</a>
-                    <a class="dropdown-item" href="logout">退出登录</a>
+                    <a class="dropdown-item" href="/game/logout">退出登录</a>
                   </div>
                 </div>
               </c:if>
