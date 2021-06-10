@@ -48,6 +48,42 @@
         </div>
         <p></p>
 
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+              <div class="row">
+                <div class="col-md-5">
+                  <img src="./resources/img/test_350_350.jpg" style="float: right;" />
+                </div>
+                <div class="col-md-7">
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <h6>Apple iPad Pro 11英寸平板电脑 2021年新款(128G
+                            WLAN版/M1芯片Liquid视网膜屏/MHQR3CH/A) 深空灰色</h6>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>京东价:￥6669<small>[<del>￥9766</del>]</small></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <button type="button" class="btn btn-primary btn-lg btn-block">
+                            加入购物车
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+        </div>
+
     </body>
 
     </html>

@@ -30,12 +30,6 @@ public class UserHomepage extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.getRequestDispatcher("/user/user_homepage.jsp").forward(request, response);
-
-//		response.setContentType("text/html;charset=utf-8");
-//		PrintWriter out = response.getWriter();
-//		request.setCharacterEncoding("utf-8");
-//
-//		out.println("123");
 	}
 
 	/**

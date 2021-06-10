@@ -1,27 +1,23 @@
-package action;
+package action.admin;
 
 import java.io.IOException;
-import java.util.Map;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.UserService;
-
 /**
- * Servlet implementation class Log_In
+ * Servlet implementation class AdminUserList
  */
-@WebServlet("/login")
-public class Log_In extends HttpServlet {
+@WebServlet("/admin/admin_user_list")
+public class AdminUserList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public Log_In() {
+	public AdminUserList() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -32,29 +28,7 @@ public class Log_In extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-
-		Map<String, String> u = new UserService().getUser(username, password);
-
-		if (u != null) {
-//					存储session
-			request.getSession().setAttribute("username", username);
-//						身份判断
-			if (u.get("mode").equals("0")) {
-//						普通用户
-				response.sendRedirect("./homepage");
-			} else {
-//						管理员
-				response.sendRedirect("./admin/admin_homepage");
-			}
-		} else {
-			// 非法用户
-			request.setAttribute("msg", "用户名和密码错误");
-			request.setAttribute("href", request.getContextPath() + "/homepage");
-			request.getRequestDispatcher("/result.jsp").forward(request, response);
-		}
+		request.getRequestDispatcher("/admin/admin_user_list.jsp").forward(request, response);
 	}
 
 	/**

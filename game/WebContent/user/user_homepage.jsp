@@ -13,7 +13,6 @@
   <%@ include file="../nav.jsp" %>
 
   <div class="container-fluid">
-
     <!-- 标题 -->
     <div class="row">
       <div class="col-md-12" style="background-color: white;">
