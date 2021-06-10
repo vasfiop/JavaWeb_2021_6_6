@@ -1,7 +1,6 @@
 package action;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -10,8 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.jasper.tagplugins.jstl.core.ForEach;
 
 import service.ShopService;
 import service.SortService;
@@ -39,16 +36,20 @@ public class Shoptype_item extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String id = request.getParameter("id");
-		
-		List<Map<String, String>> u = new TypeService().getTypeNameeById(id);
-		request.getSession().setAttribute("type", u);
-		
-//		List<Map<String, String>> list = new ShopService().getShopByTypeId(u.get(0).get("typeid"));
-//		request.getSession().setAttribute("shops", list);
-		
-		List<Map<String, String>> list = new ShopService().getShopBySortId(id);
-		request.getSession().setAttribute("shops", list);
-		
+
+//		id = "1";
+		List<Map<String, String>> typenames = new TypeService().getTypeNameeById(id);
+		Map<String, String> sortname = new SortService().getSortNameById(id);
+
+		request.getSession().setAttribute("name", sortname);
+		request.getSession().setAttribute("type", typenames);
+		request.getSession().setAttribute("count", typenames.size());
+
+		for (int i = 0; i < typenames.size(); i++) {
+			String key = "shops" + i;
+			request.getSession().setAttribute(key, new ShopService().getShopByTypeId(typenames.get(i).get("id")));
+		}
+
 		request.getRequestDispatcher("/shoptype_item.jsp").forward(request, response);
 	}
 

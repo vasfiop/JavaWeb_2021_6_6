@@ -5,7 +5,7 @@
 
 <head>
 
-  <title>typename</title>
+  <title>${name.typename }</title>
 
   <%@ include file="head.jsp"%>
 </head>
@@ -29,7 +29,7 @@
                 <img src="./resources/img/test_190_120.jpg">
               </div>
               <div class="col-md-10">
-                <h4 style="margin-top: 80px;" class="float-left">家用电器</h4>
+                <h4 style="margin-top: 80px;" class="float-left">${name.typename }</h4>
                 <!-- 下面是右面 -->
                 <a type="button" class="btn btn-link float-right text-secondary" style="margin-top: 70px;"> 我的购物车 </a>
                 <form class="form-inline float-right" style="margin-top: 70px; margin-right: 10px;">
@@ -49,7 +49,6 @@
       </div>
     </div>
   </div>
-
   <p></p>
 
   <div class="container-fluid">
@@ -63,6 +62,7 @@
             <h3 class="text-center">热销爆款</h3>
             <div class="tabbable">
               <ul class="nav nav-tabs">
+
                 <c:set var="count" value="1" />
                 <c:forEach var="i" items="${type }">
                   <c:if test="${count == 1 }">
@@ -79,69 +79,231 @@
                 </c:forEach>
               </ul>
               <div class="tab-content">
-              
-                <c:set var="count" value="1" />
-                <c:forEach var="i" items="${type }">
-                  <c:if test="${count == 1 }">
-                    <div class="tab-pane active" id="tab${count }">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <c:forEach var="l" items="${shops }">
-                              <th><img src="./resources/img/test_180_180.jpg"></th>
-                            </c:forEach>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <c:forEach var="l" items="${shops }">
-                              <td>${l.title }</td>
-                            </c:forEach>
-                          </tr>
-                          <tr>
-                            <c:forEach var="l" items="${shops }">
-                              <td>￥${l.price }</td>
-                            </c:forEach>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </c:if>
 
-                  <c:if test="${count != 1 }">
-                    <div class="tab-pane" id="tab${count }">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th><img src="./resources/img/test_180_180.jpg"></th>
-                            <th><img src="./resources/img/test_180_180.jpg"></th>
-                            <th><img src="./resources/img/test_180_180.jpg"></th>
-                            <th><img src="./resources/img/test_180_180.jpg"></th>
-                            <th><img src="./resources/img/test_180_180.jpg"></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>测试语句${count }</td>
-                            <td>测试语句${count }</td>
-                            <td>测试语句${count }</td>
-                            <td>测试语句${count }</td>
-                            <td>测试语句${count }</td>
-                          </tr>
-                          <tr>
-                            <td>测试语句${count }</td>
-                            <td>测试语句${count }</td>
-                            <td>测试语句${count }</td>
-                            <td>测试语句${count }</td>
-                            <td>测试语句${count }</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </c:if>
-                  <c:set var="count" value="${count+1 }" />
+                <div class="tab-pane active" id="tab1">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <c:forEach var="l" items="${shops0 }">
+                          <th><img src="./resources/img/test_180_180.jpg"></th>
+                        </c:forEach>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <c:forEach var="l" items="${shops0 }">
+                          <td>
+                            <p style="width: 156px;">${l.title }</p>
+                          </td>
+                        </c:forEach>
+                      </tr>
+                      <tr>
+                        <c:forEach var="l" items="${shops0 }">
+                          <td>
+                            <p style="width: 156px;">￥${l.price }</p>
+                          </td>
+                        </c:forEach>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
 
-                </c:forEach>
+                <div class="tab-pane" id="tab2">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <c:forEach var="l" items="${shops1 }">
+                          <th><img src="./resources/img/test_180_180.jpg"></th>
+                        </c:forEach>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <c:forEach var="l" items="${shops1 }">
+                          <td>
+                            <p style="width: 156px;">${l.title }</p>
+                          </td>
+                        </c:forEach>
+                      </tr>
+                      <tr>
+                        <c:forEach var="l" items="${shops1 }">
+                          <td>
+                            <p style="width: 156px;">￥${l.price }</p>
+                          </td>
+                        </c:forEach>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="tab-pane" id="tab3">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <c:forEach var="l" items="${shops2 }">
+                          <th><img src="./resources/img/test_180_180.jpg"></th>
+                        </c:forEach>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <c:forEach var="l" items="${shops2 }">
+                          <td>
+                            <p style="width: 156px;">${l.title }</p>
+                          </td>
+                        </c:forEach>
+                      </tr>
+                      <tr>
+                        <c:forEach var="l" items="${shops2 }">
+                          <td>
+                            <p style="width: 156px;">￥${l.price }</p>
+                          </td>
+                        </c:forEach>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="tab-pane" id="tab4">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <c:forEach var="l" items="${shops3 }">
+                          <th><img src="./resources/img/test_180_180.jpg"></th>
+                        </c:forEach>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <c:forEach var="l" items="${shops3 }">
+                          <td>
+                            <p style="width: 156px;">${l.title }</p>
+                          </td>
+                        </c:forEach>
+                      </tr>
+                      <tr>
+                        <c:forEach var="l" items="${shops3 }">
+                          <td>
+                            <p style="width: 156px;">￥${l.price }</p>
+                          </td>
+                        </c:forEach>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="tab-pane" id="tab5">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <c:forEach var="l" items="${shops4 }">
+                          <th><img src="./resources/img/test_180_180.jpg"></th>
+                        </c:forEach>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <c:forEach var="l" items="${shops4 }">
+                          <td>
+                            <p style="width: 156px;">${l.title }</p>
+                          </td>
+                        </c:forEach>
+                      </tr>
+                      <tr>
+                        <c:forEach var="l" items="${shops4 }">
+                          <td>
+                            <p style="width: 156px;">￥${l.price }</p>
+                          </td>
+                        </c:forEach>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="tab-pane" id="tab6">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <c:forEach var="l" items="${shops5 }">
+                          <th><img src="./resources/img/test_180_180.jpg"></th>
+                        </c:forEach>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <c:forEach var="l" items="${shops5 }">
+                          <td>
+                            <p style="width: 156px;">${l.title }</p>
+                          </td>
+                        </c:forEach>
+                      </tr>
+                      <tr>
+                        <c:forEach var="l" items="${shops5 }">
+                          <td>
+                            <p style="width: 156px;">￥${l.price }</p>
+                          </td>
+                        </c:forEach>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="tab-pane" id="tab7">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <c:forEach var="l" items="${shops6 }">
+                          <th><img src="./resources/img/test_180_180.jpg"></th>
+                        </c:forEach>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <c:forEach var="l" items="${shops6 }">
+                          <td>
+                            <p style="width: 156px;">${l.title }</p>
+                          </td>
+                        </c:forEach>
+                      </tr>
+                      <tr>
+                        <c:forEach var="l" items="${shops6 }">
+                          <td>
+                            <p style="width: 156px;">￥${l.price }</p>
+                          </td>
+                        </c:forEach>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="tab-pane" id="tab8">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <c:forEach var="l" items="${shops7 }">
+                          <th><img src="./resources/img/test_180_180.jpg"></th>
+                        </c:forEach>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <c:forEach var="l" items="${shops7 }">
+                          <td>
+                            <p style="width: 156px;">${l.title }</p>
+                          </td>
+                        </c:forEach>
+                      </tr>
+                      <tr>
+                        <c:forEach var="l" items="${shops7 }">
+                          <td>
+                            <p style="width: 156px;">￥${l.price }</p>
+                          </td>
+                        </c:forEach>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
               </div>
             </div>
           </div>

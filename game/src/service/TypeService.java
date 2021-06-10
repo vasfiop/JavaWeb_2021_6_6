@@ -7,7 +7,7 @@ import util.DBUtil;
 
 public class TypeService {
 	private DBUtil db = new DBUtil();
-	
+
 //	通过分类id找到type
 	public List<Map<String, String>> getTypeNameeById(String id) {
 		String sql = "SELECT * FROM shoptype where typeid = ?;";
@@ -15,4 +15,6 @@ public class TypeService {
 
 		return db.getList(sql, params);
 	}
+
+
 }

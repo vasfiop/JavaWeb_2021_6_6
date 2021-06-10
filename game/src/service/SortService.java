@@ -15,4 +15,12 @@ public class SortService {
 		return db.getList(sql);
 	}
 
+//	通过id查找分类名称
+	public Map<String, String> getSortNameById(String id) {
+		String sql = "select * from shopsort where id = ?";
+		String params[] = { id };
+
+		return db.getMap(sql, params);
+	}
+
 }
