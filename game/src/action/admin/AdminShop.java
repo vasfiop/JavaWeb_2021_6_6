@@ -1,27 +1,23 @@
-package action;
+package action.admin;
 
-import java.util.Map;
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.UserService;
-
 /**
- * Servlet implementation class User_Edit
+ * Servlet implementation class AdminShop
  */
-@WebServlet("/user/user_edit")
-public class User_Edit extends HttpServlet {
+@WebServlet("/admin/admin_shop")
+public class AdminShop extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public User_Edit() {
+	public AdminShop() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -32,13 +28,7 @@ public class User_Edit extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String id = (String) request.getSession().getAttribute("id");
-
-		Map<String, String> u = new UserService().getUserById(id);
-		request.setAttribute("user", u);
-		request.getRequestDispatcher("user_edit.jsp").forward(request, response);
-
+		request.getRequestDispatcher("/admin/admin_shop.jsp").forward(request, response);
 	}
 
 	/**

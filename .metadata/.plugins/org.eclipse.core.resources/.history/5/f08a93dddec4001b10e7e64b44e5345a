@@ -1,9 +1,0 @@
-package service;
-
-import util.DBUtil;
-
-public class FoodService {
-	private DBUtil db = new DBUtil();
-	
-	
-}

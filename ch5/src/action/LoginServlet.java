@@ -1,8 +1,6 @@
 package action;
 
-import util.DBUtil;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -10,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import service.UserService;
 
 /**
  * Servlet implementation class LoginServlet
@@ -33,23 +33,10 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setContentType("text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
-		// 设置请求的编码格式
-		request.setCharacterEncoding("utf-8");
-
-		// 读取登录用户名
 		String un = request.getParameter("un");
-
-// 读取登录密码
 		String pw = request.getParameter("pw");
 
-//		sql 查询语句
-		String sql = "select * from user where username =? and password =?";
-
-		String[] params = { un, pw };
-
-		Map<String, String> u = new DBUtil().getMap(sql, params);
+		Map<String, String> u = new UserService().getUserByNameAndPass(un, pw);
 
 		if (u != null) {
 //			存储session
@@ -59,7 +46,7 @@ public class LoginServlet extends HttpServlet {
 //				身份判断
 			if (u.get("ident").equals("0")) {
 //				普通用户
-				response.sendRedirect("./user/user_index.jsp");
+				response.sendRedirect("./user/user_index");
 			} else {
 //				管理员
 				response.sendRedirect("./admin/admin_index.jsp");

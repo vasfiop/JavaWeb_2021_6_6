@@ -1,7 +1,6 @@
 package action;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import util.DBUtil;
+import service.UserService;
 
 /**
  * Servlet implementation class RegisterServlet
@@ -38,9 +37,7 @@ public class RegisterServlet extends HttpServlet {
 		String dh = request.getParameter("dh");
 		String addr = request.getParameter("addr");
 
-		String sql = "insert into user values(null,?,?,'0',?,?)";
-		String[] params = { un, pw, dh, addr };
-		int r = new DBUtil().update(sql, params);
+		int r = new UserService().register(un, pw, dh, addr);
 		if (r == 1) {
 			request.setAttribute("msg", "×¢²á³É¹¦");
 

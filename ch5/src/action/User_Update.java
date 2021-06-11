@@ -1,15 +1,12 @@
 package action;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import util.DBUtil;
+import service.UserService;
 
 /**
  * Servlet implementation class User_Updata
@@ -38,10 +35,7 @@ public class User_Update extends HttpServlet {
 		String addr = request.getParameter("address");
 		String id = (String) request.getSession().getAttribute("id");
 
-		String sql = "update user set password=?,telephone=?,address=? where id=?";
-		String[] parame = { pw, dh, addr, id };
-
-		int r = new DBUtil().update(sql, parame);
+		int r = new UserService().upDate(pw, dh, addr, id);
 		if (r == 1)
 			request.setAttribute("msg", "ÐÞ¸Ä³É¹¦");
 		else
