@@ -28,7 +28,7 @@ public class AdminHomepage extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher("/admin/admin_homepage.jsp").forward(request, response);
+		request.getRequestDispatcher("/admin/admin_index.jsp").forward(request, response);
 	}
 
 	/**

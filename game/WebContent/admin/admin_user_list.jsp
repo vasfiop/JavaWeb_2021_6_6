@@ -34,7 +34,6 @@
                 </div>
               </div>
               <div class="card-body">
-                <!-- TODO 下面该实现table了 -->
                 <!-- table -->
                 <table class="table table-hover table-striped">
                   <thead>

@@ -16,5 +16,10 @@ public class TypeService {
 		return db.getList(sql, params);
 	}
 
+	public List<Map<String, String>> getType() {
+		String sql = "SELECT * FROM shoptype";
+		
+		return db.getList(sql);
+	}
 
 }

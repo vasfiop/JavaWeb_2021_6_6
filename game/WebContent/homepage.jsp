@@ -94,7 +94,7 @@
                 <ul class="list-unstyled bg-white" style="padding: 5px 10px;">
                   <c:forEach var="i" items="${type }">
                     <li class="list-item">
-                      <a class="text-secondary btn-link" href="shoptype_item?id=${i.id }">${i.typename }</a>
+                      <a class="text-secondary btn-link" href="shoptype_item?id=${i.id }">${i.sortname }</a>
                     </li>
                   </c:forEach>
                 </ul>
