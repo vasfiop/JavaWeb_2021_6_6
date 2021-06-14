@@ -52,7 +52,7 @@
                             <th>${vs.count }</th>
                             <td>${i.sortname }</td>
                             <td>
-                              <a href="admin_type_edit?id=1" role="button" class="btn btn-outline-warning btn-sm">修改</a>
+                              <a href="admin_sort_edit?id=${i.id }&mode=0" role="button" class="btn btn-outline-warning btn-sm">修改</a>
                               <button class="btn btn-outline-danger btn-sm"
                                 onclick="delConfirm('确定要删除该分类吗(分类下无种类)',
                       		  '${pageContext.request.contextPath}/admin/admin_type_del?mode=sort','${i.id}','ajax_no')">删除</button>
@@ -95,7 +95,7 @@
                             <th>${i.sortname }</th>
                             <td>${i.typename }</td>
                             <td>
-                              <a href="admin_type_edit?id=1" role="button" class="btn btn-outline-warning btn-sm">修改</a>
+                              <a href="admin_type_edit?id=${i.id }&mode=0" role="button" class="btn btn-outline-warning btn-sm">修改</a>
                               <button class="btn btn-outline-danger btn-sm"
                                 onclick="delConfirm('确定要删除该种类吗(种类下无商品)',
                       		  '${pageContext.request.contextPath}/admin/admin_type_del?mode=type','${i.id}','ajax_no')">删除</button>

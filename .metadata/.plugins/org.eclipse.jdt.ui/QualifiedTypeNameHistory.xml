@@ -24,8 +24,8 @@
 <fullyQualifiedTypeName name="service.ShopService"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.lang.Boolean"/>
-<fullyQualifiedTypeName name="service.SortService"/>
-<fullyQualifiedTypeName name="service.TypeService"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="service.UserService"/>
+<fullyQualifiedTypeName name="service.TypeService"/>
+<fullyQualifiedTypeName name="service.SortService"/>
 </qualifiedTypeNameHistroy>

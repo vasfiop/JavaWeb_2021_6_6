@@ -38,11 +38,19 @@ public class SortService {
 
 		return db.update(sql, params);
 	}
-	
+
 //	É¾³ý
 	public int delSortById(String id) {
 		String sql = "delete from shopsort where id=?";
 		String params[] = { id };
+		return db.update(sql, params);
+	}
+
+//	¸üÐÂ
+	public int Update(String name, String id) {
+		String sql = "update shopsort set sortname=? where id=?";
+		String params[] = { name, id };
+
 		return db.update(sql, params);
 	}
 }

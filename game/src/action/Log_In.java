@@ -39,20 +39,21 @@ public class Log_In extends HttpServlet {
 		Map<String, String> u = new UserService().getUser(username, password);
 
 		if (u != null) {
-//					存储session
-			request.getSession().setAttribute("username", username);
-//						身份判断
-			if (u.get("mode").equals("0")) {
-//						普通用户
-				response.sendRedirect("./homepage");
+			if (u.get("frozen").equals("0")) {
+				request.getSession().setAttribute("username", username);
+				if (u.get("mode").equals("0"))
+					response.sendRedirect("./homepage");
+				else
+					response.sendRedirect("./admin/admin_homepage");
 			} else {
-//						管理员
-				response.sendRedirect("./admin/admin_homepage");
+				request.setAttribute("msg", "您的账户已被冻结!");
+				request.setAttribute("href", request.getContextPath() + "/logout");
+				request.getRequestDispatcher("/result.jsp").forward(request, response);
 			}
+
 		} else {
-			// 非法用户
-			request.setAttribute("msg", "用户名和密码错误");
-			request.setAttribute("href", request.getContextPath() + "/homepage");
+			request.setAttribute("msg", "用户名和密码错误!");
+			request.setAttribute("href", request.getContextPath() + "/logout");
 			request.getRequestDispatcher("/result.jsp").forward(request, response);
 		}
 	}

@@ -52,7 +52,7 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
-      <form action="login" method="POST">
+      <form action="register" method="POST">
         <!-- 模态框主体 -->
         <div class="modal-body">
           <h5 class="text-center">账户注册</h5>

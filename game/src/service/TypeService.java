@@ -8,8 +8,15 @@ import util.DBUtil;
 public class TypeService {
 	private DBUtil db = new DBUtil();
 
-//	通过分类id找到type
-	public List<Map<String, String>> getTypeNameeById(String id) {
+//	通过id找到type
+	public Map<String, String> getTypeById(String id) {
+		String sql = "SELECT * FROM shoptype where id =?";
+		String params[] = { id };
+		return db.getMap(sql, params);
+	}
+
+//	通过sort id找到type
+	public List<Map<String, String>> getTypeNameBySortId(String id) {
 		String sql = "SELECT * FROM shoptype where typeid = ?;";
 		String params[] = { id };
 
@@ -44,11 +51,19 @@ public class TypeService {
 
 		return db.update(sql, params);
 	}
-	
+
 //	删除
 	public int delTypeById(String id) {
 		String sql = "delete from shoptype where id=?";
 		String params[] = { id };
+		return db.update(sql, params);
+	}
+
+//	更新
+	public int Update(String name, String typeid, String id) {
+		String sql = "update shoptype set typename=?,typeid=? where id=?";
+		String params[] = { name, typeid, id };
+
 		return db.update(sql, params);
 	}
 }

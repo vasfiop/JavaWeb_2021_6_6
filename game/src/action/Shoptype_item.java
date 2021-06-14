@@ -38,7 +38,7 @@ public class Shoptype_item extends HttpServlet {
 		String id = request.getParameter("id");
 
 //		id = "1";
-		List<Map<String, String>> typenames = new TypeService().getTypeNameeById(id);
+		List<Map<String, String>> typenames = new TypeService().getTypeNameBySortId(id);
 		Map<String, String> sortname = new SortService().getSortNameById(id);
 
 		request.getSession().setAttribute("name", sortname);
