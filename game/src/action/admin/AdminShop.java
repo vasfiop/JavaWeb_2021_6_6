@@ -23,6 +23,7 @@ public class AdminShop extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		List<Map<String, String>> sorts = new SortService().getSortName();
 		request.getSession().setAttribute("sort", sorts);
 

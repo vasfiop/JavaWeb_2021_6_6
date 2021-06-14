@@ -17,7 +17,7 @@
           <a type="button" class="btn btn-sm btn-link float-right text-secondary" href="admin_user_list">
             用户列表 </a>
 
-          <a type="button" class="btn btn-sm btn-link float-right text-secondary" href="admin_shop_type">
+          <a type="button" class="btn btn-sm btn-link float-right text-secondary" href="admin_type">
             商品类型 </a>
 
           <a type="button" class="btn btn-sm btn-link float-right text-secondary" href="admin_shop"> 商品 </a>

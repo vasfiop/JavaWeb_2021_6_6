@@ -86,7 +86,8 @@
                       <td>京东秒杀${i.comment }</td>
                     </c:if>
                     <td>
-                      <a href="admin_shop_edit?id=${i.id }&mode=0" role="button" class="btn btn-outline-warning btn-sm">修改</a>
+                      <a href="admin_shop_edit?id=${i.id }&mode=0" role="button"
+                        class="btn btn-outline-warning btn-sm">修改</a>
                       <button class="btn btn-outline-danger btn-sm" onclick="delConfirm('确定要删除该商品吗',
                       '${pageContext.request.contextPath}/admin/admin_shop_del','${i.id}','ajax_no')">删除</button>
                     </td>
