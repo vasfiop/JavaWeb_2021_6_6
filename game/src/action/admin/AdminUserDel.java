@@ -7,25 +7,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.TypeService;
 import service.UserService;
 
-@WebServlet("/admin/admin_user_list")
-public class AdminUserList extends HttpServlet {
+@WebServlet("/admin/admin_user_del")
+public class AdminUserDel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public AdminUserList() {
+	public AdminUserDel() {
 		super();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String mode = request.getParameter("mode");
-		if (mode != null && mode.equals("1")) {
-			String name = request.getParameter("username");
-			request.getSession().setAttribute("users", new UserService().getUserByName(name));
-		} else
-			request.getSession().setAttribute("users", new UserService().getUsers());
-		request.getRequestDispatcher("/admin/admin_user_list.jsp").forward(request, response);
+		String id = request.getParameter("id");
+		int r = new UserService().delUserById(id);
+		if (r == 1)
+			request.setAttribute("msg", "删除用户成功!");
+		else
+			request.setAttribute("msg", "删除用户失败!");
+
+		request.setAttribute("href", request.getContextPath() + "/admin/admin_user_list");
+		request.getRequestDispatcher("/result.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

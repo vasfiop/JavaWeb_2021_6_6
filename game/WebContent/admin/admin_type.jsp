@@ -26,7 +26,8 @@
                     <!-- 搜索表单 -->
                     <form role="form" class="form-inline" method="post" action="admin_type?mode=sort">
                       <div class="form-group">
-                        <input type="text" class="form-control" name="s_sort" placeholder="按分类名搜索" value="${param.s_sort }" />
+                        <input type="text" class="form-control" name="s_sort" placeholder="按分类名搜索"
+                          value="${param.s_sort }" />
                       </div>
                       &nbsp;&nbsp;&nbsp;
                       <button type="submit" class="btn btn-outline-primary">搜索</button>
@@ -52,7 +53,8 @@
                             <td>${i.sortname }</td>
                             <td>
                               <a href="admin_type_edit?id=1" role="button" class="btn btn-outline-warning btn-sm">修改</a>
-                      		  <button class="btn btn-outline-danger btn-sm" onclick="delConfirm('确定要删除该分类吗(分类下无种类)',
+                              <button class="btn btn-outline-danger btn-sm"
+                                onclick="delConfirm('确定要删除该分类吗(分类下无种类)',
                       		  '${pageContext.request.contextPath}/admin/admin_type_del?mode=sort','${i.id}','ajax_no')">删除</button>
                             </td>
                           </tr>
@@ -67,7 +69,8 @@
                   <div class="card-header">
                     <form role="form" class="form-inline" method="post" action="admin_type?mode=type">
                       <div class="form-group">
-                        <input type="text" class="form-control" name="s_type" placeholder="按种类名搜索" value="${param.s_type }" />
+                        <input type="text" class="form-control" name="s_type" placeholder="按种类名搜索"
+                          value="${param.s_type }" />
                       </div>
                       &nbsp;&nbsp;&nbsp;
                       <button type="submit" class="btn btn-outline-primary">搜索</button>
@@ -93,7 +96,8 @@
                             <td>${i.typename }</td>
                             <td>
                               <a href="admin_type_edit?id=1" role="button" class="btn btn-outline-warning btn-sm">修改</a>
-                      		  <button class="btn btn-outline-danger btn-sm" onclick="delConfirm('确定要删除该种类吗(种类下无商品)',
+                              <button class="btn btn-outline-danger btn-sm"
+                                onclick="delConfirm('确定要删除该种类吗(种类下无商品)',
                       		  '${pageContext.request.contextPath}/admin/admin_type_del?mode=type','${i.id}','ajax_no')">删除</button>
                             </td>
                           </tr>
@@ -110,8 +114,8 @@
       </div>
     </div>
   </div>
-  
-    <!--删除确认框-->
+
+  <!--删除确认框-->
   <div class="modal" role="dialog" id="delConfirmModal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
