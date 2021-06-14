@@ -30,8 +30,8 @@ public class Admin_type_del extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String id = request.getParameter("id");
+		
 		int r = new TypeService().delType(id);
-
 		if (r == 1)
 			request.setAttribute("msg", "删除菜品分类成功!");
 		else

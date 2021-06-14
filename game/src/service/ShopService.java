@@ -8,6 +8,27 @@ import util.DBUtil;
 public class ShopService {
 	private DBUtil db = new DBUtil();
 
+//	商品的更新
+	public int Update(String id, String name, String title, String type, String price, String pic, String comm) {
+		String sql = "update shop set shopname=?,title=?,type=?,price=?,picture=?,comment=? where id=?";
+		String[] params = { name, title, type, price, pic, comm, id };
+		return db.update(sql, params);
+	}
+
+//	通过id找到商品
+	public Map<String, String> getShopByid(String id) {
+		String sql = "SELECT * FROM shop WHERE id = ?";
+		String params[] = { id };
+		return db.getMap(sql, params);
+	}
+
+//	删除通过id商品
+	public int delShopById(String id) {
+		String sql = "delete from shop where id=?";
+		String params[] = { id };
+		return db.update(sql, params);
+	}
+
 //	按照名称or sort查找
 	public List<Map<String, String>> getShops(String mode, String value) {
 		String sql = "select s.*,st.typename,ss.sortname FROM (shop s JOIN shoptype st on s.type = st.id) LEFT JOIN shopsort ss on ss.id = st.typeid WHERE s."

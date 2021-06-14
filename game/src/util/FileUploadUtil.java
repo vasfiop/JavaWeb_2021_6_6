@@ -16,7 +16,7 @@ public class FileUploadUtil {
 			String fileExtName = getFileExtName(part);
 			String newFileName = System.currentTimeMillis() + fileExtName;
 			// 得到上传文件保存路径的服务器端硬盘物理路径
-			String savePath = request.getServletContext().getRealPath("/images/uploads");
+			String savePath = request.getServletContext().getRealPath("/resources/img/uploads");
 			File f = new File(savePath);
 			if (!f.exists()) {
 				f.mkdirs();
@@ -24,7 +24,7 @@ public class FileUploadUtil {
 			// 文件上传
 			try {
 				part.write(savePath + File.separator + newFileName);
-				path = "images/uploads/" + newFileName;
+				path = "resources/img/uploads/" + newFileName;
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
