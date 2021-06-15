@@ -1,4 +1,4 @@
 #Tomcat publish data
-#Tue Jun 15 22:35:22 CST 2021
+#Tue Jun 15 22:48:24 CST 2021
 org.eclipse.jst.jee.server\:game=D\:\\Tomcat\\tomcat-9.0.46\\webapps\\game
-org.eclipse.jst.jee.server\:ch00syj516=D\:\\Tomcat\\tomcat-9.0.46\\webapps\\ch00syj516
+org.eclipse.jst.jee.server\:meal=D\:\\Tomcat\\tomcat-9.0.46\\webapps\\meal
