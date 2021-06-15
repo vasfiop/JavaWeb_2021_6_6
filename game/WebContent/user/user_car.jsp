@@ -28,10 +28,10 @@
               <div class="col-md-10">
                 <h4 style="margin-top: 80px;" class="float-left">我的京东</h4>
                 <div class="dropdown">
-                  <a class="btn dropdown-toggle float-left btn-lg" href="user_homepage" type="button" id="shouye" data-toggle="dropdown"
-                    style="margin-top: 70px; margin-left: 10%;"> 首页 </a>
+                  <a class="btn dropdown-toggle float-left btn-lg" href="user_homepage" type="button" id="shouye"
+                    data-toggle="dropdown" style="margin-top: 70px; margin-left: 10%;"> 首页 </a>
                   <div class="dropdown-menu" aria-labelledby="shouye">
-                    <a class="dropdown-item" href="user_car?userid=${user.id }">购物车</a> 
+                    <a class="dropdown-item" href="user_car?userid=${user.id }">购物车</a>
                     <a class="dropdown-item" href="#">我的钱包</a>
                     <a class="dropdown-item" href="#">我的关注</a>
                     <a class="dropdown-item" href="#">我的活动</a>
@@ -63,7 +63,8 @@
                 </div>
 
                 <!-- 下面是右面 -->
-                <a type="button" class="btn btn-link float-right text-secondary" style="margin-top: 70px;" href="user_car?userid=${user.id }"> 我的购物车
+                <a type="button" class="btn btn-link float-right text-secondary" style="margin-top: 70px;"
+                  href="user_car?userid=${user.id }"> 我的购物车
                 </a>
 
                 <form class="form-inline float-right" style="margin-top: 70px; margin-right: 10px;">
@@ -97,7 +98,8 @@
                   <li class="list-group-item">
                     <h5>订单中心</h5>
                   </li>
-                  <li class="list-group-item"><a type="button" class="btn btn-sm btn-link text-secondary" href="user_order_center?id=${user.id }"> 我的订单 </a>
+                  <li class="list-group-item"><a type="button" class="btn btn-sm btn-link text-secondary"
+                      href="user_order_center?id=${user.id }"> 我的订单 </a>
                   </li>
                   <li class="list-group-item"><a type="button" class="btn btn-sm btn-link text-secondary"> 评价嗮单 </a>
                   </li>
@@ -196,97 +198,20 @@
                 </ul>
               </div>
               <div class="col-md-10">
-                <!-- 右侧 -->
-                <div class="card">
-                  <h5 class="card-header">我的钱包</h5>
-                  <div class="card-body" style="padding: 0;">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th>0</th>
-                          <th>63</th>
-                          <th>0.00</th>
-                          <th>0.00</th>
-                          <th>0.00</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>优惠卷</td>
-                          <td>京豆</td>
-                          <td>余额</td>
-                          <td>白条本月待还</td>
-                          <td>小金库昨日收益</td>
-                        </tr>
-
-                      </tbody>
-                    </table>
+                <div class="card bg-default">
+                  <h5 class="card-header">
+                    Card title
+                  </h5>
+                  <div class="card-body">
+                    <p class="card-text">
+                      Card content
+                    </p>
                   </div>
-                  <!-- <div class="card-footer">Card footer</div> -->
-                </div>
-
-                <p></p>
-
-                <div class="row">
-                  <div class="col-md-8">
-                    <div class="card">
-                      <h5 class="card-header">我的订单</h5>
-                      <div class="card-body" style="padding: 0;">
-                        <table class="table">
-                          <thead>
-                            <tr>
-                              <th>0</th>
-                              <th>0</th>
-                              <th>0</th>
-                              <th>0</th>
-                              <th>0</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>代付款</td>
-                              <td>待收货</td>
-                              <td>待评价</td>
-                              <td>退还/售后</td>
-                              <td>全部订单</td>
-                            </tr>
-
-                          </tbody>
-                        </table>
-                        <p></p>
-                        <h6 class="text-center text-muted">
-                          您买的东西太少了，这里都空空的，快去挑选合适的商品把！
-                        </h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="card">
-                      <div class="card-header">我的关注</div>
-                      <div class="card-body" style="padding: 0;">
-                        <table class="table">
-                          <thead>
-                            <tr>
-                              <th>0</th>
-                              <th>0</th>
-                              <th>0</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>商品关注</td>
-                              <td>店铺关注</td>
-                              <td>收藏内容</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
+                  <div class="card-footer">
+                    Card footer
                   </div>
                 </div>
-
               </div>
-
             </div>
           </div>
           <div class="col-md-1"></div>

@@ -499,17 +499,17 @@
 
           <a type="button" class="btn btn-sm btn-link float-right text-secondary"> 我的订单 </a>
 
-          <c:if test="${username == null }">
+          <c:if test="${user.username == null }">
             <button type="button" class="btn btn-sm btn-link float-right text-secondary" data-toggle="modal"
               data-target="#register">注册</button>
 
             <button type="button" class="btn btn-sm btn-link float-right text-secondary" data-toggle="modal"
               data-target="#login">您好，请登录</button>
           </c:if>
-          <c:if test="${username !=null }">
+          <c:if test="${user.username !=null }">
             <div class="dropdown">
               <a class="dropdown-toggle btn-sm float-right text-secondary" type="button" data-toggle="dropdown">
-                Darling:${username }
+                Darling:${user.username }
               </a>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="user/user_homepage">个人中心</a>
