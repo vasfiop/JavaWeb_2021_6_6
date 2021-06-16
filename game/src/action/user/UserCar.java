@@ -1,6 +1,8 @@
 package action.user;
 
 import java.io.IOException;
+import java.util.*;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +22,8 @@ public class UserCar extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String userid = request.getParameter("userid");
-
-		request.setAttribute("shops", new CarService().getCarByUserId(userid));
+		List<Map<String,String>> shops =  new CarService().getCarByUserId(userid);
+		request.setAttribute("shops",shops);
 		request.getRequestDispatcher("/user/user_car.jsp").forward(request, response);
 	}
 
