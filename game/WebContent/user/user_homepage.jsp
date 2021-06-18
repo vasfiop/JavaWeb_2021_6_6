@@ -45,8 +45,8 @@
                   <div class="dropdown-menu" aria-labelledby="zhanghushezhi">
                     <div class="row">
                       <div class="col-md-6">
-                        <a class="dropdown-item" href="user_list.personal">个人信息</a>
-                        <a class="dropdown-item" href="#">账户安全</a>
+                        <a class="dropdown-item" href="index.personal">个人信息</a>
+                        <a class="dropdown-item" href="safe.personal">账户安全</a>
                         <a class="dropdown-item" href="#">收货地址</a>
                         <a class="dropdown-item" href="#">我的银行卡</a>
                         <a class="dropdown-item" href="#">账号绑定</a>
@@ -98,8 +98,9 @@
                   <li class="list-group-item">
                     <h5>订单中心</h5>
                   </li>
-                  <li class="list-group-item"><a type="button" class="btn btn-sm btn-link text-secondary"
-                      href="user_order_center?id=${user.id }"> 我的订单 </a>
+                  <li class="list-group-item">
+                    <a type="button" class="btn btn-sm btn-link text-secondary" href="user_order_center?id=${user.id }">
+                      我的订单 </a>
                   </li>
                   <li class="list-group-item"><a type="button" class="btn btn-sm btn-link text-secondary"> 评价嗮单 </a>
                   </li>

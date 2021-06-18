@@ -58,10 +58,15 @@ public class UserService {
 
 //	添加用户
 	public int add(String username, String password, String tel) {
-		String sql = "insert into user values(null,?,?,0,?,0)";
-		String params[] = { username, password, tel };
-
+		String sql = "insert into user values(null,?,?,0,?,0,?,?,?)";
+		String params[] = { username, password, tel, username, "0", username };
 		return db.update(sql, params);
 	}
 
+//	更新用户的登录名+昵称+性别
+	public int Update(String signinname, String sex, String nickname, String userid) {
+		String sql = "update user set signinname=?,sex=?,nickname=? where id =?";
+		String params[] = { signinname, sex, nickname, userid };
+		return db.update(sql, params);
+	}
 }

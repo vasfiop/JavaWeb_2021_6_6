@@ -43,7 +43,7 @@
                   <div class="dropdown-menu" aria-labelledby="zhanghushezhi">
                     <div class="row">
                       <div class="col-md-6">
-                        <a class="dropdown-item" href="user_list.personal">个人信息</a>
+                        <a class="dropdown-item" href="index.personal">个人信息</a>
                         <a class="dropdown-item" href="#">账户安全</a> <a class="dropdown-item" href="#">收货地址</a> <a
                           class="dropdown-item" href="#">我的银行卡</a> <a class="dropdown-item" href="#">账号绑定</a>
                       </div>
