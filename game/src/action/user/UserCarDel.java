@@ -19,15 +19,31 @@ public class UserCarDel extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String id = request.getParameter("id");
+		String mode = request.getParameter("mode");
 
-		int r = new CarService().del(id);
-		if (r == 1)
-			request.setAttribute("msg", "É¾³ý³É¹¦!");
-		else
-			request.setAttribute("msg", "É¾³ýÊ§°Ü!");
-		request.setAttribute("href", request.getContextPath() + "/user/user_car?id=" + id);
-		request.getRequestDispatcher("/result.jsp").forward(request, response);
+		if (mode == null || mode.equals("")) {
+			request.setAttribute("msg", "·Ç·¨·ÃÎÊ!");
+			request.setAttribute("href", request.getContextPath() + "/user/user_homepage");
+			request.getRequestDispatcher("/result.jsp").forward(request, response);
+		} else if (mode.equals("1")) {
+			String id = request.getParameter("id");
+			int r = new CarService().del(id);
+			if (r == 1)
+				request.setAttribute("msg", "É¾³ý³É¹¦!");
+			else
+				request.setAttribute("msg", "É¾³ýÊ§°Ü!");
+			request.setAttribute("href", request.getContextPath() + "/user/user_car?id=" + id);
+			request.getRequestDispatcher("/result.jsp").forward(request, response);
+		} else if (mode.equals("2")) {
+			String userid = request.getParameter("id");
+			int r = new CarService().delByUserId(userid);
+			if (r > 0)
+				request.setAttribute("msg", "É¾³ý³É¹¦£¡");
+			else
+				request.setAttribute("msg", "É¾³ýÊ§°Ü£¡");
+			request.setAttribute("href", request.getContextPath() + "/user/user_car?id=" + userid);
+			request.getRequestDispatcher("/result.jsp").forward(request, response);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

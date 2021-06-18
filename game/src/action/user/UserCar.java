@@ -22,11 +22,10 @@ public class UserCar extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String userid = request.getParameter("userid");
-		List<Map<String,String>> shops =  new CarService().getCarByUserId(userid);
-		request.setAttribute("shops",shops);
+		List<Map<String, String>> shops = new CarService().getCarByUserId(userid);
+		request.setAttribute("shops", shops);
 		request.getRequestDispatcher("/user/user_car.jsp").forward(request, response);
 	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doGet(request, response);

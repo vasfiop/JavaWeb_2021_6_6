@@ -28,10 +28,10 @@
               <div class="col-md-10">
                 <h4 style="margin-top: 80px;" class="float-left">我的京东</h4>
                 <div class="dropdown">
-                  <a class="btn dropdown-toggle float-left btn-lg" href="user_homepage" type="button" id="shouye" data-toggle="dropdown"
-                    style="margin-top: 70px; margin-left: 10%;"> 首页 </a>
+                  <a class="btn dropdown-toggle float-left btn-lg" href="user_homepage" type="button" id="shouye"
+                    data-toggle="dropdown" style="margin-top: 70px; margin-left: 10%;"> 首页 </a>
                   <div class="dropdown-menu" aria-labelledby="shouye">
-                    <a class="dropdown-item" href="user_car?userid=${user.id }">购物车</a> 
+                    <a class="dropdown-item" href="user_car?userid=${user.id }">购物车</a>
                     <a class="dropdown-item" href="#">我的钱包</a>
                     <a class="dropdown-item" href="#">我的关注</a>
                     <a class="dropdown-item" href="#">我的活动</a>
@@ -45,7 +45,7 @@
                   <div class="dropdown-menu" aria-labelledby="zhanghushezhi">
                     <div class="row">
                       <div class="col-md-6">
-                        <a class="dropdown-item" href="#">个人信息</a>
+                        <a class="dropdown-item" href="user_list.personal">个人信息</a>
                         <a class="dropdown-item" href="#">账户安全</a>
                         <a class="dropdown-item" href="#">收货地址</a>
                         <a class="dropdown-item" href="#">我的银行卡</a>
@@ -63,7 +63,8 @@
                 </div>
 
                 <!-- 下面是右面 -->
-                <a type="button" class="btn btn-link float-right text-secondary" style="margin-top: 70px;" href="user_car?userid=${user.id }"> 我的购物车
+                <a type="button" class="btn btn-link float-right text-secondary" style="margin-top: 70px;"
+                  href="user_car?id=${user.id }"> 我的购物车
                 </a>
 
                 <form class="form-inline float-right" style="margin-top: 70px; margin-right: 10px;">
@@ -97,7 +98,8 @@
                   <li class="list-group-item">
                     <h5>订单中心</h5>
                   </li>
-                  <li class="list-group-item"><a type="button" class="btn btn-sm btn-link text-secondary" href="user_order_center?id=${user.id }"> 我的订单 </a>
+                  <li class="list-group-item"><a type="button" class="btn btn-sm btn-link text-secondary"
+                      href="user_order_center?id=${user.id }"> 我的订单 </a>
                   </li>
                   <li class="list-group-item"><a type="button" class="btn btn-sm btn-link text-secondary"> 评价嗮单 </a>
                   </li>

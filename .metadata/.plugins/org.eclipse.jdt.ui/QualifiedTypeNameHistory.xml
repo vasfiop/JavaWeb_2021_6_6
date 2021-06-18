@@ -19,7 +19,6 @@
 <fullyQualifiedTypeName name="org.apache.jasper.tagplugins.jstl.core.ForEach"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.awt.List"/>
-<fullyQualifiedTypeName name="service.FoodService"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="service.ShopService"/>
 <fullyQualifiedTypeName name="java.lang.Boolean"/>
@@ -27,6 +26,8 @@
 <fullyQualifiedTypeName name="service.SortService"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="service.UserService"/>
-<fullyQualifiedTypeName name="service.CarService"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="service.FoodService"/>
+<fullyQualifiedTypeName name="service.CarService"/>
+<fullyQualifiedTypeName name="java.nio.file.Path"/>
 </qualifiedTypeNameHistroy>

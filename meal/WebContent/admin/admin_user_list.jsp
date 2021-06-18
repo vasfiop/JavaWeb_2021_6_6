@@ -45,8 +45,8 @@
                       <th>1</th>
                       <td>admin</td>
                       <td>管理员</td>
-                      <td>0</td>
-                      <td>0</td>
+                      <td>null</td>
+                      <td>null</td>
                       <td>
                         <a href="#modal_del" role="button" class="btn btn-outline-danger" data-toggle="modal">
                           删除
@@ -57,8 +57,8 @@
                       <th>2</th>
                       <td>user1</td>
                       <td>普通用户</td>
-                      <td>0411</td>
-                      <td>地球</td>
+                      <td>041184835202</td>
+                      <td>大连东软信息学院A3座117室</td>
                       <td>
                         <a href="#modal_del" role="button" class="btn btn-outline-danger" data-toggle="modal">
                           删除
@@ -69,8 +69,20 @@
                       <th>3</th>
                       <td>user2</td>
                       <td>普通用户</td>
-                      <td>0411</td>
-                      <td>地球</td>
+                      <td>041184835207</td>
+                      <td>大连理工大学计算机系</td>
+                      <td>
+                        <a href="#modal_del" role="button" class="btn btn-outline-danger" data-toggle="modal">
+                          删除
+                        </a>
+                      </td>
+                    </tr>
+                                        <tr>
+                      <th>4</th>
+                      <td>user3</td>
+                      <td>普通用户</td>
+                      <td>041184832264</td>
+                      <td>新新园100号2门103</td>
                       <td>
                         <a href="#modal_del" role="button" class="btn btn-outline-danger" data-toggle="modal">
                           删除

@@ -43,9 +43,9 @@
                   <div class="dropdown-menu" aria-labelledby="zhanghushezhi">
                     <div class="row">
                       <div class="col-md-6">
-                        <a class="dropdown-item" href="#">个人信息</a> <a class="dropdown-item" href="#">账户安全</a> <a
-                          class="dropdown-item" href="#">收货地址</a> <a class="dropdown-item" href="#">我的银行卡</a> <a
-                          class="dropdown-item" href="#">账号绑定</a>
+                        <a class="dropdown-item" href="user_list.personal">个人信息</a>
+                        <a class="dropdown-item" href="#">账户安全</a> <a class="dropdown-item" href="#">收货地址</a> <a
+                          class="dropdown-item" href="#">我的银行卡</a> <a class="dropdown-item" href="#">账号绑定</a>
                       </div>
                       <div class="col-md-6">
                         <a class="dropdown-item" href="#">分享绑定</a> <a class="dropdown-item" href="#">我的尺码</a> <a
@@ -186,52 +186,58 @@
                   <div class="card-header">
                     <h5 class="text-center">我的购物车</h5>
                   </div>
-                  <div class="card-body" style="padding-top:0;padding-bottom:0;">
-                    <table class="table table-hover">
-                      <thead>
-                        <tr>
-                          <th>
-                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
-                              <label class="custom-control-label" for="customCheck"></label>
-                            </div>
-                          </th>
-                          <th>商品</th>
-                          <th>单价</th>
-                          <th>数量</th>
-                          <th>小计</th>
-                          <th>操作</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      <c:forEach var="i" items="${shops }">
-                        <tr>
-                          <td>
-                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="customCheck" name="check">
-                              <label class="custom-control-label" for="customCheck"></label>
-                            </div>
-                          </td>
-                          <td>
-                            <img src="../resources/img/test_180_180.jpg" style="width: 100px;height: 100px;" class="float-left"/>
-                            <span style="width: 350px;display: inline-block;margin-left: 10px;" class="float-left" >${i.title }</span>
-                          </td>
-                          <td>￥${i.comment == 0 ? i.price : 'i.comment' }</td>
-                          <td><input type="number" value="1" style="width: 80px;"></td>
-                          <td>￥256</td>
-                          <td>
-                            <button class="btn btn-outline-danger btn-sm" onclick="delConfirm('确定要将商品删除吗吗',
-                            '${pageContext.request.contextPath}/user/user_car_del','${i.id}','ajax_no')">删除</button>
-                            <br>
-                            <button class="btn btn-outline-danger btn-sm" onclick="delConfirm('确定要将该商品删除并添加到关注吗',
-                            '${pageContext.request.contextPath}/user/user_follow_add','${i.id}&mode=1','ajax_no')">移入关注</button>
-                          </td>
-                        </tr>
-                        </c:forEach>
-                      </tbody>
-                    </table>
+                  <div class="card-body" style="padding-top: 0; padding-bottom: 0;">
+                    <form>
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>商品</th>
+                            <th>单价</th>
+                            <th>数量</th>
+                            <th>小计</th>
+                            <th>操作</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <c:set var="sum" />
+                          <c:forEach var="i" items="${shops }">
+                            <tr>
+                              <td><img src="../resources/img/test_180_180.jpg" style="width: 100px; height: 100px;"
+                                  class="float-left" />
+                                <span style="width: 350px; display: inline-block; margin-left: 10px;"
+                                  class="float-left">${i.title }</span></td>
+                              <td>￥${i.comment == 0 ? i.price : 'i.comment' }</td>
+                              <td>
+                                <%-- 
+                                FIXME --%> <%-- <input type="number" value="${i.count }" style="width: 80px;"> --%>
+                                ${i.count }
+                              </td>
+                              <td>￥${i.price*i.count }</td>
+                              <td>
+                                <button class="btn btn-outline-danger btn-sm"
+                                  onclick="delConfirm('确定要将商品删除吗',
+                            '${pageContext.request.contextPath}/user/user_car_del','${i.id}&mode=1','ajax_no')">删除</button>
+                                <br>
+                                <button class="btn btn-outline-danger btn-sm"
+                                  onclick="delConfirm('确定要将该商品删除并添加到关注吗',
+                            '${pageContext.request.contextPath}/user/user_add.follow','${i.id}','ajax_no')">移入关注</button>
+                              </td>
+                            </tr>
+                            <c:set var="sum" value="${sum+i.price*i.count }" />
+                          </c:forEach>
+
+                        </tbody>
+                      </table>
+                    </form>
                   </div>
-                  <div class="card-footer">Card footer</div>
+                  <div class="card-footer">
+                    <button class="btn btn-outline-danger btn-sm"
+                      onclick="delConfirm('确定要将购物车清空吗',
+                            '${pageContext.request.contextPath}/user/user_car_del','${user.id }&mode=2','ajax_no')">清空购物车</button>
+                    <%-- 右面 --%>
+                    <button class="btn btn-outline-dark btn-sm float-right">去结算</button>
+                    <p class="float-right btn-sm" style="margin-bottom: 0; margin-right: 40px;">合计:${sum }</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -246,57 +252,57 @@
 
   <%@ include file="../footer.jsp"%>
 
-    <!--删除确认框-->
-    <div class="modal" role="dialog" id="delConfirmModal">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">操作</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <h5 class="text-danger" id="prompt"></h5>
-          </div>
-          <div class="modal-footer">
-            <input type="hidden" id="url" />
-            <button type="button" class="btn btn-default" data-dismiss="modal">放弃</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal" id="delButtonConfirm">删除</button>
-          </div>
+  <!--删除确认框-->
+  <div class="modal" role="dialog" id="delConfirmModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">操作</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h5 class="text-danger" id="prompt"></h5>
+        </div>
+        <div class="modal-footer">
+          <input type="hidden" id="url" />
+          <button type="button" class="btn btn-default" data-dismiss="modal">放弃</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" id="delButtonConfirm">删除</button>
         </div>
       </div>
     </div>
-  
-    <script>
-      function delConfirm(prompt, delAddr, id, ajaxRequest) {
-        $('#prompt').html(prompt);
-        $('#url').val(delAddr + '?id=' + id);
-        $('#delButtonConfirm').click(function () {
-          if (ajaxRequest == 'ajax_no') {
-            location.replace($('#url').val());
-          } else if (ajaxRequest == 'ajax_yes') {
-            $.ajax({
-              type: "get",
-              url: $('#url').val(),
-              dataType: "json",
-              success: function (data) {
-                if (data.id != -1) {
-                  //删除页面节点
-                  $("button[name='delButton']").each(function () {
-                    if ($(this).attr('data-value') == data.id) {
-                      var tr = $(this).parent().parent();
-                      tr.remove();
-                    }
-                  });
-                }
+  </div>
+
+  <script>
+    function delConfirm(prompt, delAddr, id, ajaxRequest) {
+      $('#prompt').html(prompt);
+      $('#url').val(delAddr + '?id=' + id);
+      $('#delButtonConfirm').click(function () {
+        if (ajaxRequest == 'ajax_no') {
+          location.replace($('#url').val());
+        } else if (ajaxRequest == 'ajax_yes') {
+          $.ajax({
+            type: "get",
+            url: $('#url').val(),
+            dataType: "json",
+            success: function (data) {
+              if (data.id != -1) {
+                //删除页面节点
+                $("button[name='delButton']").each(function () {
+                  if ($(this).attr('data-value') == data.id) {
+                    var tr = $(this).parent().parent();
+                    tr.remove();
+                  }
+                });
               }
-            });
-          }
-        });
-        $('#delConfirmModal').modal();
-      }
-    </script>
+            }
+          });
+        }
+      });
+      $('#delConfirmModal').modal();
+    }
+  </script>
 
 </body>
 

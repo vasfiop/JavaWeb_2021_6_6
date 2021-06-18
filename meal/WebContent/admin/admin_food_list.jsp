@@ -1,4 +1,5 @@
 <%@ page pageEncoding="utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="en">
 
@@ -62,22 +63,32 @@
                   </tr>
                 </thead>
                 <tbody>
+                <c:forEach var="i" items="${foods }" varStatus="vs">
                   <tr>
-                    <th>1</th>
-                    <td>瘦身苹果牛奶饮</td>
-                    <td>特色：*****************</td>
-                    <td>主料：苹果250g,牛奶200g</td>
-                    <td>15</td>
-                    <td>主食</td>
-                    <td><img alt="瘦身苹果牛奶饮" src="./resources/images/yinpin/03.jpg" class="rounded" /></td>
-                    <td>24次</td>
-                    <td>特价13元</td>
+                    <th>${vs.count }</th>
+                    <td>${i.foodname }</td>
+                    <td>${i.feature }</td>
+                    <td>${i.material }</td>
+                    <td>${i.price }</td>
+                    <td>${i.typename }</td>
+                    <td><img alt="瘦身苹果牛奶饮" src="../resources/${i.picture }" class="rounded" /></td>
+                    <td>${i.hits }次</td>
+                    <c:if test="${i.comment == -1 }">
+                    <td>正常菜</td>
+                    </c:if>
+                    <c:if test="${i.comment == 0 }">
+                    <td>厨师推荐</td>
+                    </c:if>
+                    <c:if test="${i.comment > 0 }">
+                    <td>${i.comment }</td>
+                    </c:if>
                     <td>
                       <a href="admin_food_edit.html" role="button" class="btn btn-outline-warning btn-sm">修改</a>
                       <a href="#modal_del" role="button" class="btn btn-outline-danger btn-sm"
                         data-toggle="modal">删除</a>
                     </td>
                   </tr>
+                  </c:forEach>
                 </tbody>
               </table>
             </form>

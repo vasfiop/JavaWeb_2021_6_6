@@ -21,21 +21,16 @@ public class AdminSortAdd extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String mode = request.getParameter("mode");
-
 		if (mode.equals("0")) {
 			request.getRequestDispatcher("/admin/admin_sort_add.jsp").forward(request, response);
 		} else if (mode.equals("1")) {
-
 			request.setAttribute("type", new TypeService().getType());
-
 			String name = request.getParameter("sortname");
-
 			int r = new SortService().add(name);
-			if (r == 1) {
+			if (r == 1)
 				request.setAttribute("msg", "添加分类成功!");
-			} else {
+			else
 				request.setAttribute("msg", "添加分类失败!");
-			}
 			request.setAttribute("href", request.getContextPath() + "/admin/admin_type");
 			request.getRequestDispatcher("/result.jsp").forward(request, response);
 		} else if (mode == null || mode.equals("")) {

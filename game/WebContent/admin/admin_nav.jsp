@@ -13,7 +13,7 @@
         
           <div class="dropdown">
             <a class="dropdown-toggle btn btn-sm btn-link float-right text-secondary" type="button" data-toggle="dropdown">
-              Darling:${username }
+              Darling:${user.username }
             </a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="/game/logout">退出登录</a>

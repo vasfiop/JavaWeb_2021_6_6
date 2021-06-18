@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.FoodService;
+
 /**
  * Servlet implementation class Admin_food_list
  */
@@ -28,6 +30,7 @@ public class Admin_food_list extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setAttribute("foods", new FoodService().getFood());
 		request.getRequestDispatcher("/admin/admin_food_list.jsp").forward(request, response);
 	}
 

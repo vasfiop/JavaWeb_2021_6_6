@@ -30,6 +30,10 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\DELL\Desktop\java\eclipseweb\cake_shop"/>
+			<item value="C:\Users\DELL\Desktop\20201260315——孙国铭\meal0315"/>
+			<item value="C:\Users\DELL\Desktop\biyesheji"/>
+			<item value="C:\Users\DELL\Desktop\javaweb蛋糕"/>
 			<item value="C:\Users\DELL\Desktop\java\eclipseweb\meal"/>
 			<item value="C:\Users\DELL\Desktop\java\eclipseweb"/>
 		</list>
