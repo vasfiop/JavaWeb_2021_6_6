@@ -27,7 +27,6 @@ public class UserPersonal extends HttpServlet {
 		String path = request.getServletPath();
 		path = path.substring(path.lastIndexOf('/') + 1, path.indexOf('.'));
 		Map<String, String> user = (Map<String, String>) request.getSession().getAttribute("user");
-		System.out.println("This is userPersonal getUser:" + user);
 		if (path.equals("index")) {
 			request.getRequestDispatcher("/user/user_personal.jsp").forward(request, response);
 		} else if (path.equals("update")) {
@@ -43,6 +42,12 @@ public class UserPersonal extends HttpServlet {
 			request.getRequestDispatcher("/result.jsp").forward(request, response);
 			System.out.println(new Time().getDate());
 		} else if (path.equals("safe")) {
+			String tel = user.get("telephone");
+			int size = tel.length();
+			String newtel = tel.substring(0, 3);
+			for (int i = 0; i < size - 3; i++)
+				newtel += '*';
+			request.setAttribute("newtel", newtel);
 			request.getRequestDispatcher("/user/user_safe_index.jsp").forward(request, response);
 		}
 	}

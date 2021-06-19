@@ -78,7 +78,7 @@
                     <td>${i.sortname }</td>
                     <td>${i.typename }</td>
                     <td>${i.price }</td>
-                    <td><img src="../resources/img/test_180_180.jpg" style="width: 100px; height: 100px;"></td>
+                    <td><img src="../resources/img/${i.picture }" style="width: 100px; height: 100px;"></td>
                     <c:if test="${i.comment == 0 }">
                       <td></td>
                     </c:if>

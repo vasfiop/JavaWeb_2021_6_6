@@ -69,4 +69,18 @@ public class UserService {
 		String params[] = { signinname, sex, nickname, userid };
 		return db.update(sql, params);
 	}
+
+//	更新用户的某一条
+	public int Update(String mode, String userid, String value) {
+		String sql = "update user set " + mode + " = ? where id = ?";
+		String[] params = { value, userid };
+		return db.update(sql, params);
+	}
+
+//	通过id获得
+	public Map<String, String> getUser(String userid) {
+		String sql = "select * from user where id = ?";
+		String[] params = { userid };
+		return db.getMap(sql, params);
+	}
 }

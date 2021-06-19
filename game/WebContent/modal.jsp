@@ -4,13 +4,11 @@
 <div class="modal fade" id="login">
   <div class="modal-dialog">
     <div class="modal-content">
-
       <!-- 模态框头部 -->
       <div class="modal-header">
         <h4>欢迎登陆</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
-
       <form action="login" method="POST">
         <!-- 模态框主体 -->
         <div class="modal-body">
@@ -28,7 +26,6 @@
             <input type="password" class="form-control" placeholder="密码" name="password" required>
           </div>
         </div>
-
         <!-- 模态框底部 -->
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">登 陆</button>

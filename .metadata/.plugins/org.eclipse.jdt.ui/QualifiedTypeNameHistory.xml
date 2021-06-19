@@ -26,10 +26,10 @@
 <fullyQualifiedTypeName name="service.FoodService"/>
 <fullyQualifiedTypeName name="service.CarService"/>
 <fullyQualifiedTypeName name="java.nio.file.Path"/>
-<fullyQualifiedTypeName name="service.UserService"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="util.Time"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="service.UserService"/>
 </qualifiedTypeNameHistroy>

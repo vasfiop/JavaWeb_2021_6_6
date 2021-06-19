@@ -21,7 +21,7 @@ public class AdminUserFrozen extends HttpServlet {
 		String id = request.getParameter("id");
 		String mode = request.getParameter("mode");
 
-		int r = new UserService().Update(id, mode);
+		int r = new UserService().Update("frozen", id, mode);
 		if (r == 1) {
 			request.setAttribute("msg", "修改用户状态成功!");
 		} else {

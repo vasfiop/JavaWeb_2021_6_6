@@ -27,7 +27,7 @@ public class Register extends HttpServlet {
 		String username = request.getParameter("username");
 
 		Map<String, String> user = new UserService().getUserByTel(tel);
-		if (user != null) {
+		if (user.get("telephone") != null) {
 			request.setAttribute("msg", "该手机号已经被注册!");
 			request.setAttribute("href", request.getContextPath() + "/logout");
 			request.getRequestDispatcher("/result.jsp").forward(request, response);
