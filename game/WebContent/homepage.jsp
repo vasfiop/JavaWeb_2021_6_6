@@ -25,7 +25,7 @@
 
             <div class="row">
               <div class="col-md-2">
-                <img src="./resources/img/test_190_120.jpg">
+                <img src="./resources/img/nav_logo.jpg" style="width:190px;height:120px;">
               </div>
 
               <div class="col-md-8">
@@ -67,7 +67,7 @@
               </div>
 
               <div class="col-md-2">
-                <img src="./resources/img/test_190_120.jpg">
+                <img src="./resources/img/right_nav.png" style="width:190px;height:120px;">
               </div>
             </div>
 
@@ -101,24 +101,83 @@
 
               </div>
               <div class="col-md-8">
+                <%-- 中央baner图 --%>
                 <div class="float-left">
-                  <img src="./resources/img/test_590_470.jpg">
+                  <div class="carousel slide" id="carousel-279293">
+                    <ol class="carousel-indicators">
+                      <li data-slide-to="0" data-target="#carousel-279293" class="active"></li>
+                      <li data-slide-to="1" data-target="#carousel-279293"></li>
+                      <li data-slide-to="2" data-target="#carousel-279293"></li>
+                    </ol>
+                    <div class="carousel-inner" style="width:590px;height:470px;">
+                      <div class="carousel-item  active">
+                        <img class="d-block" alt="Carousel Bootstrap First" src="./resources/img/baner_1.jpg"
+                          style="width:590px;height:470px;" />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block" alt="Carousel Bootstrap Second" src="./resources/img/baner_2.jpg"
+                          style="width:590px;height:470px;" />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block" alt="Carousel Bootstrap Third" src="./resources/img/baner_3.jpg"
+                          style="width:590px;height:470px;" />
+                      </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carousel-279293" data-slide="prev">
+                      <span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span></a>
+                    <a class="carousel-control-next" href="#carousel-279293" data-slide="next">
+                      <span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span>
+                    </a>
+                  </div>
                 </div>
 
                 <div class="float-right">
-                  <img src="./resources/img/test_190_140.jpg" style="display: flex; margin-bottom: 7px;"> <img
-                    src="./resources/img/test_190_140.jpg" style="display: flex; margin-bottom: 7px"> <img
-                    src="./resources/img/test_190_140.jpg">
+                  <div class="carousel slide" id="right">
+                    <ol class="carousel-indicators">
+                      <li data-slide-to="0" data-target="#right" class="active"></li>
+                      <li data-slide-to="1" data-target="#right"></li>
+                      <li data-slide-to="2" data-target="#right"></li>
+                    </ol>
+                    <div class="carousel-inner" style="width:190px;height:470px;">
+                      <div class="carousel-item  active">
+                        <img class="d-block" alt="Carousel Bootstrap First" src="./resources/img/right_baner_11.png"
+                          style="width:190px;height:150px;" />
+                        <img class="d-block" alt="Carousel Bootstrap First" src="./resources/img/right_baner_12.jpg"
+                          style="width:190px;height:150px;margin-top:10px" />
+                        <img class="d-block" alt="Carousel Bootstrap First" src="./resources/img/right_baner_13.jpg"
+                          style="width:190px;height:150px;margin-top:10px" />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block" alt="Carousel Bootstrap Second" src="./resources/img/right_baner_21.jpg"
+                          style="width:190px;height:150px;" />
+                        <img class="d-block" alt="Carousel Bootstrap Second" src="./resources/img/right_baner_22.png"
+                          style="width:190px;height:150px;margin-top:10px" />
+                        <img class="d-block" alt="Carousel Bootstrap Second" src="./resources/img/right_baner_23.jpg"
+                          style="width:190px;height:150px;margin-top:10px" />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block" alt="Carousel Bootstrap Third" src="./resources/img/right_baner_31.jpg"
+                          style="width:190px;height:150px;" />
+                        <img class="d-block" alt="Carousel Bootstrap Third" src="./resources/img/right_baner_32.png"
+                          style="width:190px;height:150px;margin-top:10px" />
+                        <img class="d-block" alt="Carousel Bootstrap Third" src="./resources/img/right_baner_33.jpg"
+                          style="width:190px;height:150px;margin-top:10px" />
+                      </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#right" data-slide="prev">
+                      <span class="carousel-control-prev-icon"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#right" data-slide="next">
+                      <span class="carousel-control-next-icon"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
                 </div>
 
               </div>
               <div class="col-md-2">
                 <!-- TODO 还没想好要写啥 -->
-                <nav class="breadcrumb">
-                  <a class="breadcrumb-item" href="#">Home</a> <a class="breadcrumb-item" href="#">Library</a> <a
-                    class="breadcrumb-item" href="#">Data</a>
-                  <span class="breadcrumb-item active">Bootstrap</span>
-                </nav>
               </div>
             </div>
 

@@ -26,7 +26,7 @@
 
             <div class="row">
               <div class="col-md-2">
-                <img src="./resources/img/test_190_120.jpg">
+                <img src="./resources/img/nav_logo.jpg" style="width:190px;height:120px;">
               </div>
               <div class="col-md-10">
                 <h4 style="margin-top: 80px;" class="float-left">${name.typename }</h4>
@@ -85,7 +85,7 @@
                     <thead>
                       <tr>
                         <c:forEach var="l" items="${shops0 }">
-                          <th><img src="./resources/img/test_180_180.jpg"></th>
+                          <th><img src="./resources/img/${l.picture }" style="width:180px;height:180px;"></th>
                         </c:forEach>
                       </tr>
                     </thead>
@@ -113,7 +113,7 @@
                     <thead>
                       <tr>
                         <c:forEach var="l" items="${shops1 }">
-                          <th><img src="./resources/img/test_180_180.jpg"></th>
+                          <th><img src="./resources/img/${l.picture }" style="width:180px;height:180px;"></th>
                         </c:forEach>
                       </tr>
                     </thead>
@@ -141,7 +141,7 @@
                     <thead>
                       <tr>
                         <c:forEach var="l" items="${shops2 }">
-                          <th><img src="./resources/img/test_180_180.jpg"></th>
+                          <th><img src="./resources/img/${l.picture }" style="width:180px;height:180px;"></th>
                         </c:forEach>
                       </tr>
                     </thead>
@@ -169,7 +169,7 @@
                     <thead>
                       <tr>
                         <c:forEach var="l" items="${shops3 }">
-                          <th><img src="./resources/img/test_180_180.jpg"></th>
+                          <th><img src="./resources/img/${l.picture }" style="width:180px;height:180px;"></th>
                         </c:forEach>
                       </tr>
                     </thead>
@@ -197,7 +197,7 @@
                     <thead>
                       <tr>
                         <c:forEach var="l" items="${shops4 }">
-                          <th><img src="./resources/img/test_180_180.jpg"></th>
+                          <th><img src="./resources/img/${l.picture }" style="width:180px;height:180px;"></th>
                         </c:forEach>
                       </tr>
                     </thead>
@@ -225,7 +225,7 @@
                     <thead>
                       <tr>
                         <c:forEach var="l" items="${shops5 }">
-                          <th><img src="./resources/img/test_180_180.jpg"></th>
+                          <th><img src="./resources/img/${l.picture }" style="width:180px;height:180px;"></th>
                         </c:forEach>
                       </tr>
                     </thead>
@@ -253,7 +253,7 @@
                     <thead>
                       <tr>
                         <c:forEach var="l" items="${shops6 }">
-                          <th><img src="./resources/img/test_180_180.jpg"></th>
+                          <th><img src="./resources/img/${l.picture }" style="width:180px;height:180px;"></th>
                         </c:forEach>
                       </tr>
                     </thead>
@@ -281,7 +281,7 @@
                     <thead>
                       <tr>
                         <c:forEach var="l" items="${shops7 }">
-                          <th><img src="./resources/img/test_180_180.jpg"></th>
+                          <th><img src="./resources/img/${l.picture }" style="width:180px;height:180px;"></th>
                         </c:forEach>
                       </tr>
                     </thead>

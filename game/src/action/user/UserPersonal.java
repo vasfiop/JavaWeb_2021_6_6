@@ -27,6 +27,7 @@ public class UserPersonal extends HttpServlet {
 		String path = request.getServletPath();
 		path = path.substring(path.lastIndexOf('/') + 1, path.indexOf('.'));
 		Map<String, String> user = (Map<String, String>) request.getSession().getAttribute("user");
+		System.out.println("This is userPersonal getUser:" + user);
 		if (path.equals("index")) {
 			request.getRequestDispatcher("/user/user_personal.jsp").forward(request, response);
 		} else if (path.equals("update")) {

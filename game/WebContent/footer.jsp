@@ -1,31 +1,35 @@
 <%@ page pageEncoding="utf-8" %>
 
 <!-- 页脚 -->
-<div class="container-fluidy">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-12 bg-titlegray" style="background-color: #dfdfdf;">
-
+    <div class="col-md-12 bg-titlegray">
       <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-          <table class="table" style="margin: 0;">
-            <thead>
-              <tr>
-                <th>
-                  <h5>品类齐全，轻松购物</h5>
-                </th>
-                <th>
-                  <h5>多仓直发，极速配送</h5>
-                </th>
-                <th>
-                  <h5>正品行货，精致服务</h5>
-                </th>
-                <th>
-                  <h5>天天低价，畅选无忧</h5>
-                </th>
-              </tr>
-            </thead>
-          </table>
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+
+          <div class="d-inline-flex p-3 text-black">
+            <div class="p-4">
+              <h3 class="text-center">
+                品种齐全，轻松购物
+              </h3>
+            </div>
+            <div class="p-4">
+              <h3 class="text-center">
+                多仓直发，急速配送
+              </h3>
+            </div>
+            <div class="p-4">
+              <h3 class="text-center">
+                正品行货，精致服务
+              </h3>
+            </div>
+            <div class="p-4">
+              <h3 class="text-center">
+                天天低价，畅选无忧
+              </h3>
+            </div>
+          </div>
 
           <table class="table table-sm" id="footer_table">
             <thead>
@@ -235,9 +239,8 @@
             </li>
           </ul>
           <p></p>
-
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-1"></div>
       </div>
 
     </div>

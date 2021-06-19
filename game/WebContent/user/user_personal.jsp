@@ -22,7 +22,7 @@
 
             <div class="row">
               <div class="col-md-2">
-                <img src="../resources/img/test_190_120.jpg">
+                <img src="../resources/img/nav_logo.jpg" style="width:190px;height:120px;">
               </div>
               <div class="col-md-10">
                 <h4 style="margin-top: 80px;" class="float-left">我的京东</h4>
