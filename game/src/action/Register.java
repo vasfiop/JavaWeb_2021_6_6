@@ -27,15 +27,13 @@ public class Register extends HttpServlet {
 		String username = request.getParameter("username");
 
 		Map<String, String> user = new UserService().getUserByTel(tel);
-		if (user.get("telephone") != null) {
-			request.setAttribute("msg", "该手机号已经被注册!");
-			request.setAttribute("href", request.getContextPath() + "/logout");
-			request.getRequestDispatcher("/result.jsp").forward(request, response);
-		} else {
+
+		if (user == null) {
 			int r = new UserService().add(username, password, tel);
 			if (r == 1) {
 				request.setAttribute("msg", "注册成功!");
-				request.getSession().setAttribute("username", username);
+				user = new UserService().getUser(username, password);
+				request.getSession().setAttribute("user", user);
 				request.setAttribute("href", request.getContextPath() + "/homepage");
 				request.getRequestDispatcher("/result.jsp").forward(request, response);
 			} else {
@@ -43,6 +41,10 @@ public class Register extends HttpServlet {
 				request.setAttribute("href", request.getContextPath() + "/logout");
 				request.getRequestDispatcher("/result.jsp").forward(request, response);
 			}
+		} else {
+			request.setAttribute("msg", "该手机号已经被注册!");
+			request.setAttribute("href", request.getContextPath() + "/logout");
+			request.getRequestDispatcher("/result.jsp").forward(request, response);
 		}
 
 	}

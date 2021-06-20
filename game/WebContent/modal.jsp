@@ -25,7 +25,7 @@
             </div>
             <input type="password" class="form-control" placeholder="密码" name="password" required>
           </div>
-          <a type="button" class="btn btn-outline-primary btn-block btn-sm" href="quick_log">
+          <a type="button" class="btn btn-outline-primary btn-block btn-sm" href="index.quick_log">
             我有快捷登陆口令
           </a>
         </div>

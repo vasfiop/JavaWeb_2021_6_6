@@ -42,16 +42,12 @@ public class Log_In extends HttpServlet {
 		if (u != null) {
 			if (u.get("frozen").equals("0")) {
 				request.getSession().setAttribute("user", u);
-				if (u.get("mode").equals("0"))
-					response.sendRedirect("./homepage");
-				else
-					response.sendRedirect("./admin/admin_homepage");
+				response.sendRedirect("./homepage");
 			} else {
 				request.setAttribute("msg", "您的账户已被冻结!");
 				request.setAttribute("href", request.getContextPath() + "/logout");
 				request.getRequestDispatcher("/result.jsp").forward(request, response);
 			}
-
 		} else {
 			request.setAttribute("msg", "用户名和密码错误!");
 			request.setAttribute("href", request.getContextPath() + "/logout");

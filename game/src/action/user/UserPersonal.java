@@ -51,7 +51,6 @@ public class UserPersonal extends HttpServlet {
 					newtel += '*';
 			} else
 				newtel = "***";
-
 			request.setAttribute("newtel", newtel);
 			request.getRequestDispatcher("/user/user_safe_index.jsp").forward(request, response);
 		}

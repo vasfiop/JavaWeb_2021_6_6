@@ -58,7 +58,7 @@ public class UserService {
 
 //	添加用户
 	public int add(String username, String password, String tel) {
-		String sql = "insert into user values(null,?,?,0,?,0,?,?,?)";
+		String sql = "insert into user values(null,?,?,?,0,?,?,?,null)";
 		String params[] = { username, password, tel, username, "0", username };
 		return db.update(sql, params);
 	}
@@ -81,6 +81,13 @@ public class UserService {
 	public Map<String, String> getUser(String userid) {
 		String sql = "select * from user where id = ?";
 		String[] params = { userid };
+		return db.getMap(sql, params);
+	}
+
+//	通过快速口令找到用户
+	public Map<String, String> getUserByQuick(String quick) {
+		String sql = "select * from user where quick = ?";
+		String[] params = { quick };
 		return db.getMap(sql, params);
 	}
 }

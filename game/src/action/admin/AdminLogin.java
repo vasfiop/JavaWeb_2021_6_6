@@ -7,17 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/admin/admin_homepage")
-public class AdminHomepage extends HttpServlet {
+@WebServlet("/admin/admin_login")
+public class AdminLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public AdminHomepage() {
+	public AdminLogin() {
 		super();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher("/admin/admin_index.jsp").forward(request, response);
+		request.getRequestDispatcher("/admin/admin_login_index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
