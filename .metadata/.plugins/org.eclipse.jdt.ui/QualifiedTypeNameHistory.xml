@@ -25,12 +25,15 @@
 <fullyQualifiedTypeName name="service.FoodService"/>
 <fullyQualifiedTypeName name="java.nio.file.Path"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="util.Time"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="service.CarService"/>
 <fullyQualifiedTypeName name="service.AdminService"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.Base64"/>
+<fullyQualifiedTypeName name="util.Base"/>
+<fullyQualifiedTypeName name="util.Time"/>
+<fullyQualifiedTypeName name="action.user.UserSafe"/>
 <fullyQualifiedTypeName name="service.UserService"/>
 </qualifiedTypeNameHistroy>

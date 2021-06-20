@@ -1,6 +1,7 @@
 package action.user;
 
 import java.io.IOException;
+import java.util.Base64;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.CarService;
 import service.UserService;
+import util.Base;
+import util.Time;
 
 @WebServlet("*.safe")
 public class UserSafe extends HttpServlet {
@@ -48,6 +51,8 @@ public class UserSafe extends HttpServlet {
 					request.getRequestDispatcher("/user/user_safe_frozen_change.jsp").forward(request, response);
 				else if (mode.equals("delete"))
 					request.getRequestDispatcher("/user/user_safe_delete_change.jsp").forward(request, response);
+				else if (mode.equals("quick"))
+					response.sendRedirect("quick_get.safe");
 			}
 		} else if (path.equals("tel_update")) {
 			String telephone = request.getParameter("telphone");
@@ -133,6 +138,29 @@ public class UserSafe extends HttpServlet {
 				request.setAttribute("msg", "×¢ÏúÊ§°Ü!");
 				request.setAttribute("href", request.getContextPath() + "/user/safe.personal");
 				request.getRequestDispatcher("/result.jsp").forward(request, response);
+			}
+		} else if (path.equals("quick")) {
+			if (user.get("quick") != null || !user.get("quick").equals("")) {
+				request.setAttribute("msg", "ÄúÒÑ¾­ÉêÇë¹ý¿ÚÁîÁË!");
+				request.setAttribute("href", request.getContextPath() + "/user/safe.personal");
+				request.getRequestDispatcher("/result.jsp").forward(request, response);
+			} else {
+				String mode = "quick";
+				request.setAttribute("mode", mode);
+				request.getRequestDispatcher("/user/user_safe_password.jsp").forward(request, response);
+			}
+		} else if (path.equals("quick_get")) {
+			String quick = new Base().getBase(new Time().getDate());
+			int r = new UserService().Update("quick", user.get("id"), quick);
+			if (r <= 0) {
+				request.setAttribute("msg", "ÉêÇëÊ§°Ü!");
+				request.setAttribute("href", request.getContextPath() + "/user/safe.personal");
+				request.getRequestDispatcher("/result.jsp").forward(request, response);
+			} else {
+				user = new UserService().getUser(user.get("id"));
+				request.getSession().setAttribute("user", user);
+				request.setAttribute("quick", quick);
+				request.getRequestDispatcher("/user/user_safe_quick_change.jsp").forward(request, response);
 			}
 		}
 	}

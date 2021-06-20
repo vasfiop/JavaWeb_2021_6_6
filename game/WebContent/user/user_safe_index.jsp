@@ -137,9 +137,9 @@
                 <img src="../resources/img/zhang.png" />
                 <p class="text-center text-dark p-2">快捷口令</p>
                 <small class="text-center text-dark">获得快捷登陆口令代码</small>
-                <button type="button" class="btn btn-md btn-outline-primary btn-block"
-                  style="width:200px;margin:10px auto;">
-                  快速获得</button>
+                <a type="button" class="btn btn-md btn-outline-primary btn-block"
+                  style="width:200px;margin:10px auto;" href="quick.safe">
+                  快速获得</a>
               </div>
             </div>
 
