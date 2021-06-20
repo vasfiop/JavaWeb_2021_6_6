@@ -42,20 +42,16 @@
       <div class="col-md-1"></div>
       <div class="col-md-10">
         <div class="d-flex p-3 text-black">
-          <div class="p-2" style="margin:0 auto;">
-            <form role="form" action="pass_check.safe" method="POST">
-              <h3 class="text-center m-3">
-                您正在进行更改操作，为了安全请您输入登陆密码
-              </h3>
-              <div class="input-group m-3" style="width:500px;">
+          <div class="p-2" style="margin: 0 auto;">
+            <form role="form" action="password_update.safe" method="POST">
+              <h3 class="text-center m-3">请您输入想要更改的新密码</h3>
+              <div class="input-group m-3" style="width: 500px;">
                 <div class="input-group-prepend">
-                  <span class="input-group-text">输入密码</span>
+                  <span class="input-group-text">输入新密码</span>
                 </div>
-                <input type="text" class="form-control" placeholder="您的密码" name="password">
+                <input type="text" class="form-control" placeholder="新的密码" name="password">
               </div>
-              <button type="submit" class="btn btn-outline-primary float-right m-3">
-                确定
-              </button>
+              <button type="submit" class="btn btn-outline-primary float-right m-3">确定</button>
             </form>
           </div>
         </div>

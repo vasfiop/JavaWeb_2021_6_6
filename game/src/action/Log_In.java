@@ -37,10 +37,8 @@ public class Log_In extends HttpServlet {
 		String password = request.getParameter("password");
 
 		Map<String, String> u = new UserService().getUser(username, password);
-		if (u == null) {
+		if (u == null)
 			u = new UserService().getUserByTel(username, password);
-		}
-
 		if (u != null) {
 			if (u.get("frozen").equals("0")) {
 				request.getSession().setAttribute("user", u);

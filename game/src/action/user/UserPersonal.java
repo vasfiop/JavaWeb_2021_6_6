@@ -44,9 +44,14 @@ public class UserPersonal extends HttpServlet {
 		} else if (path.equals("safe")) {
 			String tel = user.get("telephone");
 			int size = tel.length();
-			String newtel = tel.substring(0, 3);
-			for (int i = 0; i < size - 3; i++)
-				newtel += '*';
+			String newtel;
+			if (size > 3) {
+				newtel = tel.substring(0, 3);
+				for (int i = 0; i < size - 3; i++)
+					newtel += '*';
+			} else
+				newtel = "***";
+
 			request.setAttribute("newtel", newtel);
 			request.getRequestDispatcher("/user/user_safe_index.jsp").forward(request, response);
 		}

@@ -25,6 +25,9 @@
             </div>
             <input type="password" class="form-control" placeholder="密码" name="password" required>
           </div>
+          <a type="button" class="btn btn-outline-primary btn-block btn-sm" href="quick_log">
+            我有快捷登陆口令
+          </a>
         </div>
         <!-- 模态框底部 -->
         <div class="modal-footer">
@@ -55,11 +58,11 @@
           <h5 class="text-center">账户注册</h5>
           <div class="input-group mt-3 mb-3">
             <div class="input-group-prepend">
-				<span class="input-group-text">手机号</span>
+              <span class="input-group-text">手机号</span>
             </div>
             <input type="text" class="form-control" placeholder="建议使用常用手机号" name="phone" required>
           </div>
-          
+
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">用户名</span>

@@ -10,7 +10,7 @@ public class UserService {
 
 //	通过账号密码来搜索用户
 	public Map<String, String> getUser(String username, String password) {
-		String sql = "select * from user where username =? and password =?";
+		String sql = "select * from user where signinname =? and password =?";
 		String[] params = { username, password };
 		return db.getMap(sql, params);
 	}

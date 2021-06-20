@@ -109,27 +109,27 @@
                 <img src="../resources/img/computer.png" />
                 <p class="text-center text-dark p-2">登陆密码</p>
                 <small class="text-center text-dark">定期更改密码有助于账号安全</small>
-                <button type="button" class="btn btn-md btn-outline-primary btn-block"
-                  style="width:200px;margin:10px auto;">
-                  修改登陆密码</button>
+                <a type="button" class="btn btn-md btn-outline-primary btn-block"
+                  style="width:200px;margin:10px auto;" href="password.safe">
+                  修改登陆密码</a>
               </div>
 
               <div class="p-2 text-center bg-white m-1" style="width: 240px;">
                 <img src="../resources/img/lock.png" />
                 <p class="text-center text-dark p-2">账号冻结管理</p>
                 <small class="text-center text-dark">紧急冻结账户停止账户的一切操作</small>
-                <button type="button" class="btn btn-md btn-outline-primary btn-block"
-                  style="width:200px;margin:10px auto;">
-                  紧急冻结</button>
+                <a type="button" class="btn btn-md btn-outline-primary btn-block"
+                  style="width:200px;margin:10px auto;" href="frozen.safe">
+                  紧急冻结</a>
               </div>
 
               <div class="p-2 text-center bg-white m-1" style="width: 240px;">
                 <img src="../resources/img/zhuxiao.png" />
                 <p class="text-center text-dark p-2">注销账号</p>
                 <small class="text-center text-dark">彻底关闭不再使用京东账号</small>
-                <button type="button" class="btn btn-md btn-outline-primary btn-block"
-                  style="width:200px;margin:10px auto;">
-                  注销账号</button>
+                <a type="button" class="btn btn-md btn-outline-primary btn-block"
+                  style="width:200px;margin:10px auto;" href="delete.safe">
+                  注销账号</a>
               </div>
             </div>
             <div class="d-inline-flex p-3 text-white">
