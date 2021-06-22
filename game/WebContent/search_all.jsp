@@ -12,7 +12,6 @@
 
 <body>
   <%@ include file="nav.jsp"%>
-  <p></p>
   <!-- 搜索条 -->
   <div class="container-fluid">
     <div class="row">
@@ -46,7 +45,7 @@
       </div>
     </div>
   </div>
-  <p></p>
+
 
   <div class="container-fluid bg-gray">
     <div class="row">

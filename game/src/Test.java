@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Test")
+@WebServlet("/test")
+
 public class Test extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -16,11 +17,8 @@ public class Test extends HttpServlet {
 		super();
 	}
 
-	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Map<String, String> user = (Map<String, String>) request.getAttribute("user");
-		System.out.println(user);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

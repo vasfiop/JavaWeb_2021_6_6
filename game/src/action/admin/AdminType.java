@@ -45,6 +45,7 @@ public class AdminType extends HttpServlet {
 //			request.getSession().setAttribute("sort", new SortService().getsortByName(s_sort));
 //			request.getSession().setAttribute("type", new TypeService().getTypeByName("link", s_type));
 //		}
+
 		if (mode == null) {
 			request.getSession().setAttribute("sort", new SortService().getSortName());
 			request.getSession().setAttribute("type", new TypeService().getType("link"));

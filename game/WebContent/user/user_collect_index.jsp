@@ -99,11 +99,11 @@
                     <h5>订单中心</h5>
                   </li>
                   <li class="list-group-item">
-                    <a type="button" class="btn btn-sm btn-link text-secondary text-danger" href="index.user_car?">
+                    <a type="button" class="btn btn-sm btn-link text-secondary" href="index.user_car?">
                       我的购物车 </a>
                   </li>
                   <li class="list-group-item">
-                    <a type="button" class="btn btn-sm btn-link text-secondary" href="index.user_collect">
+                    <a type="button" class="btn btn-sm btn-link text-secondary text-danger" href="index.user_collect">
                       我的收藏 </a>
                   </li>
                   <li class="list-group-item">
@@ -198,7 +198,7 @@
               <div class="col-md-10">
                 <div class="card bg-default">
                   <div class="card-header">
-                    <h5 class="text-center">我的购物车</h5>
+                    <h5 class="text-center">我的收藏</h5>
                   </div>
                   <div class="card-body" style="padding-top: 0; padding-bottom: 0;">
                     <table class="table table-hover">
@@ -206,8 +206,6 @@
                         <tr>
                           <th>商品</th>
                           <th>单价</th>
-                          <th>数量</th>
-                          <th>小计</th>
                           <th>操作</th>
                         </tr>
                       </thead>
@@ -221,19 +219,9 @@
                                 class="float-left">${i.title }</span></td>
                             <td>￥${i.comment == 0 ? i.price : i.comment }</td>
                             <td>
-                              <%-- 
-                                FIXME --%> <%-- <input type="number" value="${i.count }" style="width: 80px;"> --%>
-                              ${i.count }
-                            </td>
-                            <td>￥${i.price*i.count }</td>
-                            <td>
-                              <button class="btn btn-outline-danger btn-sm"
-                                onclick="delConfirm('确定要将商品移除购物车吗',
-                            '${pageContext.request.contextPath}/del_item.user_car','${i.shopid }','ajax_no')">移除购物车</button>
-                              <br>
                               <button class="btn btn-outline-danger btn-sm"
                                 onclick="delConfirm('确定要将该商品删除并添加到关注吗',
-                            '${pageContext.request.contextPath}/add_and_del.user_collect','${i.shopid}','ajax_no')">移入关注</button>
+                            '${pageContext.request.contextPath}/user/del.user_collect','${i.id}&src=/user/index.user_collect','ajax_no')">移除收藏</button>
                             </td>
                           </tr>
                           <c:set var="sum" value="${sum+i.price*i.count }" />
@@ -244,10 +232,7 @@
                   </div>
                   <div class="card-footer">
                     <button class="btn btn-outline-danger btn-sm" onclick="delConfirm('确定要将购物车清空吗',
-                    '${pageContext.request.contextPath}/del.user_car','${user.id }','ajax_no')">清空购物车</button>
-                    <%-- 右面 --%>
-                    <button class="btn btn-outline-dark btn-sm float-right">去结算</button>
-                    <p class="float-right btn-sm" style="margin-bottom: 0; margin-right: 40px;">合计:￥${sum }</p>
+                    '${pageContext.request.contextPath}/user/del_all.user_collect','${user.id }','ajax_no')">清空收藏夹</button>
                   </div>
                 </div>
               </div>
@@ -288,7 +273,7 @@
   <script>
     function delConfirm(prompt, delAddr, id, ajaxRequest) {
       $('#prompt').html(prompt);
-      $('#url').val(delAddr + '?id=' + id);
+      $('#url').val(delAddr + '?shopid=' + id);
       $('#delButtonConfirm').click(function () {
         if (ajaxRequest == 'ajax_no') {
           location.replace($('#url').val());

@@ -18,7 +18,7 @@
       </div>
       <div class="col-md-6">
         <div class="card">
-          <form role="form" action="admin_sort_add?mode=1" method="POST">
+          <form role="form" action="admin_sort_add?mode=1" method="POST" >
             <h5 class="card-header bg-success text-center text-white">
               添加分类
             </h5>

@@ -190,8 +190,8 @@
                 </div>
                 <c:forEach var="i" items="${killshop }">
                   <div class="p-3">
-                    <img src="./resources/img/${i.picture }" style="width: 168px;" class="mb-1" /> <a href="shop_item?shopid=${i.id }"
-                      style="color: black;">
+                    <img src="./resources/img/${i.picture }" style="width: 168px;" class="mb-1" /> <a
+                      href="shop_item?shopid=${i.id }" style="color: black;">
                       <p style="width: 168px; overflow: hidden; text-overflow: ellipsis; font-size: 12px; white-space: nowrap;"
                         class="mb-1">${i.title }</p>
                     </a>
@@ -221,8 +221,6 @@
       </div>
     </div>
   </div>
-
-
 
   <%@ include file="footer.jsp"%>
 

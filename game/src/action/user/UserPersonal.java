@@ -28,6 +28,7 @@ public class UserPersonal extends HttpServlet {
 		path = path.substring(path.lastIndexOf('/') + 1, path.indexOf('.'));
 		Map<String, String> user = (Map<String, String>) request.getSession().getAttribute("user");
 		if (path.equals("index")) {
+			System.out.println(request.getContextPath());
 			request.getRequestDispatcher("/user/user_personal.jsp").forward(request, response);
 		} else if (path.equals("update")) {
 			String signinname = request.getParameter("signinname");
@@ -40,7 +41,6 @@ public class UserPersonal extends HttpServlet {
 				request.setAttribute("msg", "ÐÞ¸ÄÊ§°Ü£¡");
 			request.setAttribute("href", request.getContextPath() + "/user/user_homepage");
 			request.getRequestDispatcher("/result.jsp").forward(request, response);
-			System.out.println(new Time().getDate());
 		} else if (path.equals("safe")) {
 			String tel = user.get("telephone");
 			int size = tel.length();

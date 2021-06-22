@@ -67,12 +67,13 @@
                 <c:forEach var="i" items="${type }">
                   <c:if test="${count == 1 }">
                     <li class="nav-item">
-                      <a class="nav-link active" href="#tab${count }" data-toggle="tab">${i.typename}</a>
+                      <a class="nav-link active" style="color:black;" href="#tab${count }"
+                        data-toggle="tab">${i.typename}</a>
                     </li>
                   </c:if>
                   <c:if test="${count != 1 }">
                     <li class="nav-item">
-                      <a class="nav-link" href="#tab${count }" data-toggle="tab">${i.typename }</a>
+                      <a class="nav-link" style="color:black;" href="#tab${count }" data-toggle="tab">${i.typename }</a>
                     </li>
                   </c:if>
                   <c:set var="count" value="${count+1 }" />
@@ -93,7 +94,9 @@
                       <tr>
                         <c:forEach var="l" items="${shops0 }">
                           <td>
-                            <p style="width: 156px;">${l.title }</p>
+                            <a href="shop_item?shopid=${l.id }" style="color:black">
+                              <p style="width: 180px;" class="m-0">${l.title }</p>
+                            </a>
                           </td>
                         </c:forEach>
                       </tr>
@@ -121,7 +124,9 @@
                       <tr>
                         <c:forEach var="l" items="${shops1 }">
                           <td>
-                            <p style="width: 156px;">${l.title }</p>
+                            <a href="shop_item?shopid=${l.id }" style="color:black">
+                              <p style="width: 180px;" class="m-0">${l.title }</p>
+                            </a>
                           </td>
                         </c:forEach>
                       </tr>
@@ -149,7 +154,9 @@
                       <tr>
                         <c:forEach var="l" items="${shops2 }">
                           <td>
-                            <p style="width: 156px;">${l.title }</p>
+                            <a href="shop_item?shopid=${l.id }" style="color:black">
+                              <p style="width: 180px;" class="m-0">${l.title }</p>
+                            </a>
                           </td>
                         </c:forEach>
                       </tr>
@@ -177,7 +184,9 @@
                       <tr>
                         <c:forEach var="l" items="${shops3 }">
                           <td>
-                            <p style="width: 156px;">${l.title }</p>
+                            <a href="shop_item?shopid=${l.id }" style="color:black">
+                              <p style="width: 180px;" class="m-0">${l.title }</p>
+                            </a>
                           </td>
                         </c:forEach>
                       </tr>
@@ -205,7 +214,9 @@
                       <tr>
                         <c:forEach var="l" items="${shops4 }">
                           <td>
-                            <p style="width: 156px;">${l.title }</p>
+                            <a href="shop_item?shopid=${l.id }" style="color:black">
+                              <p style="width: 180px;" class="m-0">${l.title }</p>
+                            </a>
                           </td>
                         </c:forEach>
                       </tr>
@@ -233,7 +244,9 @@
                       <tr>
                         <c:forEach var="l" items="${shops5 }">
                           <td>
-                            <p style="width: 156px;">${l.title }</p>
+                            <a href="shop_item?shopid=${l.id }" style="color:black">
+                              <p style="width: 180px;" class="m-0">${l.title }</p>
+                            </a>
                           </td>
                         </c:forEach>
                       </tr>
@@ -261,7 +274,9 @@
                       <tr>
                         <c:forEach var="l" items="${shops6 }">
                           <td>
-                            <p style="width: 156px;">${l.title }</p>
+                            <a href="shop_item?shopid=${l.id }" style="color:black">
+                              <p style="width: 180px;" class="m-0">${l.title }</p>
+                            </a>
                           </td>
                         </c:forEach>
                       </tr>
@@ -289,7 +304,9 @@
                       <tr>
                         <c:forEach var="l" items="${shops7 }">
                           <td>
-                            <p style="width: 156px;">${l.title }</p>
+                            <a href="shop_item?shopid=${l.id }" style="color:black">
+                              <p style="width: 180px;" class="m-0">${l.title }</p>
+                            </a>
                           </td>
                         </c:forEach>
                       </tr>

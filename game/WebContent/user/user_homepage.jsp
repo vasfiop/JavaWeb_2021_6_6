@@ -31,9 +31,9 @@
                   <a class="btn dropdown-toggle float-left btn-lg" href="user_homepage" type="button" id="shouye"
                     data-toggle="dropdown" style="margin-top: 70px; margin-left: 10%;"> 首页 </a>
                   <div class="dropdown-menu" aria-labelledby="shouye">
-                    <a class="dropdown-item" href="user_car?userid=${user.id }">购物车</a>
+                    <a class="dropdown-item" href="index.user_car">购物车</a>
+                    <a class="dropdown-item" href="index.user_collect">我的订单</a>
                     <a class="dropdown-item" href="#">我的钱包</a>
-                    <a class="dropdown-item" href="#">我的关注</a>
                     <a class="dropdown-item" href="#">我的活动</a>
                     <a class="dropdown-item" href="#">客户服务</a>
                   </div>
@@ -64,12 +64,13 @@
 
                 <!-- 下面是右面 -->
                 <a type="button" class="btn btn-link float-right text-secondary" style="margin-top: 70px;"
-                  href="user_car?id=${user.id }"> 我的购物车
+                  href="index.user_car"> 我的购物车
                 </a>
 
-                <form class="form-inline float-right" style="margin-top: 70px; margin-right: 10px;">
+                <form class="form-inline float-right" style="margin-top: 70px; margin-right: 10px;" method="post"
+                  action="/game/search">
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="search">
                     <div class="input-group-append">
                       <button class="input-group-text" type="submit">搜索</button>
                     </div>
@@ -99,10 +100,16 @@
                     <h5>订单中心</h5>
                   </li>
                   <li class="list-group-item">
-                    <a type="button" class="btn btn-sm btn-link text-secondary" href="user_order_center?id=${user.id }">
-                      我的订单 </a>
+                    <a type="button" class="btn btn-sm btn-link text-secondary" href="index.user_car?">
+                      我的购物车 </a>
                   </li>
-                  <li class="list-group-item"><a type="button" class="btn btn-sm btn-link text-secondary"> 评价嗮单 </a>
+                  <li class="list-group-item">
+                    <a type="button" class="btn btn-sm btn-link text-secondary" href="index.user_collect">
+                      我的收藏 </a>
+                  </li>
+                  <li class="list-group-item">
+                    <a type="button" class="btn btn-sm btn-link text-secondary" href="index.user_order">
+                      我的订单 </a>
                   </li>
                 </ul>
 

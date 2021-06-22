@@ -30,9 +30,11 @@
                   <a class="btn dropdown-toggle float-left btn-lg" href="user_homepage" type="button" id="shouye"
                     data-toggle="dropdown" style="margin-top: 70px; margin-left: 10%;"> 首页 </a>
                   <div class="dropdown-menu" aria-labelledby="shouye">
-                    <a class="dropdown-item" href="user_car?userid=${user.id }">购物车</a>
-                    <a class="dropdown-item" href="#">我的钱包</a> <a class="dropdown-item" href="#">我的关注</a> <a
-                      class="dropdown-item" href="#">我的活动</a> <a class="dropdown-item" href="#">客户服务</a>
+                    <a class="dropdown-item" href="index.user_car">购物车</a> 
+                    <a class="dropdown-item" href="index.user_collect">我的收藏</a> 
+                    <a class="dropdown-item" href="#">我的订单</a> 
+                    <a class="dropdown-item" href="#">我的活动</a> 
+                    <a class="dropdown-item" href="#">客户服务</a>
                   </div>
                 </div>
 

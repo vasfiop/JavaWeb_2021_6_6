@@ -22,18 +22,19 @@
 
             <div class="row">
               <div class="col-md-2">
-                <img src="../resources/img/nav_logo.jpg" style="width:190px;height:120px;">
+                <img src="../resources/img/nav_logo.jpg" style="width: 190px; height: 120px;">
               </div>
               <div class="col-md-10">
                 <h4 style="margin-top: 80px;" class="float-left">我的京东</h4>
                 <div class="dropdown">
                   <a class="btn dropdown-toggle float-left btn-lg" href="user_homepage" type="button" id="shouye"
-                    data-toggle="dropdown" style="margin-top: 70px; margin-left: 10%;"> 首页 </a>
+                    data-toggle="dropdown" style="margin-top: 70px; margin-left: 10%;">
+                    首页 </a>
                   <div class="dropdown-menu" aria-labelledby="shouye">
-                    <a class="dropdown-item" href="user_car?userid=${user.id }">购物车</a>
-                    <a class="dropdown-item" href="#">我的钱包</a> 
-                    <a class="dropdown-item" href="#">我的关注</a>
-                    <a class="dropdown-item" href="#">我的活动</a>
+                    <a class="dropdown-item" href="index.user_car">购物车</a> 
+                    <a class="dropdown-item" href="index.user_collect">我的收藏</a> 
+                    <a class="dropdown-item" href="#">我的订单</a> 
+                    <a class="dropdown-item" href="#">我的活动</a> 
                     <a class="dropdown-item" href="#">客户服务</a>
                   </div>
                 </div>
@@ -44,27 +45,18 @@
                   <div class="dropdown-menu" aria-labelledby="zhanghushezhi">
                     <div class="row">
                       <div class="col-md-6">
-                        <a class="dropdown-item" href="index.personal">个人信息</a>
-                        <a class="dropdown-item" href="safe.personal">账户安全</a>
-                        <a class="dropdown-item" href="#">收货地址</a>
-                        <a class="dropdown-item" href="#">我的银行卡</a>
-                        <a class="dropdown-item" href="#">账号绑定</a>
+                        <a class="dropdown-item" href="index.personal">个人信息</a> <a class="dropdown-item"
+                          href="safe.personal">账户安全</a> <a class="dropdown-item" href="#">收货地址</a> <a
+                          class="dropdown-item" href="#">我的银行卡</a> <a class="dropdown-item" href="#">账号绑定</a>
                       </div>
                       <div class="col-md-6">
-                        <a class="dropdown-item" href="#">分享绑定</a>
-                        <a class="dropdown-item" href="#">我的尺码</a>
-                        <a class="dropdown-item" href="#">健康档案</a>
-                        <a class="dropdown-item" href="#">邮件订阅</a>
-                        <a class="dropdown-item" href="#">授权管理</a>
+                        <a class="dropdown-item" href="#">分享绑定</a> <a class="dropdown-item" href="#">我的尺码</a> <a
+                          class="dropdown-item" href="#">健康档案</a> <a class="dropdown-item" href="#">邮件订阅</a> <a
+                          class="dropdown-item" href="#">授权管理</a>
                       </div>
                     </div>
                   </div>
                 </div>
-
-                <!-- 下面是右面 -->
-                <a type="button" class="btn btn-link float-right text-secondary" style="margin-top: 70px;"
-                  href="user_car?id=${user.id }">
-                  我的购物车 </a>
 
               </div>
             </div>
@@ -89,8 +81,8 @@
                   <h5>账户设置</h5>
                 </div>
                 <a href="index.personal" class="list-group-item list-group-item-action text-danger">个人信息</a>
-                <a href="safe.personal" class="list-group-item list-group-item-action">账户安全</a>
-                <a href="#" class="list-group-item list-group-item-action">收货地址</a>
+                <a href="safe.personal" class="list-group-item list-group-item-action">账户安全</a> <a href="#"
+                  class="list-group-item list-group-item-action">收货地址</a>
                 <a href="#" class="list-group-item list-group-item-action">我的银行卡</a>
                 <a href="#" class="list-group-item list-group-item-action">账号绑定</a>
                 <a href="#" class="list-group-item list-group-item-action">分享绑定</a>
@@ -137,18 +129,18 @@
                   </div>
                   <div class="input-group-text">
                     <div class="custom-control custom-radio custom-control-inline">
-                      <input type="radio" id="customRadioInline1" name="sex" class="custom-control-input"
-                        value="-1" ${user.sex==-1? 'checked' :'' }>
+                      <input type="radio" id="customRadioInline1" name="sex" class="custom-control-input" value="-1"
+                        ${user.sex==-1? 'checked' :'' }>
                       <label class="custom-control-label" for="customRadioInline1">男</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                      <input type="radio" id="customRadioInline2" name="sex" class="custom-control-input"
-                        value="1" ${user.sex==1? 'checked' :'' }>
+                      <input type="radio" id="customRadioInline2" name="sex" class="custom-control-input" value="1"
+                        ${user.sex==1? 'checked' :'' }>
                       <label class="custom-control-label" for="customRadioInline2">女</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                      <input type="radio" id="customRadioInline3" name="sex" class="custom-control-input"
-                        value="0" ${user.sex==0? 'checked' :'' }>
+                      <input type="radio" id="customRadioInline3" name="sex" class="custom-control-input" value="0"
+                        ${user.sex==0? 'checked' :'' }>
                       <label class="custom-control-label" for="customRadioInline3">保密</label>
                     </div>
                   </div>

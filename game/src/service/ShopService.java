@@ -68,7 +68,7 @@ public class ShopService {
 
 //	ÃÌº”…Ã∆∑
 	public int addShop(String name, String title, String type, String price, String pic, String comm) {
-		String sql = "insert into shop values(null,?,?,?,?,?,?)";
+		String sql = "insert into shop values(null,?,?,?,?,?,?,null)";
 		String params[] = { name, title, type, price, pic, comm };
 
 		return db.update(sql, params);
