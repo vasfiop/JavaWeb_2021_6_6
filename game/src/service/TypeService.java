@@ -66,4 +66,10 @@ public class TypeService {
 
 		return db.update(sql, params);
 	}
+
+//	通过指定数量来查找个数
+	public List<Map<String, String>> getTypeByCount(String count) {
+		String sql = "SELECT * FROM shoptype LIMIT " + count;
+		return db.getList(sql);
+	}
 }

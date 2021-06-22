@@ -60,6 +60,12 @@ public class ShopService {
 		return db.getList(sql);
 	}
 
+//	通过京东秒杀找到商品
+	public List<Map<String, String>> getShopByKill() {
+		String sql = "SELECT * FROM shop WHERE comment != 0";
+		return db.getList(sql);
+	}
+
 //	添加商品
 	public int addShop(String name, String title, String type, String price, String pic, String comm) {
 		String sql = "insert into shop values(null,?,?,?,?,?,?)";

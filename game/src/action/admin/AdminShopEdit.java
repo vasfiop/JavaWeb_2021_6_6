@@ -57,6 +57,7 @@ public class AdminShopEdit extends HttpServlet {
 
 			int r = new ShopService().Update(id, name, title, type, price, pic, comm);
 			if (r == 1) {
+				FileUploadUtil.filecopy();
 				request.setAttribute("msg", "修改商品成功!");
 			} else {
 				request.setAttribute("msg", "修改商品失败!");
