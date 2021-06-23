@@ -173,7 +173,6 @@
 
               </div>
               <div class="col-md-2">
-                <!-- TODO 还没想好要写啥 -->
                 <ul class="list-unstyled bg-white" style="padding: 5px 10px;">
                   <c:forEach var="i" items="${type }">
                     <li class="list-item"><a class="text-secondary btn-link"
@@ -190,7 +189,7 @@
                 </div>
                 <c:forEach var="i" items="${killshop }">
                   <div class="p-3">
-                    <img src="./resources/img/${i.picture }" style="width: 168px;" class="mb-1" /> <a
+                    <img src="./resources/img/${i.picture }" style="width: 168px;height:168px;" class="mb-1" /> <a
                       href="shop_item?shopid=${i.id }" style="color: black;">
                       <p style="width: 168px; overflow: hidden; text-overflow: ellipsis; font-size: 12px; white-space: nowrap;"
                         class="mb-1">${i.title }</p>

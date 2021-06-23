@@ -76,7 +76,6 @@ public class PageBean {
 		this.prePage=this.curPage>1?(this.curPage-1):1;
 		//下一页
 		this.nextPage=this.curPage>=this.pageCount?this.pageCount:(this.curPage+1);
-	
 		
 	}
  
@@ -85,6 +84,5 @@ public class PageBean {
 		return "PageBean [curPage=" + curPage + ", prePage=" + prePage + ", nextPage=" + nextPage + ", maxSize="
 				+ maxSize + ", pageCount=" + pageCount + ", readCount=" + readCount + "]";
 	}
-	
 	
 }

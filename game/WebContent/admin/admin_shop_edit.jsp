@@ -1,4 +1,5 @@
 <%@ page pageEncoding="utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,8 +10,6 @@
 </head>
 
 <body>
-  <!-- 首页导航栏 -->
-  <%@ include file="admin_nav.jsp" %>
 
   <div class="container-fluid">
     <div class="row">
@@ -18,7 +17,7 @@
       </div>
       <div class="col-md-6">
         <div class="card">
-          <form role="form" action="admin_shop_edit?id=${param.id }&mode=1" method="POST" enctype="multipart/form-data">
+          <form role="form" action="admin_shop_edit?shopid=${shop.id }" method="POST" enctype="multipart/form-data">
             <h5 class="card-header bg-warning text-center text-white">
               修改商品
             </h5>

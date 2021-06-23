@@ -1,4 +1,5 @@
 <%@ page pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,15 +10,13 @@
 </head>
 
 <body>
-  <!-- 首页导航栏 -->
-  <%@ include file="admin_nav.jsp"%>
 
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
         <div class="card bg-default">
           <div class="card-header">
-            <form role="form" class="form-inline" action="admin_shop" method="POST">
+            <form role="form" class="form-inline" action="search.admin_shop" method="POST">
               <div class="form-group">
                 <input type="text" class="form-control" name="s_name" placeholder="按商品名搜索" value="${param.s_name }" />
               </div>
@@ -50,7 +49,7 @@
               &nbsp;&nbsp;&nbsp;
               <button type="submit" class="btn btn-outline-primary">
                 搜索</button>
-              &nbsp;&nbsp;&nbsp; <a href="admin_shop_add?mode=1" role="button" class="btn btn-outline-success"> 添加商品
+              &nbsp;&nbsp;&nbsp; <a href="shop_add.admin_shop" role="button" class="btn btn-outline-success"> 添加商品
               </a>
             </form>
           </div>
@@ -60,7 +59,7 @@
                 <tr>
                   <th>#</th>
                   <th>名称</th>
-                  <th style="width: 500px;">标题</th>
+                  <th style="width: 450px;">标题</th>
                   <th>商品分类</th>
                   <th>商品种类</th>
                   <th>价格</th>
@@ -74,27 +73,42 @@
                   <tr>
                     <td>${vs.count }</td>
                     <td>${i.shopname }</td>
-                    <td style="width: 500px;">${i.title }</td>
+                    <td style="width: 450px;">${i.title }</td>
                     <td>${i.sortname }</td>
                     <td>${i.typename }</td>
                     <td>${i.price }</td>
-                    <td><img src="../resources/img/${i.picture }" style="width: 100px; height: 100px;"></td>
+                    <td style="padding: 0;"><img src="../resources/img/${i.picture }"
+                        style="width: 100px; height: 100px;"></td>
                     <c:if test="${i.comment == 0 }">
                       <td></td>
                     </c:if>
                     <c:if test="${i.comment != 0 }">
                       <td>京东秒杀${i.comment }</td>
                     </c:if>
-                    <td>
-                      <a href="admin_shop_edit?id=${i.id }&mode=0" role="button"
+                    <td><a href="shop_edit.admin_shop?shopid=${i.id }&mode=0" role="button"
                         class="btn btn-outline-warning btn-sm">修改</a>
                       <button class="btn btn-outline-danger btn-sm" onclick="delConfirm('确定要删除该商品吗',
-                      '${pageContext.request.contextPath}/admin/admin_shop_del','${i.id}','ajax_no')">删除</button>
+                      '${pageContext.request.contextPath}/admin/shop_del.admin_shop','${i.id}','ajax_no')">删除</button>
                     </td>
                   </tr>
                 </c:forEach>
               </tbody>
             </table>
+            <nav>
+              <ul class="pagination">
+                <li class="page-item ${ moment == 1 ? 'disabled' : '' }">
+                  <a class="page-link" href="shop_page.admin_shop?page=${moment-1 }">上一页</a>
+                </li>
+                <c:forEach var="i" begin="1" end="${page }">
+                  <li class="page-item ${ i == moment ? 'active' : '' }">
+                    <a class="page-link" href="shop_page.admin_shop?page=${i }">${i }</a>
+                  </li>
+                </c:forEach>
+                <li class="page-item ${ moment == page ? 'disabled' : '' }">
+                  <a class="page-link" href="shop_page.admin_shop?page=${moment+1 }">下一个</a>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
@@ -126,7 +140,7 @@
   <script>
     function delConfirm(prompt, delAddr, id, ajaxRequest) {
       $('#prompt').html(prompt);
-      $('#url').val(delAddr + '?id=' + id);
+      $('#url').val(delAddr + '?shopid=' + id);
       $('#delButtonConfirm').click(function () {
         if (ajaxRequest == 'ajax_no') {
           location.replace($('#url').val());

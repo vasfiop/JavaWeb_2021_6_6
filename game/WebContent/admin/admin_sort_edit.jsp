@@ -9,8 +9,6 @@
 </head>
 
 <body>
-  <!-- 首页导航栏 -->
-  <%@ include file="admin_nav.jsp" %>
 
     <div class="container-fluid">
     <div class="row">
@@ -18,7 +16,7 @@
       </div>
       <div class="col-md-6">
         <div class="card">
-          <form role="form" action="admin_sort_edit?id=${param.id }&mode=1" method="POST">
+          <form role="form" action="update.admin_sort?sortid=${sort.id }" method="POST">
             <h5 class="card-header bg-warning text-center text-white">
               修改分类
             </h5>

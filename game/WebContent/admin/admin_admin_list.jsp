@@ -20,7 +20,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <!-- 搜索表单 -->
-                  <form role="form" class="form-inline" action="user_search.admin_user" method="POST">
+                  <form role="form" class="form-inline" action="admin_search.admin_user" method="POST">
                     <div class="form-group">
                       <input type="text" class="form-control" name="search" placeholder="按用户名搜索"
                         value="${param.search }" />
@@ -41,9 +41,8 @@
                   <th>#</th>
                   <th>用户名</th>
                   <th>密码</th>
-                  <th>电话</th>
+                  <th>昵称</th>
                   <th>操作</th>
-                  <th>状态</th>
                 </tr>
               </thead>
               <tbody>
@@ -52,17 +51,11 @@
                     <th>${vs.count }</th>
                     <td>${i.username }</td>
                     <td>${i.password }</td>
-                    <td>${i.telephone }</td>
+                    <td>${i.nickname }</td>
                     <td>
-                      <button class="btn btn-outline-warning btn-sm"
-                        onclick="delConfirm('确定要${i.frozen == 1? '激活':'冻结' }该用户吗',
-                      '${pageContext.request.contextPath}/admin/user_frozen.admin_user','${i.id}&mode=${i.frozen == 1? '0':'1' }','ajax_no')">${i.frozen == 1?
-                        '激活':'冻结'
-                        }</button>
-                      <button class="btn btn-outline-danger btn-sm" onclick="delConfirm('确定要删除该用户吗',
-                      '${pageContext.request.contextPath}/admin/user_del.admin_user','${i.id}','ajax_no')">删除</button>
+                      <button class="btn btn-outline-danger btn-sm" onclick="delConfirm('确定要删除该管理员吗',
+                      '${pageContext.request.contextPath}/admin/admin_del.admin_user','${i.id}','ajax_no')">删除</button>
                     </td>
-                    <td>${i.frozen == 1?'冻结':'激活'}</td>
                   </tr>
                 </c:forEach>
               </tbody>

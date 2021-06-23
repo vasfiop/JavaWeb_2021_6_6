@@ -10,6 +10,9 @@
         <div class="col-md-1"></div>
 
         <div class="col-md-10">
+
+          <a type="button" class="btn btn-link float-left" href="admin_index.jsp" style="color:black">
+            京东后台管理系统 </a>
         
           <div class="dropdown">
             <a class="dropdown-toggle btn btn-sm btn-link float-right text-secondary" type="button" data-toggle="dropdown">
@@ -20,13 +23,13 @@
             </div>
           </div>
 
-          <a type="button" class="btn btn-sm btn-link float-right text-secondary" href="admin_user_list">
+          <%-- <a type="button" class="btn btn-sm btn-link float-right text-secondary" href="admin_user_list">
             用户列表 </a>
 
           <a type="button" class="btn btn-sm btn-link float-right text-secondary" href="admin_type">
             商品类型 </a>
 
-          <a type="button" class="btn btn-sm btn-link float-right text-secondary" href="admin_shop"> 商品 </a>
+          <a type="button" class="btn btn-sm btn-link float-right text-secondary" href="admin_shop"> 商品 </a> --%>
 
         </div>
         <div class="col-md-1"></div>

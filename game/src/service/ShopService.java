@@ -29,7 +29,7 @@ public class ShopService {
 		return db.update(sql, params);
 	}
 
-//	按照名称or sort查找
+//	按照名称orsort查找
 	public List<Map<String, String>> getShops(String mode, String value) {
 		String sql = "select s.*,st.typename,ss.sortname FROM (shop s JOIN shoptype st on s.type = st.id) LEFT JOIN shopsort ss on ss.id = st.typeid WHERE s."
 				+ mode + " LIKE ?";
@@ -56,7 +56,6 @@ public class ShopService {
 //	找到所有商品
 	public List<Map<String, String>> getShops() {
 		String sql = "select s.*,st.typename,ss.sortname FROM (shop s JOIN shoptype st on s.type = st.id) LEFT JOIN shopsort ss on ss.id = st.typeid";
-
 		return db.getList(sql);
 	}
 
@@ -72,6 +71,13 @@ public class ShopService {
 		String params[] = { name, title, type, price, pic, comm };
 
 		return db.update(sql, params);
+	}
+
+//	通过sortid找到商品
+	public List<Map<String, String>> getShopBySortId(String s_sort) {
+		String sql = "select s.*,st.typename,ss.sortname FROM (shop s JOIN shoptype st on s.type = st.id) LEFT JOIN shopsort ss on ss.id = st.typeid WHERE ss.id = ?";
+		String[] params = { s_sort };
+		return db.getList(sql, params);
 	}
 
 }

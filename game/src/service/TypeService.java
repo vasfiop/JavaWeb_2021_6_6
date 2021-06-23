@@ -37,7 +37,7 @@ public class TypeService {
 		return db.getList(sql);
 	}
 
-//	根据名字找到type 链表坂本
+//	根据名字找到type链表坂本
 	public List<Map<String, String>> getTypeByName(String mode, String name) {
 		String sql = "SELECT st.*,ss.sortname FROM shoptype st JOIN shopsort ss on st.typeid = ss.id WHERE st.typename LIKE ?";
 		String params[] = { "%" + name + "%" };
@@ -60,9 +60,9 @@ public class TypeService {
 	}
 
 //	更新
-	public int Update(String name, String typeid, String id) {
+	public int Update(String name, String sortid, String id) {
 		String sql = "update shoptype set typename=?,typeid=? where id=?";
-		String params[] = { name, typeid, id };
+		String params[] = { name, sortid, id };
 
 		return db.update(sql, params);
 	}

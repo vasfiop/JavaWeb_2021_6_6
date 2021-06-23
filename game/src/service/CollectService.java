@@ -30,6 +30,14 @@ public class CollectService {
 		return db.update(sql, params);
 	}
 
+//	通过用户id删除
+	public int del(String userid) {
+		String sql = "delete from collect where userid = ?";
+		String[] params = { userid };
+		return db.update(sql, params);
+	}
+
+//	通过用户id查找
 	public List<Map<String, String>> getCollect(String userid) {
 		String sql = "SELECT s.* FROM collect c JOIN shop s on c.shopid = s.id WHERE c.userid = ?";
 		String[] params = { userid };

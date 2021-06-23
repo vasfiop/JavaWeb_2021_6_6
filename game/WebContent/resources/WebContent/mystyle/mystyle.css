@@ -37,11 +37,11 @@
     background-color: red;
 }
 
-.text-dark {
+.text-black {
     color: black;
 }
 
-.text-red{
+.text-red {
     color: red;
 }
 
@@ -51,4 +51,8 @@
 
 .text_middle {
     font-size: 14px !important;
+}
+
+.bg_admin_black {
+    background-color: #333;
 }

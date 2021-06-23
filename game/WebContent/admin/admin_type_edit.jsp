@@ -1,4 +1,5 @@
 <%@ page pageEncoding="utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,8 +10,6 @@
 </head>
 
 <body>
-  <!-- 首页导航栏 -->
-  <%@ include file="admin_nav.jsp" %>
 
   <div class="container-fluid">
     <div class="row">
@@ -18,7 +17,7 @@
       </div>
       <div class="col-md-6">
         <div class="card">
-          <form role="form" action="admin_type_edit?id=${param.id }&mode=1" method="POST">
+          <form role="form" action="update.admin_type?typeid=${type.id }" method="POST">
             <h5 class="card-header bg-warning text-center text-white">
               修改种类
             </h5>
@@ -27,7 +26,7 @@
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="inputGroupSelect01">所属分类名称</label>
                 </div>
-                <select class="custom-select" name="typeid">
+                <select class="custom-select" name="sortid">
                   <c:forEach var="i" items="${sort }">
                     <option value="${i.id }" ${i.id == type.typeid ? 'selected' : '' }>${i.sortname }</option>
                   </c:forEach>

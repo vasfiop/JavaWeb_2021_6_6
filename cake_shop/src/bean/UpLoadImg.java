@@ -67,5 +67,4 @@ public class UpLoadImg {
 		return "UpLoadImg [imgId=" + imgId + ", imgName=" + imgName + ", imgSrc=" + imgSrc + ", imgType=" + imgType
 				+ "]";
 	}
-
 }

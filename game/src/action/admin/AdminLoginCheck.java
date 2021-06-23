@@ -13,7 +13,6 @@ import service.AdminService;
 
 @WebServlet("/admin/admin_login_check")
 public class AdminLoginCheck extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 
 	public AdminLoginCheck() {
 		super();
@@ -29,6 +28,12 @@ public class AdminLoginCheck extends HttpServlet {
 			request.setAttribute("href", request.getContextPath() + "/admin/admin_login");
 			request.getRequestDispatcher("/result.jsp").forward(request, response);
 		} else {
+			int r = new AdminService().update(user.get("id"));
+			if (r == 0) {
+				request.setAttribute("msg", "时间更新异常!");
+				request.setAttribute("href", request.getContextPath() + "/admin/admin_login");
+				request.getRequestDispatcher("/result.jsp").forward(request, response);
+			}
 			request.getSession().setAttribute("user", user);
 			response.sendRedirect("admin_homepage");
 		}
