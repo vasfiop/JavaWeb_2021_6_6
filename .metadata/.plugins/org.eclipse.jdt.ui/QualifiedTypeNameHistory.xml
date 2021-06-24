@@ -41,8 +41,8 @@
 <fullyQualifiedTypeName name="service.CarService"/>
 <fullyQualifiedTypeName name="service.CollectService"/>
 <fullyQualifiedTypeName name="util.Time"/>
-<fullyQualifiedTypeName name="service.AdminService"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="service.AdminService"/>
 </qualifiedTypeNameHistroy>

@@ -8,10 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import service.CarService;
 import service.UserService;
-import util.Time;
 
 @WebServlet("*.personal")
 public class UserPersonal extends HttpServlet {

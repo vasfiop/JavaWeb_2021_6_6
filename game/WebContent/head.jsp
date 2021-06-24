@@ -9,5 +9,6 @@
 <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
 <script src="${pageContext.request.contextPath }/resources/WebContent/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/WebContent/mystyle/mystyle.css">
+
+<script src="${pageContext.request.contextPath }/resources/WebContent/catfish/HandyEditor.min.js"></script>

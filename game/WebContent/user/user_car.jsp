@@ -47,7 +47,7 @@
                       <div class="col-md-6">
                         <a class="dropdown-item" href="index.personal">个人信息</a>
                         <a class="dropdown-item" href="safe.personal">账户安全</a>
-                        <a class="dropdown-item" href="#">收货地址</a>
+                        <a class="dropdown-item" href="index.user_talk">给管理员留言</a>
                         <a class="dropdown-item" href="#">我的银行卡</a>
                         <a class="dropdown-item" href="#">账号绑定</a>
                       </div>

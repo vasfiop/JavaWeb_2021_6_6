@@ -36,7 +36,6 @@ public class UserSafe extends HttpServlet {
 			request.getRequestDispatcher("/user/user_safe_password.jsp").forward(request, response);
 		} else if (path.equals("pass_check")) {
 			String password = request.getParameter("password");
-			System.out.println("This is pass_check");
 			if (!password.equals(user.get("password"))) {
 				request.setAttribute("msg", "密码错误！");
 				request.setAttribute("href", request.getContextPath() + "/user/tel.safe");
@@ -62,7 +61,6 @@ public class UserSafe extends HttpServlet {
 				request.getRequestDispatcher("/result.jsp").forward(request, response);
 			} else {
 				Map<String, String> Tuser = new UserService().getUserByTel(telephone);
-				System.out.println(Tuser);
 				if (Tuser != null) {
 					request.setAttribute("msg", "该手机号已经被注册！");
 					request.setAttribute("href", request.getContextPath() + "/user/user_safe_tel_change.jsp");
@@ -105,7 +103,6 @@ public class UserSafe extends HttpServlet {
 			request.setAttribute("mode", mode);
 			request.getRequestDispatcher("/user/user_safe_password.jsp").forward(request, response);
 		} else if (path.equals("frozen_update")) {
-			System.out.println("This is frozen_update");
 			int r = new UserService().Update("frozen", user.get("id"), "1");
 			if (r == 1) {
 				request.setAttribute("msg", "修改成功！");
@@ -140,7 +137,7 @@ public class UserSafe extends HttpServlet {
 				request.getRequestDispatcher("/result.jsp").forward(request, response);
 			}
 		} else if (path.equals("quick")) {
-			if (user.get("quick") != null || !user.get("quick").equals("")) {
+			if (!user.get("quick").equals("")) {
 				request.setAttribute("msg", "您已经申请过口令了!");
 				request.setAttribute("href", request.getContextPath() + "/user/safe.personal");
 				request.getRequestDispatcher("/result.jsp").forward(request, response);

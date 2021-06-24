@@ -32,7 +32,7 @@
                   <div class="dropdown-menu" aria-labelledby="shouye">
                     <a class="dropdown-item" href="index.user_car">购物车</a> 
                     <a class="dropdown-item" href="index.user_collect">我的收藏</a> 
-                    <a class="dropdown-item" href="#">我的订单</a> 
+                    <a class="dropdown-item" href="index.user_talk">给管理员留言</a>
                     <a class="dropdown-item" href="#">我的活动</a> 
                     <a class="dropdown-item" href="#">客户服务</a>
                   </div>

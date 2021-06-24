@@ -45,14 +45,18 @@
                   <div class="dropdown-menu" aria-labelledby="zhanghushezhi">
                     <div class="row">
                       <div class="col-md-6">
-                        <a class="dropdown-item" href="index.personal">个人信息</a> <a class="dropdown-item"
-                          href="safe.personal">账户安全</a> <a class="dropdown-item" href="#">收货地址</a> <a
-                          class="dropdown-item" href="#">我的银行卡</a> <a class="dropdown-item" href="#">账号绑定</a>
+                        <a class="dropdown-item" href="index.personal">个人信息</a>
+                        <a class="dropdown-item" href="safe.personal">账户安全</a>
+                        <a class="dropdown-item" href="index.user_talk">给管理员留言</a>
+                        <a class="dropdown-item" href="#">我的银行卡</a>
+                        <a class="dropdown-item" href="#">账号绑定</a>
                       </div>
                       <div class="col-md-6">
-                        <a class="dropdown-item" href="#">分享绑定</a> <a class="dropdown-item" href="#">我的尺码</a> <a
-                          class="dropdown-item" href="#">健康档案</a> <a class="dropdown-item" href="#">邮件订阅</a> <a
-                          class="dropdown-item" href="#">授权管理</a>
+                        <a class="dropdown-item" href="#">分享绑定</a>
+                        <a class="dropdown-item" href="#">我的尺码</a>
+                        <a class="dropdown-item" href="#">健康档案</a>
+                        <a class="dropdown-item" href="#">邮件订阅</a>
+                        <a class="dropdown-item" href="#">授权管理</a>
                       </div>
                     </div>
                   </div>
