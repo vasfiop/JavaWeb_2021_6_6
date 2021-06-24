@@ -176,7 +176,7 @@
                 <ul class="list-unstyled bg-white" style="padding: 5px 10px;">
                   <c:forEach var="i" items="${type }">
                     <li class="list-item"><a class="text-secondary btn-link"
-                        href="shoptype_item?id=${i.id }">${i.typename }</a></li>
+                        href="shoptype_item?id=${i.typeid }">${i.typename }</a></li>
                   </c:forEach>
                 </ul>
               </div>

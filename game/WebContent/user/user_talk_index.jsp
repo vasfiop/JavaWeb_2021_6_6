@@ -196,7 +196,7 @@
                 </ul>
               </div>
               <div class="col-md-10">
-                <form action="submit_talk" method="post">
+                <form action="submit.user_talk" method="post">
                   <div class="d-flex p-3">
                     <div class="p-2">
                       <h6>提交对象: </h6>
@@ -214,7 +214,7 @@
                       </button>
                     </div>
                   </div>
-                  <input id="editor" name="editor" style="display: none;" type="file">
+                  <input id="editor" name="editor" style="display: none;" type="text">
                 </form>
               </div>
             </div>

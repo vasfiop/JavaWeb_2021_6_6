@@ -17,6 +17,7 @@ import service.TypeService;
 
 @WebServlet("*.admin_shop")
 public class AdminShop extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
 	public AdminShop() {
 		super();

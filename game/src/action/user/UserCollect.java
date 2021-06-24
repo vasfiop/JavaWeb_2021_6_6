@@ -8,10 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import service.CarService;
 import service.CollectService;
-import util.Time;
 
 @WebServlet("*.user_collect")
 public class UserCollect extends HttpServlet {

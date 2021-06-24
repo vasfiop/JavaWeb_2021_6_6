@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import service.AdminService;
 import service.CarService;
 import service.CollectService;
+import service.TalkService;
 import service.UserService;
 
 @WebServlet("*.admin_user")
@@ -63,6 +64,15 @@ public class AdminUser extends HttpServlet {
 			List<Map<String, String>> collect = new CollectService().getCollect(id);
 			if (collect.size() != 0) {
 				int r = new CollectService().del(id);
+				if (r == 0) {
+					request.setAttribute("msg", "É¾³ýÓÃ»§Ê§°Ü!");
+					request.setAttribute("href", request.getContextPath() + "/admin/user_list.admin_user");
+					request.getRequestDispatcher("/result.jsp").forward(request, response);
+				}
+			}
+			List<Map<String, String>> talk = new TalkService().getTalk("userid", user.get("id"));
+			if (talk.size() != 0) {
+				int r = new TalkService().del("userid", user.get("id"));
 				if (r == 0) {
 					request.setAttribute("msg", "É¾³ýÓÃ»§Ê§°Ü!");
 					request.setAttribute("href", request.getContextPath() + "/admin/user_list.admin_user");

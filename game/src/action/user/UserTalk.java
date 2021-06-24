@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import service.AdminService;
+import service.TalkService;
 
 @WebServlet("*.user_talk")
 public class UserTalk extends HttpServlet {
@@ -29,7 +30,15 @@ public class UserTalk extends HttpServlet {
 		} else if (path.equals("submit")) {
 			String submit = request.getParameter("editor");
 			String adminid = request.getParameter("adminid");
-			
+			int r = new TalkService().add(submit, user.get("id"), adminid);
+			if (r == 0) {
+				request.setAttribute("msg", "添加失败！");
+				request.setAttribute("href", "index.user_talk");
+			} else {
+				request.setAttribute("msg", "添加成功！");
+				request.setAttribute("href", "user_homepage");
+			}
+			request.getRequestDispatcher("/result.jsp").forward(request, response);
 		}
 	}
 
