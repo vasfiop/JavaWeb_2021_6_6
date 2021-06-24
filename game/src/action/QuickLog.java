@@ -27,7 +27,6 @@ public class QuickLog extends HttpServlet {
 			request.getRequestDispatcher("/quick_log.jsp").forward(request, response);
 		} else if (path.equals("check")) {
 			String quick = request.getParameter("quick");
-			System.out.println(quick);
 			if (quick.equals("admin")) {
 				response.sendRedirect(request.getContextPath() + "/admin/admin_login");
 			} else {

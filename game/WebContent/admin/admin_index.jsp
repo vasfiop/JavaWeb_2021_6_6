@@ -18,7 +18,7 @@
 
           <ul class="list-group">
             <li class="list-group-item">
-				<span class="nowTime"></span>
+				<h5 class="nowTime mt-1 mb-1"></h5>
             </li>
           </ul>
 
