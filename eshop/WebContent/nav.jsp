@@ -1,5 +1,4 @@
 <%@ page pageEncoding="UTF-8"%>
-
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -9,9 +8,9 @@
             <span>游客您好，欢迎来到随意购商城！</span>
           </li>
           <li class="breadcrumb-item">
-            <a href="#">[登陆]</a>
+            <a href="#loginFormModal" role="button" data-toggle="modal">[登陆]</a>
             &nbsp;
-            <a href="#">[新用户注册]</a>
+            <a href="#regFormModal" role="button" data-toggle="modal">[新用户注册]</a>
           </li>
           <li class="breadcrumb-item">
             <a href="#">购物车</a>
