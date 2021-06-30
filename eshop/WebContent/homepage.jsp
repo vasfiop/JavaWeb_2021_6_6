@@ -64,12 +64,14 @@
       <div class="col-md-2">
         <img src="${pageContext.request.contextPath}/resources/images/goods/today.png" />
       </div>
+      <c:forEach var="i" items="${today }">
       <div class="col-md-2 todaygoods">
         <img class="d-flex justify-content-center"
-          src="${pageContext.request.contextPath}/resources/images/goods/1_1.jpg" style="width: 160px;">
-        <p class="mb-2 d-flex justify-content-center" style="color:red;">￥&nbsp;213.0</p>
-        <p class="mb-0 d-flex justify-content-center">asoidjfaosfjoiasjd</p>
+          src="${pageContext.request.contextPath}/resources${i.goods_pic }" style="width: 160px;">
+        <p class="mb-2 d-flex justify-content-center" style="color:red;">￥&nbsp;${i.goods_price }</p>
+        <p class="mb-0 d-flex justify-content-center">${i.goods_name }</p>
       </div>
+      </c:forEach>
     </div>
   </div>
 

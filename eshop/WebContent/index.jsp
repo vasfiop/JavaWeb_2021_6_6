@@ -1,3 +1,3 @@
 <script>
-	location.replace("homepage.jsp");
+	location.replace("index.home");
 </script>

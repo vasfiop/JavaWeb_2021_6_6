@@ -1,4 +1,5 @@
 <%@ page pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -35,8 +36,12 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">商品分类</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">1</a>
-                <a class="dropdown-item" href="#">2</a>
+              	<c:forEach var="i" items="${cates }">
+              		<c:forEach var="j" items="${i.childlist }">
+                		<a class="dropdown-item" href="#">${j.cate_name }</a>
+                	</c:forEach>
+                	<div class="dropdown-divider"></div>
+                </c:forEach>
               </div>
             </li>
           </ul>
