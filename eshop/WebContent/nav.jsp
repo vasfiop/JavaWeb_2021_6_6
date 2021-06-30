@@ -38,7 +38,7 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               	<c:forEach var="i" items="${cates }" varStatus="vs">
               		<c:forEach var="j" items="${i.childlist }">
-                		<a class="dropdown-item" href="#">${j.cate_name }</a>
+                		<a class="dropdown-item" href="${pageContext.request.contextPath }/goods/type.goods?cateid=${j.cate_id }">${j.cate_name }</a>
                 	</c:forEach>
                 	<c:if test="${! vs.last }">
                 		<div class="dropdown-divider"></div>
@@ -47,7 +47,7 @@
               </div>
             </li>
           </ul>
-          <form class="form-inline ml-5">
+          <form class="form-inline ml-5" method="post" action="#">
             <input class="form-control mr-sm-2" type="text" />
             <button class="btn my-2 my-sm-0 btn-outline-secondary" type="submit">
               搜索

@@ -88,14 +88,14 @@
             <li class="nav-item ml-md-auto">
               <div class="btn-group btn-group-sm" role="group">
                 <c:forEach var="j" items="${i.childlist }">
-                  <button class="btn btn-outline-secondary ml-1" type="button">
+                  <a class="btn btn-outline-secondary ml-1" type="button" href="#">
                     ${j.cate_name }
-                  </button>
+                  </a>
                 </c:forEach>
               </div>
             </li>
             <li class="nav-item ml-2">
-              <a type="button" class="btn btn-outline-primary">
+              <a type="button" class="btn btn-outline-primary btn-sm" href="#">
                 更多商品
               </a>
             </li>
