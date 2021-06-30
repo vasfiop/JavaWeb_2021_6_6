@@ -14,7 +14,7 @@ public class HomeService {
 		for (Map<String, Object> map : cate_list) {
 			int cateid = (int) map.get("cate_id");
 			map.put("childlist", db.getList(sql_type, new Object[] { cateid }));
-			map.put("goodlist", db.getList(sql_goods, new Object[] { cateid }));
+			map.put("goodslist", db.getList(sql_goods, new Object[] { cateid }));
 		}
 		return cate_list;
 	}

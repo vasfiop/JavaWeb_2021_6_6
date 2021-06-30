@@ -6,13 +6,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import cn.edu.neu.service.HomeService;
 
-@WebServlet("*.home")
-public class HomeController extends HttpServlet {
+import cn.edu.neu.service.HomeService;
+import cn.edu.neu.service.GoodsService;
+
+@WebServlet("*.goods")
+public class GoodsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public HomeController() {
+	public GoodsController() {
 		super();
 	}
 
@@ -20,13 +22,15 @@ public class HomeController extends HttpServlet {
 			throws ServletException, IOException {
 		String path = request.getServletPath();
 		path = path.substring(path.lastIndexOf('/') + 1, path.indexOf('.'));
-		if (path.equals("index")) {
-//			首页
-			request.setAttribute("cates", HomeService.getSort());
-			request.setAttribute("today", HomeService.getToday());
-			request.setAttribute("hots", HomeService.getHot());
-			request.setAttribute("urlkey", "index");
-			request.getRequestDispatcher("homepage.jsp").forward(request, response);
+		if (path.equals("hotGoods")) {
+//			热销商品
+			request.setAttribute("urlkey", "hotGoods");
+			request.setAttribute("goods", HomeService.getHot());
+			request.getRequestDispatcher("hot_goods.jsp").forward(request, response);
+		} else if(path.equals("newGoods")) {
+			request.setAttribute("urlkey", "newGoods");
+			request.setAttribute("goods", GoodsService.getShopByDate());
+			request.getRequestDispatcher("new_goods.jsp").forward(request, response);
 		}
 	}
 
@@ -34,4 +38,5 @@ public class HomeController extends HttpServlet {
 			throws ServletException, IOException {
 		doGet(request, response);
 	}
+
 }

@@ -47,4 +47,5 @@
 <fullyQualifiedTypeName name="service.TalkService"/>
 <fullyQualifiedTypeName name="org.apache.jasper.tagplugins.jstl.core.ForEach"/>
 <fullyQualifiedTypeName name="cn.edu.neu.service.HomeService"/>
+<fullyQualifiedTypeName name="cn.edu.neu.service.ShopService"/>
 </qualifiedTypeNameHistroy>

@@ -65,69 +65,86 @@
         <img src="${pageContext.request.contextPath}/resources/images/goods/today.png" />
       </div>
       <c:forEach var="i" items="${today }">
-      <div class="col-md-2 todaygoods">
-        <img class="d-flex justify-content-center"
-          src="${pageContext.request.contextPath}/resources${i.goods_pic }" style="width: 160px;">
-        <p class="mb-2 d-flex justify-content-center" style="color:red;">￥&nbsp;${i.goods_price }</p>
-        <p class="mb-0 d-flex justify-content-center">${i.goods_name }</p>
-      </div>
+        <div class="col-md-2 todaygoods">
+          <a href="${pageContext.request.contextPath}/goods/gooditem.goods?goodsid=${i.goods_id }">
+            <img class="d-flex justify-content-center" src="${pageContext.request.contextPath}/resources${i.goods_pic }"
+              style="width: 160px;">
+            <p class="mb-2 d-flex justify-content-center" style="color:red;">￥&nbsp;${i.goods_price }</p>
+            <p class="mb-0 d-flex justify-content-center" style="color:black">${i.goods_name }</p>
+          </a>
+        </div>
       </c:forEach>
     </div>
   </div>
 
-  <div class="container mt-3">
-    <div class="row">
-      <div class="col-md-12">
-        <ul class="nav">
-          <li class="nav-item">
-            <h2>食品 <span style="font-size:14px;">来来来，干翻</span></h2>
-          </li>
-          <li class="nav-item ml-md-auto">
-            <div class="btn-group btn-group-sm" role="group">
-              <button class="btn btn-outline-secondary ml-1" type="button">
-                小类
-              </button>
-            </div>
-          </li>
-          <li class="nav-item ml-2">
-            <button type="button" class="btn btn-outline-primary">
-              更多商品
-            </button>
-          </li>
-        </ul>
-        <hr class="mt-0" style="border:1px solid;background:black;" />
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-2">
-              <figure class="figure homegoods">
-                <img src="${pageContext.request.contextPath}/resources/images/goods/1_1.jpg" style="width: 160px;">
-                <figcaption class="figure-caption text-center caption-style">
-                  <p class="pb-2 mb-0 pt-2 d-flex justify-content-center">恰饭</p>
-                  <p class="pb-2 mb-0 d-flex justify-content-center" style="color:red;">￥&nbsp;2.0</p>
-                </figcaption>
-              </figure>
+  <c:forEach var="i" items="${cates }">
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav">
+            <li class="nav-item">
+              <h2>${i.cate_name }&nbsp;<span style="font-size:14px;">${i.cate_desc }</span></h2>
+            </li>
+            <li class="nav-item ml-md-auto">
+              <div class="btn-group btn-group-sm" role="group">
+                <c:forEach var="j" items="${i.childlist }">
+                  <button class="btn btn-outline-secondary ml-1" type="button">
+                    ${j.cate_name }
+                  </button>
+                </c:forEach>
+              </div>
+            </li>
+            <li class="nav-item ml-2">
+              <a type="button" class="btn btn-outline-primary">
+                更多商品
+              </a>
+            </li>
+          </ul>
+          <hr class="mt-0" style="border:1px solid;background:black;" />
+          <div class="container-fluid">
+            <div class="row">
+              <c:forEach var="j" items="${i.goodslist }">
+                <div class="col-md-2">
+                  <a href="${pageContext.request.contextPath}/goods/gooditem.goods?goodsid=${j.goods_id }">
+                    <figure class="figure homegoods">
+                      <img src="${pageContext.request.contextPath}/resources${j.goods_pic }" style="width: 160px;">
+                      <figcaption class="figure-caption text-center caption-style">
+                        <p class="pb-2 mb-0 pt-2 d-flex justify-content-center">${j.goods_name }</p>
+                        <p class="pb-2 mb-0 d-flex justify-content-center" style="color:red;">￥&nbsp;${j.goods_price }
+                        </p>
+                      </figcaption>
+                    </figure>
+                  </a>
+                </div>
+              </c:forEach>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </c:forEach>
 
-  <div class="container">
+  <div class="container mt-4">
     <div class="row">
       <div class="col-md-12">
         <div class="card">
           <h5 class="card-header">热销商品</h5>
           <div class="card-body">
-            <div class="col-md-2">
-              <figure class="figure homegoods mb-0">
-                <img src="${pageContext.request.contextPath }/resources//images/goods/tj_2.jpg"
-                  class="figure-img img-fluid rounded">
-                <figcaption class="figure-caption text-center caption-style">
-                  <p class="mb-0">榛子</p>
-                  <p style="color: red;" class="mb-0">￥&nbsp;213.0</p>
-                </figcaption>
-              </figure>
+            <div class="row">
+              <c:forEach var="i" begin="0" end="5">
+                <div class="col-md-2 mb-3">
+                  <a href="${pageContext.request.contextPath}/goods/gooditem.goods?goodsid=${hots[i].goods_id }">
+                    <figure class="figure homegoods mb-0">
+                      <img src="${pageContext.request.contextPath }/resources${hots[i].goods_pic }"
+                        class="figure-img img-fluid rounded">
+                      <figcaption class="figure-caption text-center caption-style">
+                        <p class="mb-0">${hots[i].goods_name }</p>
+                        <p style="color: red;" class="mb-0">￥&nbsp;${hots[i].goods_price }</p>
+                      </figcaption>
+                    </figure>
+                  </a>
+                </div>
+              </c:forEach>
             </div>
           </div>
         </div>

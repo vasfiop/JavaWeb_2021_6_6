@@ -21,26 +21,28 @@
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <!-- TODO 随意购商城链接 -->
-        <a class="navbar-brand" href="#">随意购<small>商城</small></a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath }/index.home">随意购<small>商城</small></a>
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">首页</a>
+            <li class="nav-item ${urlkey == 'index' ? 'active' : '' }">
+              <a class="nav-link" href="${pageContext.request.contextPath }/index.home">首页</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">热销商品</a>
+            <li class="nav-item ${urlkey == 'hotGoods' ? 'active' : '' }">
+              <a class="nav-link" href="${pageContext.request.contextPath }/goods/hotGoods.goods">热销商品</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">新到商品</a>
+            <li class="nav-item ${urlkey == 'newGoods' ? 'active' : '' }">
+              <a class="nav-link" href="${pageContext.request.contextPath }/goods/newGoods.goods">新到商品</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">商品分类</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              	<c:forEach var="i" items="${cates }">
+              	<c:forEach var="i" items="${cates }" varStatus="vs">
               		<c:forEach var="j" items="${i.childlist }">
                 		<a class="dropdown-item" href="#">${j.cate_name }</a>
                 	</c:forEach>
-                	<div class="dropdown-divider"></div>
+                	<c:if test="${! vs.last }">
+                		<div class="dropdown-divider"></div>
+                	</c:if>
                 </c:forEach>
               </div>
             </li>
