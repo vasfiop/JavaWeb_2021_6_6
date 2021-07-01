@@ -33,13 +33,16 @@
                   <a href="${pageContext.request.contextPath}/goods/gooditem.goods?goodsid=${i.goods_id }">
                     <figure class="figure mb-0">
                       <img src="${pageContext.request.contextPath }/resources${i.goods_pic }"
-                        class="figure-img img-fluid rounded" style="width:240px;">
+                        class="figure-img img-fluid rounded" style="width:240px;height:240px;">
                       <figcaption class="figure-caption text-center caption-style">
-                        <p class="mb-0" style="color: black;">${i.goods_name }</p>
+                        <p class="mb-0 pt-3" style="color: black;">${i.goods_name }</p>
                         <p style="color: black;" class="mb-0">原价￥&nbsp;${i.goods_price }</p>
                         <p class="m-0 pt-2 pb-2" style="color: black;">现售&nbsp;<span
                             class="badge badge-pill badge-success">￥${i.goods_discount }</span></p>
                         <p class="m-0 pt-2 pb-2" style="color: black;">共出售${i.goods_sales } </p>
+                        <button type="button" class="btn btn-primary mb-3" href="">
+                          显示详情
+                        </button>
                       </figcaption>
                     </figure>
                   </a>
