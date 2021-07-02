@@ -29,4 +29,16 @@ public class HomeService {
 		return db.getList(sql);
 	}
 
+//	通过用户名和密码找到用户
+	public static Map<String, Object> getUser(String username, String password) {
+		String sql = "SELECT * FROM t_user WHERE user_name = ? AND user_pass = ?";
+		String[] params = { username, password };
+		return db.getMap(sql, params);
+	}
+
+	public static int addUser(String username, String password, String age, String sex, String email) {
+		String sql = "insert into t_user values(null,?,?,?,?,?,0)";
+		String[] params = { username, password, age, sex, email };
+		return db.update(sql, params);
+	}
 }

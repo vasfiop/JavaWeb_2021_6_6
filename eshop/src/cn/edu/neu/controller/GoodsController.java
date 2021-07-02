@@ -20,7 +20,6 @@ public class GoodsController extends HttpServlet {
 		super();
 	}
 
-	@SuppressWarnings({ "unused" })
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");

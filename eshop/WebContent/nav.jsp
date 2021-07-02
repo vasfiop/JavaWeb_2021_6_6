@@ -5,9 +5,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <c:if test="${user.username == null }">
-        <nav>
-          <ol class="breadcrumb d-flex justify-content-end">
+
+      <nav>
+        <ol class="breadcrumb d-flex justify-content-end" id="info">
+          <c:if test="${user.user_name == null }">
             <li class="breadcrumb-item">
               <span>游客您好，欢迎来到随意购商城！</span>
             </li>
@@ -15,23 +16,18 @@
                 href="#regFormModal" role="button" data-toggle="modal">[新用户注册]</a>
             </li>
             <li class="breadcrumb-item"><a href="#">购物车</a></li>
-          </ol>
-        </nav>
-      </c:if>
-
-      <c:if test="${user.username != null }">
-        <nav>
-          <ol class="breadcrumb d-flex justify-content-end">
+          </c:if>
+          <c:if test="${user.user_name != null }">
             <li class="breadcrumb-item">
-              <span>${user.username }您好，欢迎来到随意购商城！</span>
+              <span>${user.user_name }&nbsp;您好，欢迎来到随意购商城！</span>
             </li>
             <li class="breadcrumb-item"><a href="#">购物车</a></li>
             <li class="breadcrumb-item"><a href="#">我的订单</a></li>
             <li class="breadcrumb-item"><a href="#">个人中心</a></li>
-            <li class="breadcrumb-item"><a href="#">退出登录</a></li>
-          </ol>
-        </nav>
-      </c:if>
+            <li class="breadcrumb-item"><a href="logout.home">退出登录</a></li>
+          </c:if>
+        </ol>
+      </nav>
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="${pageContext.request.contextPath }/index.home">随意购<small>商城</small></a>
