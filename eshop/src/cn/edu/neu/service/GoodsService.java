@@ -37,7 +37,7 @@ public class GoodsService {
 		else if (sort.equals("3"))
 			sql = "SELECT * FROM t_goods WHERE goods_name LIKE ? order by goods_sales";
 		else if (sort.equals("4"))
-			sql = "SELECT * FROM t_goods WHERE cate_id = ? order by goods_sales DESC";
+			sql = "SELECT * FROM t_goods WHERE goods_name LIKE ? order by goods_sales DESC";
 		String[] params = { "%" + search + "%" };
 		return db.getList(sql, params);
 	}

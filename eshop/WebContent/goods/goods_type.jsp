@@ -20,8 +20,9 @@
               <c:forEach var="i" items="${cates }">
                 <c:forEach var="j" items="${i.childlist }">
                   <a href="${pageContext.request.contextPath }/goods/type.goods?cateid=${j.cate_id }"
-                    class="list-group-item list-group-item-action ${j.cate_id == urlkey ? 'active' : '' }">${j.cate_name
-                    }</a>
+                    class="list-group-item list-group-item-action ${j.cate_id  == value ? 'active' : '' }">
+                    ${j.cate_name }
+                  </a>
                 </c:forEach>
               </c:forEach>
             </div>

@@ -26,6 +26,7 @@ public class GoodsController extends HttpServlet {
 		String path = request.getServletPath();
 		path = path.substring(path.lastIndexOf('/') + 1, path.indexOf('.'));
 		List<Map<String, Object>> cates = HomeService.getSort();
+		request.getSession().removeAttribute("search");
 		request.setAttribute("cates", cates);
 		if (path.equals("hotGoods")) {
 //			热销商品
@@ -44,19 +45,20 @@ public class GoodsController extends HttpServlet {
 			request.setAttribute("goods", GoodsService.getShop("cate_id", id));
 			request.setAttribute("urlkey", id);
 			request.getSession().setAttribute("value", id);
+			request.getSession().removeAttribute("search");
 			request.getRequestDispatcher("goods_type.jsp").forward(request, response);
-
 		} else if (path.equals("search")) {
 			String search = request.getParameter("search");
 			request.getSession().setAttribute("search", search);
 			request.setAttribute("goods", GoodsService.search(search));
+			request.setAttribute("urlkey", "search");
 			request.getRequestDispatcher("goods_type.jsp").forward(request, response);
 		} else if (path.equals("searchGoods")) {
 			String sort = request.getParameter("sort");
 			String cateid = (String) request.getSession().getAttribute("value");
 			String search = (String) request.getSession().getAttribute("search");
 			List<Map<String, Object>> goods = new ArrayList<Map<String, Object>>();
-
+			
 			if (cateid != null && !cateid.equals(""))
 				goods = GoodsService.getShopBySort(sort, cateid);
 
@@ -65,6 +67,7 @@ public class GoodsController extends HttpServlet {
 			}
 
 			request.setAttribute("goods", goods);
+			request.setAttribute("urlkey", cateid);
 			request.getRequestDispatcher("goods_type.jsp").forward(request, response);
 		}
 	}

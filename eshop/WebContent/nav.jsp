@@ -2,6 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
+<%@ include file="toast.jsp"%>
+
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -63,25 +65,30 @@
             </li>
           </ul>
           <form class="form-inline ml-5" method="post" action="${pageContext.request.contextPath }/goods/search.goods">
-            <input class="form-control mr-sm-2" type="text" name="search" value="${param.search }" />
+            <input class="form-control mr-sm-2" type="text" name="search" value="${search }" />
             <button class="btn my-2 my-sm-0 btn-outline-secondary" type="submit">搜索</button>
           </form>
-          <ul class="navbar-nav ml-md-auto">
-            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
-                data-toggle="dropdown">排序</a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item"
-                  href="${pageContext.request.contextPath}/goods/searchGoods.goods?sort=1">按价格从低到高</a>
-                <a class="dropdown-item"
-                  href="${pageContext.request.contextPath}/goods/searchGoods.goods?sort=2">按价格从高到低</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item"
-                  href="${pageContext.request.contextPath}/goods/searchGoods.goods?sort=3">按销量从高到低</a>
-                <a class="dropdown-item"
-                  href="${pageContext.request.contextPath}/goods/searchGoods.goods?sort=4">按销量从低到高</a>
-              </div>
-            </li>
-          </ul>
+
+          <c:set var="i" value="${value }" />
+          <c:if test="${urlkey == 'search' || urlkey == i }">
+            <ul class="navbar-nav ml-md-auto">
+              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+                  data-toggle="dropdown">排序</a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item"
+                    href="${pageContext.request.contextPath}/goods/searchGoods.goods?sort=1">按价格从低到高</a>
+                  <a class="dropdown-item"
+                    href="${pageContext.request.contextPath}/goods/searchGoods.goods?sort=2">按价格从高到低</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item"
+                    href="${pageContext.request.contextPath}/goods/searchGoods.goods?sort=3">按销量从高到低</a>
+                  <a class="dropdown-item"
+                    href="${pageContext.request.contextPath}/goods/searchGoods.goods?sort=4">按销量从低到高</a>
+                </div>
+              </li>
+            </ul>
+          </c:if>
+
         </div>
       </nav>
 

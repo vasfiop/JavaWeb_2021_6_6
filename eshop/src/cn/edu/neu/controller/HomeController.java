@@ -23,6 +23,7 @@ public class HomeController extends HttpServlet {
 			throws ServletException, IOException {
 		String path = request.getServletPath();
 		path = path.substring(path.lastIndexOf('/') + 1, path.indexOf('.'));
+		request.getSession().removeAttribute("search");
 		if (path.equals("index")) {
 //			首页
 			request.setAttribute("cates", HomeService.getSort());
@@ -45,9 +46,11 @@ public class HomeController extends HttpServlet {
 				out.print("{\"login\":false}");
 			out.flush();
 		} else if (path.equals("logout")) {
+//			退出登录
 			request.getSession().invalidate();
-			response.sendRedirect("index.home");
+			response.sendRedirect(request.getContextPath() + "/index.home");
 		} else if (path.equals("reg")) {
+//			注册
 			response.setContentType("text/json;charset=utf-8");
 			PrintWriter out = response.getWriter();
 			String username = request.getParameter("userName");
@@ -56,7 +59,6 @@ public class HomeController extends HttpServlet {
 			String age = request.getParameter("userAge");
 			String sex = request.getParameter("userSex");
 			String email = request.getParameter("userEmail");
-
 			if (!password.equals(password1)) {
 				out.print("{\"value\":1}");
 			} else {
@@ -69,6 +71,17 @@ public class HomeController extends HttpServlet {
 					out.print("{\"value\":-1}");
 				}
 			}
+			out.flush();
+		} else if (path.equals("checkname")) {
+//			检查注册用户名
+			response.setContentType("text/json;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			String username = request.getParameter("username");
+			Map<String, Object> user = HomeService.getUserByOneLine("user_name", username);
+			if (user != null)
+				out.print("{\"value\":false}");
+			else
+				out.print("{\"value\":true}");
 			out.flush();
 		}
 	}

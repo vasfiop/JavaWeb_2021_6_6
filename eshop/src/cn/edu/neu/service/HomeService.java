@@ -41,4 +41,11 @@ public class HomeService {
 		String[] params = { username, password, age, sex, email };
 		return db.update(sql, params);
 	}
+
+//	通过某一列来查找
+	public static Map<String, Object> getUserByOneLine(String mode, String value) {
+		String sql = "select * from t_user where " + mode + " = ?";
+		String[] params = { value };
+		return db.getMap(sql, params);
+	}
 }
