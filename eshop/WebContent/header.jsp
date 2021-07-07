@@ -8,3 +8,8 @@
 <script src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="${pageContext.request.contextPath}/resources/css/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- zoom -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/zoom/css/ShopShow.css" type="text/css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/zoom/css/MagicZoom.css" type="text/css" />
+<script src="${pageContext.request.contextPath}/resources/zoom/js/MagicZoom.js" type="text/javascript"></script>

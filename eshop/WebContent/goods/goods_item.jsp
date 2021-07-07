@@ -36,9 +36,9 @@
       <div class="col-md-12">
         <nav>
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">首页</a></li>
-            <li class="breadcrumb-item"><a href="#">女装</a></li>
-            <li class="breadcrumb-item active">阿坝吧阿坝吧吧</li>
+            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath }/index.home">首页</a></li>
+            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath }/goods/type.goods?cateid=${good.cate_id }">${good.cate_name }</a></li>
+            <li class="breadcrumb-item active">${good.goods_name }</li>
           </ol>
         </nav>
       </div>
@@ -48,60 +48,69 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <img src="" />
+        <!-- 左侧图片展示区开始 -->
+        <div id="tsShopContainer">
+          <div id="tsImgS">
+            <a href="/eshop/resources${good.goods_pic }" title="Images" class="MagicZoom" id="MagicZoom"><img
+                width="350px" height="350px" src="/eshop/resources${good.goods_pic }" /></a>
+          </div>
+          <div id="tsPicContainer">
+            <div id="tsImgSArrL" onclick="tsScrollArrLeft()"></div>
+            <div id="tsImgSCon">
+              <ul>
+                <c:forEach var="i" items="${good.pic }">
+                  <li onclick="showPic()" rel="MagicZoom"><img height="42" width="42"
+                      src="/eshop/resources${i.pic_url }" tsImgS="/eshop/resources${i.pic_url }" /></li>
+                </c:forEach>
+              </ul>
+            </div>
+            <div id="tsImgSArrR" onclick="tsScrollArrRight()"></div>
+          </div>
+          <script src="/eshop/resources/zoom/js/ShopShow.js"></script>
+          <img class="MagicZoomLoading" width="16" height="16" src="/eshop/resources/zoom/images/loading.gif"
+            alt="Loading..." />
+        </div>
       </div>
       <div class="col-md-8">
-        <h5>h3. Lorem ipsum dolor sit amet.</h5>
+        <h5>${good.goods_name }</h5>
         <div class="p-4 bg-light border">
           <p class="text-secondary">
-            促销价：<span class="text-danger">￥<strong style="font-size: 20px;">233</strong></span>
+            促销价：<span class="text-danger">￥<strong style="font-size: 20px;">${good.goods_discount }</strong></span>
           </p>
           <p class="text-secondary">
             原价：
-            <del class="">￥233</del>
+            <del class="">￥${good.goods_price }</del>
           </p>
-          <p class="mb-0 text-secondary">已售出11件</p>
+          <p class="mb-0 text-secondary">已售出${good.goods_sales }件</p>
         </div>
 
-        <form class="">
+        <form class="" id="goods_items_form" method="post" action="">
 
-          <div class="input-group mb-3 radio_group">
-            <div class="input-group-prepend">
-              <div class="radio_group_title">颜色:</div>
-
-              <input type="radio" name="color" id="color_1" style="display: none;"> <label for="color_1">红色</label>
-
-              <input type="radio" name="color" id="color_2" style="display: none;"> <label for="color_2">黑色</label>
-
-              <input type="radio" name="color" id="color_3" style="display: none;"> <label for="color_3">黑色</label>
+          <c:forEach var="i" items="${good.typetitle }" varStatus="vt">
+            <div class="input-group mb-3 mt-2 radio_group">
+              <div class="input-group-prepend">
+                <div class="radio_group_title">${i.type_name }:</div>
+                <c:forEach var="j" items="${good.typename }" varStatus="vs">
+                  <c:if test="${j.type_id == i.type_id }">
+                    <input type="radio" name="type${vt.count }" id="color_${vs.count }" style="display: none;">
+                    <label for="color_${vs.count }">${j.content }</label>
+                  </c:if>
+                </c:forEach>
+              </div>
             </div>
-          </div>
-
-          <div class="input-group mb-3 radio_group">
-            <div class="input-group-prepend">
-              <div class="radio_group_title">尺寸:</div>
-
-              <input type="radio" name="size" id="size_1" style="display: none;"> <label for="size_1">女士S</label>
-
-              <input type="radio" name="size" id="size_2" style="display: none;"> <label for="size_2">女士M</label>
-
-              <input type="radio" name="size" id="size_3" style="display: none;"> <label for="size_3">女士L</label>
-            </div>
-          </div>
+          </c:forEach>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <div class="radio_group_title">数量:</div>
-
-              <input type="number" name="count" value="1" min="1" max="99">
+              <input type="number" name="count" value="1" min="1" max="99" id="count">
             </div>
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <div class="radio_group_title">运费:</div>
-
-              <div class="radio_group_title">￥120</div>
+              <div class="radio_group_title">￥${good.goods_postalfee }</div>
             </div>
           </div>
 
@@ -124,22 +133,28 @@
       <div class="col-md-12">
         <div class="card">
           <h5 class="card-header">商品详情</h5>
-          <div class="card-body  p-0">
-            <table class="table mb-0">
-              <tbody>
-                <tr>
-                  <th>宝贝详情</th>
-                  <td>TB - Monthly</td>
-                </tr>
-                <tr>
-                  <th>产地</th>
-                  <td>TB - Monthly</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="card-body">
+            <dl class="row mb-0">
+              <dt class="col-sm-3">宝贝详情</dt>
+              <dd class="col-sm-9">${good.goods_disc }</dd>
+
+              <dt class="col-sm-3">产地</dt>
+              <dd class="col-sm-9">${good.goods_origin }</dd>
+            </dl>
           </div>
           <div class="card-footer">
-          	<img>
+            <div class="container">
+
+              <div class="d-flex justify-content-center">
+                <img src="/eshop/resources${good.goods_pic }" style="width:400px;" class="mb-2">
+              </div>
+
+              <c:forEach var="i" items="${good.pic }">
+                <div class="d-flex justify-content-center">
+                  <img src="/eshop/resources${i.pic_url }" style="width:400px;" class="mb-2">
+                </div>
+              </c:forEach>
+            </div>
           </div>
         </div>
       </div>

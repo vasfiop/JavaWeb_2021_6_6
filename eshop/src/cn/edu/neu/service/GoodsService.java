@@ -56,4 +56,20 @@ public class GoodsService {
 		String[] params = { cateid };
 		return db.getList(sql, params);
 	}
+
+//	通过id来查找
+	public static Map<String, Object> getGoodById(String goods_id) {
+		String sql_good = "SELECT g.*,(select cate_name from t_category where cate_id = g.cate_id) as cate_name from t_goods g where goods_id = ?";
+		String sql_type = "SELECT * FROM t_goodsdetail WHERE goods_id = ? ORDER BY type_id";
+		String sql_type_name = "SELECT * FROM t_goodsdetailtype WHERE type_id in(SELECT type_id FROM t_goodsdetail WHERE goods_id = ? ORDER BY type_id)";
+		String sql_pic = "SELECT * FROM t_pic WHERE goods_id = ?";
+
+		Object[] params = { goods_id };
+		Map<String, Object> good = db.getMap(sql_good, params);
+		good.put("typetitle", db.getList(sql_type_name, params));
+		good.put("typename", db.getList(sql_type, params));
+		good.put("pic", db.getList(sql_pic, params));
+		
+		return good;
+	}
 }

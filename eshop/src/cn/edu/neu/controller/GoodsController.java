@@ -58,7 +58,7 @@ public class GoodsController extends HttpServlet {
 			String cateid = (String) request.getSession().getAttribute("value");
 			String search = (String) request.getSession().getAttribute("search");
 			List<Map<String, Object>> goods = new ArrayList<Map<String, Object>>();
-			
+
 			if (cateid != null && !cateid.equals(""))
 				goods = GoodsService.getShopBySort(sort, cateid);
 
@@ -69,6 +69,11 @@ public class GoodsController extends HttpServlet {
 			request.setAttribute("goods", goods);
 			request.setAttribute("urlkey", cateid);
 			request.getRequestDispatcher("goods_type.jsp").forward(request, response);
+		} else if (path.equals("gooditem")) {
+			String goods_id = request.getParameter("goodsid");
+			Map<String, Object> good = GoodsService.getGoodById(goods_id);
+			request.setAttribute("good", good);
+			request.getRequestDispatcher("goods_item.jsp").forward(request, response);
 		}
 	}
 
