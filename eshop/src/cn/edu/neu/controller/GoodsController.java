@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.alibaba.fastjson.JSONObject;
+
 import cn.edu.neu.service.HomeService;
 import cn.edu.neu.service.GoodsService;
 
@@ -80,33 +82,54 @@ public class GoodsController extends HttpServlet {
 			response.setContentType("text/json;charset=utf-8");
 			PrintWriter out = response.getWriter();
 
-			Map<String, Object> carts = (Map<String, Object>) request.getSession().getAttribute("carts");
+			Map<String, Map<String, Object>> carts = (Map<String, Map<String, Object>>) request.getSession()
+					.getAttribute("carts");
 			String goods_id = request.getParameter("goods_id");
 			String goods_name = request.getParameter("goods_name");
 			String goods_pic = request.getParameter("goods_pic");
 			String goods_price = request.getParameter("goods_price");
 			String goods_count = request.getParameter("goods_count");
+			JSONObject json = null;
 
 			if (carts != null && carts.get(goods_id) != null) {
 				Map<String, Object> item = (Map<String, Object>) carts.get(goods_id);
 				String newCount = String
 						.valueOf(Integer.valueOf(goods_count) + Integer.valueOf((String) item.get("goods_count")));
-				((Map<String, Object>) carts.get(goods_id)).put("goods_count", newCount);
+				item.put("goods_count", newCount);
+				json = new JSONObject(item);
 			} else {
 				Map<String, Object> item = new HashMap<String, Object>();
 				if (carts == null)
-					carts = new HashMap<String, Object>();
+					carts = new HashMap<String, Map<String, Object>>();
 				item.put("goods_id", goods_id);
 				item.put("goods_name", goods_name);
 				item.put("goods_pic", goods_pic);
 				item.put("goods_price", goods_price);
 				item.put("goods_count", goods_count);
+				json = new JSONObject(item);
 				carts.put(goods_id, item);
 			}
-			out.print(carts.size());
+			out.print("{\"size\":" + carts.size() + ",\"newgoods\":" + json + "}");
 			out.flush();
 			request.getSession().setAttribute("carts", carts);
 			request.getSession().setAttribute("cartcount", carts.size());
+		} else if (path.equals("delCart")) {
+			response.setContentType("text/json;charset=utf-8");
+			PrintWriter out = response.getWriter();
+
+			String goods_id = request.getParameter("goods_id");
+			Map<String, Object> carts = (Map<String, Object>) request.getSession().getAttribute("carts");
+			try {
+				carts.remove(goods_id);
+				out.print("{\"success\":true,\"size\":" + carts.size() + "}");
+			} catch (Exception e) {
+				System.out.println("ERROR::exception");
+				out.print("{\"success\":false}");
+			}
+
+			request.getSession().setAttribute("carts", carts);
+			request.getSession().setAttribute("cartcount", carts.size());
+			out.flush();
 		}
 	}
 

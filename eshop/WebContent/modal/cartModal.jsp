@@ -17,9 +17,9 @@
           </button>
         </div>
 
-        <div class="modal-body p-0" id="card-body">
+        <div class="modal-body p-0" id="cart-body">
           <c:if test="${not empty sessionScope.carts }">
-            <table class="table" id="card-tab">
+            <table class="table" id="cart-tab">
               <thead>
                 <tr>
                   <th>#</th>
@@ -31,22 +31,23 @@
                   <th>操作</th>
                 </tr>
               </thead>
-              <tbody id="card-tbody">
+              <tbody id="cart-tbody">
                 <c:set var="count" value="0" />
                 <c:set var="price" value="0" />
                 <c:forEach varStatus="vs" var="i" items="${carts }">
                   <c:set var="j" value="${i.value }" />
-                  <tr>
+                  <tr data-goodsid="${j.goods_id }">
                     <td>${vs.count }</td>
                     <td><img src="/eshop/resources${j.goods_pic }" style="height:56px;width:56px;" class="border">
                     </td>
                     <td>${j.goods_name }</td>
                     <td>${j.goods_price }</td>
-                    <td data-goodsid="1"><input type="number" name="number" value="${j.goods_count }" min="1" max="99"
-                        id="number" required="required"></td>
-                    <td><span id="totalprice1">${j.goods_price*j.goods_count }</span></td>
+                    <td><input type="number" name="number" value="${j.goods_count }" min="1" max="99"
+                        id="number${j.goods_id }" required="required"></td>
+                    <td><span id="totalprice${j.goods_id }">${j.goods_price*j.goods_count }</span></td>
                     <td>
-                      <a href="#" class="btn btn-sm btn-outline-primary" onclick="delCart()">
+                      <a href="#" class="btn btn-sm btn-outline-primary" onclick="delCart(${j.goods_id })"
+                        id="del${j.goods_id }">
                         删除
                       </a>
                     </td>
@@ -79,7 +80,9 @@
         </div>
 
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">确认下单</button>
+          <c:if test="${empty sessionScope.carts }">
+            <button type="submit" class="btn btn-primary">确认下单</button>
+          </c:if>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             关闭窗口</button>
         </div>
