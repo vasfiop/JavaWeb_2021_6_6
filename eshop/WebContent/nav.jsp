@@ -17,13 +17,15 @@
             <li class="breadcrumb-item"><a href="#loginFormModal" role="button" data-toggle="modal">[登陆]</a> &nbsp; <a
                 href="#regFormModal" role="button" data-toggle="modal">[新用户注册]</a>
             </li>
-            <li class="breadcrumb-item"><a href="#">购物车</a></li>
+            <li class="breadcrumb-item"><a href="#" onclick="alert('请先登录')">购物车</a>
+              <span class="badge badge-pill badge-success">0</span></li>
           </c:if>
           <c:if test="${user.user_name != null }">
             <li class="breadcrumb-item">
               <span>${user.user_name }&nbsp;您好，欢迎来到随意购商城！</span>
             </li>
-            <li class="breadcrumb-item"><a href="#">购物车</a></li>
+            <li class="breadcrumb-item"><a href="#cartModal" data-toggle="modal">购物车</a>
+              <span class="badge badge-pill badge-success" id="user_cart_count">${empty cartcount ? 0 : cartcount}</span></li>
             <li class="breadcrumb-item"><a href="#">我的订单</a></li>
             <li class="breadcrumb-item"><a href="#">个人中心</a></li>
             <li class="breadcrumb-item"><a href="logout.home">退出登录</a></li>

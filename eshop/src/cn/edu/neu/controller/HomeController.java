@@ -41,6 +41,7 @@ public class HomeController extends HttpServlet {
 			Map<String, Object> user = HomeService.getUser(username, password);
 			if (user != null) {
 				request.getSession().setAttribute("user", user);
+				
 				out.print("{\"login\":true}");
 			} else
 				out.print("{\"login\":false}");

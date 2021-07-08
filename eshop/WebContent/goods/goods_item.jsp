@@ -26,6 +26,19 @@
       color: #000;
     }
   </style>
+  <script type="text/javascript">
+    $(function () {
+      $('#goods_items_form').submit(function () {
+        $.post("${pageContext.request.contextPath}/goods/addCart.goods",
+          $('#goods_items_form').serialize(),
+          function (resa) {
+            $('#user_cart_count').html(resa);
+            
+          }, "json");
+        return false;
+      });
+    });
+  </script>
 </head>
 
 <body>
@@ -37,7 +50,9 @@
         <nav>
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="${pageContext.request.contextPath }/index.home">首页</a></li>
-            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath }/goods/type.goods?cateid=${good.cate_id }">${good.cate_name }</a></li>
+            <li class="breadcrumb-item"><a
+                href="${pageContext.request.contextPath }/goods/type.goods?cateid=${good.cate_id }">${good.cate_name
+                }</a></li>
             <li class="breadcrumb-item active">${good.goods_name }</li>
           </ol>
         </nav>
@@ -84,8 +99,12 @@
           <p class="mb-0 text-secondary">已售出${good.goods_sales }件</p>
         </div>
 
-        <form class="" id="goods_items_form" method="post" action="">
-
+        <form class="" id="goods_items_form" method="post"
+          action="${pageContext.request.contextPath }/goods/addCart.goods">
+          <input name="goods_id" id="goods_id" value="${good.goods_id }" type="hidden">
+          <input name="goods_price" id="goods_price" value="${good.goods_discount }" type="hidden">
+          <input name="goods_pic" id="goods_pic" value="${good.goods_pic }" type="hidden">
+          <input name="goods_name" id="goods_name" value="${good.goods_name }" type="hidden">
           <c:forEach var="i" items="${good.typetitle }" varStatus="vt">
             <div class="input-group mb-3 mt-2 radio_group">
               <div class="input-group-prepend">
@@ -103,7 +122,7 @@
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <div class="radio_group_title">数量:</div>
-              <input type="number" name="count" value="1" min="1" max="99" id="count">
+              <input type="number" name="goods_count" value="1" min="1" max="99" id="goods_count">
             </div>
           </div>
 
@@ -118,7 +137,7 @@
             <button type="button" class="btn btn-primary mr-2 btn-sm">
               立即购买
             </button>
-            <button type="button" class="btn btn-primary btn-sm">
+            <button type="submit" class="btn btn-primary btn-sm">
               加入购物车
             </button>
           </div>
@@ -164,6 +183,7 @@
   <%@ include file="../footer.jsp"%>
   <%@ include file="../modal/loginFormModal.jsp"%>
   <%@ include file="../modal/regFormModal.jsp"%>
+  <%@ include file="../modal/cartModal.jsp"%>
 </body>
 
 </html>
