@@ -130,6 +130,17 @@ public class GoodsController extends HttpServlet {
 			request.getSession().setAttribute("carts", carts);
 			request.getSession().setAttribute("cartcount", carts.size());
 			out.flush();
+		} else if (path.equals("clearCart")) {
+			response.setContentType("text/json;charset=utf-8");
+			PrintWriter out = response.getWriter();
+
+			request.getSession().removeAttribute("carts");
+			request.getSession().removeAttribute("cartcount");
+			System.out.println("³É¹¦");
+
+			out.print("{\"success\":true}");
+
+			out.flush();
 		}
 	}
 

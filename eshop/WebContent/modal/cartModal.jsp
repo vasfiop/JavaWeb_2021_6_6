@@ -60,7 +60,7 @@
             <hr class="m-0">
             <div class="d-flex p-3 justify-content-between">
               <div class="float-left">
-                <a href="#" class="pl-2">
+                <a href="#" class="pl-2" onclick="clearCart()">
                   清空购物车
                 </a>
               </div>
@@ -81,7 +81,7 @@
 
         <div class="modal-footer">
           <c:if test="${empty sessionScope.carts }">
-            <button type="submit" class="btn btn-primary">确认下单</button>
+            <button type="submit" class="btn btn-primary" id="cart_ok_down">确认下单</button>
           </c:if>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             关闭窗口</button>

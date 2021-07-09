@@ -63,7 +63,8 @@
                 '<td><span id="totalprice' + res.newgoods.goods_id + '">' + res.newgoods.goods_count * res
                 .newgoods.goods_price + '</span></td>' +
                 '<td>' +
-                '<a href="#" class="btn btn-sm btn-outline-primary" onclick="delCart()" id="del' + res
+                '<a href="#" class="btn btn-sm btn-outline-primary" onclick="delCart(' + res.newgoods
+                .goods_id + ')" id="del' + res
                 .newgoods.goods_id + '">' +
                 '删除' +
                 '</a>' +
@@ -74,7 +75,7 @@
                 '<hr class="m-0">' +
                 '<div class="d-flex p-3 justify-content-between">' +
                 '<div class="float-left">' +
-                '<a href="#" class="pl-2">' +
+                '<a href="#" class="pl-2" onclick="clearCart()">' +
                 '清空购物车' +
                 '</a>' +
                 '</div>' +
@@ -149,7 +150,9 @@
                 '<strong class="p-2">' +
                 '目前购物车为空，快去购物把' +
                 '</strong>'
+                $('#cart_ok_down').remove();
               );
+              $('#user_cart_count').html('0');
             } else {
               console.log(res.size);
               $('#cart_num').html(res.size);
@@ -163,12 +166,29 @@
 
               $('#cart_sum').html(old_sum - old_price);
               $('tr[data-goodsid=' + goods_id + ']').remove();
+              $('#user_cart_count').html(res.size);
             }
           } else {
             console.log("ERROR::未知错误");
           }
         },
         "json");
+    };
+
+    function clearCart() {
+      $.post("${pageContext.request.contextPath}/goods/clearCart.goods",
+        true,
+        function (res) {
+          if (res.success) {
+            $('#cart-body').html(
+              '<strong class="p-2">' +
+              '目前购物车为空，快去购物把' +
+              '</strong>'
+            );
+            $('#user_cart_count').html("0");
+            $('#cart_ok_down').remove();
+          }
+        }, "json");
     };
   </script>
 </head>
