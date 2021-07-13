@@ -141,6 +141,29 @@ public class GoodsController extends HttpServlet {
 			out.print("{\"success\":true}");
 
 			out.flush();
+		} else if (path.equals("cartNumberAdd")) {
+			System.out.println("this is cart number add");
+			response.setContentType("text/json;charset=utf-8");
+			PrintWriter out = response.getWriter();
+
+			String goods_count = request.getParameter("goods_count");
+			String goods_id = request.getParameter("goods_id");
+			System.out.println("goods_count = " + goods_count);
+			System.out.println("goods_id = " + goods_id);
+
+			Map<String, Object> carts = (Map<String, Object>) request.getSession().getAttribute("carts");
+
+			try {
+				Map<String, Object> item = (Map<String, Object>) carts.get(goods_id);
+				item.put("goods_count", goods_count);
+				carts.put(goods_id, item);
+				out.print("{\"success\":true}");
+			} catch (Exception e) {
+				out.print("{\"success\":false}");
+			}
+
+			request.getSession().setAttribute("carts", carts);
+			out.flush();
 		}
 	}
 

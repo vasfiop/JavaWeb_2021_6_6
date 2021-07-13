@@ -4,8 +4,6 @@ INDEX VERSION 1.4+C:\Users\DELL\Desktop\java\eclipseweb\.metadata\.plugins\org.e
 3228734088.index
 967719751.index
 376570540.index
-1565122425.index
-3956527497.index
 203996479.index
 1735917205.index
 2222163031.index

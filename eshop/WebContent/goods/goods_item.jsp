@@ -59,7 +59,8 @@
                 '<td>' + res.newgoods.goods_name + '</td>' +
                 '<td>' + res.newgoods.goods_price + '</td>' +
                 '<td><input type="number" name="number" value="' + res.newgoods.goods_count +
-                '" min="1" max="99" id="number' + res.newgoods.goods_id + '" required="required"></td>' +
+                '" min="1" max="99" id="number' + res.newgoods.goods_id +
+                '" required="required" onblur="CartBlur(' + res.newgoods.goods_id + ')"></td> ' +
                 '<td><span id="totalprice' + res.newgoods.goods_id + '">' + res.newgoods.goods_count * res
                 .newgoods.goods_price + '</span></td>' +
                 '<td>' +
@@ -85,6 +86,10 @@
                 .goods_price + '</span></span>' +
                 '</div>' +
                 '</div>');
+              $('#cart-body').next().prepend(
+                '<button type="submit" class="btn btn-primary" id="cart_ok_down">' +
+                '确认下单' +
+                '</button >');
             } else {
               var old_price = $('#cart_sum').html();
               old_price = Number(old_price);
@@ -94,14 +99,15 @@
                 console.log("this is new goods");
                 $('#cart-tbody').append(
                   '<tr data-goodsid="' + res.newgoods.goods_id + '">' +
-                  '<td>' + res.newgoods.goods_id + '</td>' +
+                  '<td>' + res.size + '</td>' +
                   '<td><img src="/eshop/resources' + res.newgoods.goods_pic +
                   '" style="height:56px;width:56px;" class="border">' +
                   '</td>' +
                   '<td>' + res.newgoods.goods_name + '</td>' +
                   '<td>' + res.newgoods.goods_price + '</td>' +
                   '<td><input type="number" name="number" value="' + res.newgoods.goods_count +
-                  '" min="1" max="99" id="number' + res.newgoods.goods_id + '" required="required"></td>' +
+                  '" min="1" max="99" id="number' + res.newgoods.goods_id +
+                  '" required="required" onblur="CartBlur(' + res.newgoods.goods_id + ')"></td>' +
                   '<td><span id="totalprice' + res.newgoods.goods_id + '">' + res.newgoods.goods_count * res
                   .newgoods.goods_price + '</span></td>' +
                   '<td>' +
@@ -132,7 +138,6 @@
                 $('#cart_sum').html(new_price);
               }
             }
-
           }, "json");
         return false;
       });
@@ -149,13 +154,20 @@
               $('#cart-body').html(
                 '<strong class="p-2">' +
                 '目前购物车为空，快去购物把' +
-                '</strong>'
-                $('#cart_ok_down').remove();
-              );
+                '</strong>');
+              $('#cart_ok_down').remove();
               $('#user_cart_count').html('0');
             } else {
               console.log(res.size);
               $('#cart_num').html(res.size);
+
+              var tr_goods = $("tr[data-goodsid=" + goods_id + "]");
+              // 更新其后节点的序号
+              tr_goods.nextAll().each(function () {
+                var td_now = $(this).children().first();
+                var now_index = Number(td_now.html());
+                td_now.html(now_index - 1);
+              });
 
               var totalprice = '#totalprice' + goods_id + '';
               var old_price = $(totalprice).html();
@@ -189,6 +201,26 @@
             $('#cart_ok_down').remove();
           }
         }, "json");
+    };
+
+    function CartBlur(goods_id) {
+      var goods_count = $('#number' + goods_id + '').val();
+      if (goods_count > 0) {
+        $.post('${pageContext.request.contextPath}/goods/cartNumberAdd.goods', {
+            "goods_count": goods_count,
+            "goods_id": goods_id
+          },
+          function (res) {
+            if (res.success) {
+              console.log("success");
+            } else {
+              console.log("fail");
+            }
+          }, 'json'
+        );
+      } else {
+        alert("请输入大于0的数字");
+      }
     };
   </script>
 </head>

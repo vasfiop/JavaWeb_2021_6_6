@@ -41,9 +41,9 @@
             $('#regFormModal').modal('hide');
             $('#info').html(
               '<li class="breadcrumb-item"><span>' + username + ' 您好，欢迎来到随意购商城！</span>  </li>' +
-              '<li class="breadcrumb-item"><a href="#cartModal" data-toggle="modal"><span class="badge badge-pill badge-success">0</span>购物车</a></li>' +
+              '<li class="breadcrumb-item"><a href="#cartModal" data-toggle="modal">购物车</a><span class="badge badge-pill badge-success">0</span></li>' +
               '<li class="breadcrumb-item"><a href="#">我的订单</a></li>' +
-              '<li class="breadcrumb-item"><a href="#">个人中心</a></li>' +
+              '<li class="breadcrumb-item"><a href="${pageContext.request.contextPath }/user/index.person">个人中心</a></li>' +
               '<li class="breadcrumb-item"><a href="logout.home">退出登录</a></li>');
             $(':input', '#checkNameResult',
                 '#regForm')

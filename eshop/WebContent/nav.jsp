@@ -27,7 +27,7 @@
             <li class="breadcrumb-item"><a href="#cartModal" data-toggle="modal">购物车</a>
               <span class="badge badge-pill badge-success" id="user_cart_count">${empty cartcount ? 0 : cartcount}</span></li>
             <li class="breadcrumb-item"><a href="#">我的订单</a></li>
-            <li class="breadcrumb-item"><a href="#">个人中心</a></li>
+            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath }/user/index.person">个人中心</a></li>
             <li class="breadcrumb-item"><a href="logout.home">退出登录</a></li>
           </c:if>
         </ol>
@@ -45,7 +45,7 @@
             <li class="nav-item ${urlkey == 'newGoods' ? 'active' : '' }">
               <a class="nav-link" href="${pageContext.request.contextPath }/goods/newGoods.goods">新到商品</a>
             </li>
-            <c:if test="${urlkey != 'index' && urlkey != 'hotGoods' && urlkey != 'newGoods' }">
+            <c:if test="${urlkey != 'index' && urlkey != 'hotGoods' && urlkey != 'newGoods' && urlkey != null }">
               <li class="nav-item dropdown active">
             </c:if>
             <c:if test="${urlkey == 'index' || urlkey == 'hotGoods' || urlkey == 'newGoods' }">

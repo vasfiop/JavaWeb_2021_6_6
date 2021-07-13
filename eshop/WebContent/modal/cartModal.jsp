@@ -43,7 +43,7 @@
                     <td>${j.goods_name }</td>
                     <td>${j.goods_price }</td>
                     <td><input type="number" name="number" value="${j.goods_count }" min="1" max="99"
-                        id="number${j.goods_id }" required="required"></td>
+                        id="number${j.goods_id }" required="required" onblur="CartBlur(${j.goods_id })"></td>
                     <td><span id="totalprice${j.goods_id }">${j.goods_price*j.goods_count }</span></td>
                     <td>
                       <a href="#" class="btn btn-sm btn-outline-primary" onclick="delCart(${j.goods_id })"
@@ -80,8 +80,10 @@
         </div>
 
         <div class="modal-footer">
-          <c:if test="${empty sessionScope.carts }">
-            <button type="submit" class="btn btn-primary" id="cart_ok_down">确认下单</button>
+          <c:if test="${not empty sessionScope.carts }">
+            <button type="submit" class="btn btn-primary" id="cart_ok_down">
+              确认下单
+            </button>
           </c:if>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             关闭窗口</button>

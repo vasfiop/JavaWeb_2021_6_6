@@ -5,17 +5,21 @@
 		<item key="DIALOG_Y_ORIGIN" value="362"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="regForm"/>
+		<item key="selection" value="user"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="user"/>
+			<item value="user_id"/>
+			<item value="addCart"/>
+			<item value="cartcount"/>
+			<item value="cart"/>
 			<item value="regForm"/>
 			<item value="system"/>
 			<item value="nowTime"/>
-			<item value="user"/>
 			<item value="System"/>
 			<item value="javascript"/>
 			<item value="我的购物车"/>
@@ -23,7 +27,6 @@
 			<item value="我的订单"/>
 			<item value="delConfirm"/>
 			<item value="prompt"/>
-			<item value="BASE_NAME"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
