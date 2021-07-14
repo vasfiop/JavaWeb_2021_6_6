@@ -94,6 +94,7 @@ public class UserController extends HttpServlet {
 			}
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		} else if (path.equals("address")) {
+
 			String user_id = String.valueOf(user.get("user_id"));
 
 			List<Map<String, Object>> address = UserService.getAddress(user_id);
@@ -101,6 +102,76 @@ public class UserController extends HttpServlet {
 			request.setAttribute("address", address);
 			request.setAttribute("personkey", "address");
 			request.getRequestDispatcher("address.jsp").forward(request, response);
+		} else if (path.equals("addAddress")) {
+			response.setContentType("text/json;charset=utf-8");
+			PrintWriter out = response.getWriter();
+
+			String addr_province = request.getParameter("addr_province");
+			String addr_city = request.getParameter("addr_city");
+			String addr_area = request.getParameter("addr_area");
+			String addr_content = request.getParameter("addr_content");
+			String addr_receiver = request.getParameter("addr_receiver");
+			String addr_tel = request.getParameter("addr_tel");
+
+			int r = UserService.addAddress(addr_province, addr_city, addr_area, addr_content, addr_receiver, addr_tel,
+					String.valueOf(user.get("user_id")));
+
+			String addr_id = UserService.getAddressNewId(String.valueOf(user.get("user_id")));
+			if (r > 0)
+				out.print("{\"success\":true,\"addr_id\":" + addr_id + ",\"is_add\":true}");
+			else
+				out.print("{\"success\":false}");
+
+			out.flush();
+		} else if (path.equals("changeAddress")) {
+//			修改地址
+			response.setContentType("text/json;charset=utf-8");
+			PrintWriter out = response.getWriter();
+
+			String addr_province = request.getParameter("addr_province");
+			String addr_city = request.getParameter("addr_city");
+			String addr_area = request.getParameter("addr_area");
+			String addr_content = request.getParameter("addr_content");
+			String addr_receiver = request.getParameter("addr_receiver");
+			String addr_tel = request.getParameter("addr_tel");
+			String addr_id = request.getParameter("addr_id");
+
+			int r = UserService.changeAddress(addr_province, addr_city, addr_area, addr_content, addr_receiver,
+					addr_tel, addr_id);
+			if (r > 0)
+				out.print("{\"success\":true,\"addr_id\":" + addr_id + ",\"is_add\":false}");
+			else
+				out.print("{\"success\":false}");
+
+			out.flush();
+		} else if (path.equals("delAddress")) {
+//			删除地址
+			response.setContentType("text/json;charset=utf-8");
+			PrintWriter out = response.getWriter();
+
+			String addr_id = request.getParameter("addr_id");
+
+			int r = UserService.delAddress(addr_id);
+			if (r > 0)
+				out.print("{\"success\":true}");
+			else
+				out.print("{\"success\":false}");
+
+			out.flush();
+		} else if (path.equals("defaultAddress")) {
+//			设置为默认地址
+			response.setContentType("text/json;charset=utf-8");
+			PrintWriter out = response.getWriter();
+
+			String addr_id = request.getParameter("addr_id");
+
+			int r = UserService.changeDefault(addr_id, String.valueOf(user.get("user_id")));
+			if (r > 0)
+				out.print("{\"success\":true}");
+			else
+				out.print("{\"success\":false}");
+
+			out.flush();
 		}
 	}
 

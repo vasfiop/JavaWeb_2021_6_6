@@ -164,7 +164,7 @@ public class GoodsController extends HttpServlet {
 
 			request.getSession().setAttribute("carts", carts);
 			out.flush();
-		}
+		} 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

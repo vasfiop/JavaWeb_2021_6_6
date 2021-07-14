@@ -29,6 +29,7 @@
   <script type="text/javascript">
     $(function () {
       $('#goods_items_form').submit(function () {
+    	  console.log("out side");
         $.post("${pageContext.request.contextPath}/goods/addCart.goods",
           $('#goods_items_form').serialize(),
           function (res) {
@@ -368,6 +369,7 @@
   <%@ include file="../modal/loginFormModal.jsp" %>
   <%@ include file="../modal/regFormModal.jsp" %>
   <%@ include file="../modal/cartModal.jsp" %>
+  
 </body>
 
 </html>
