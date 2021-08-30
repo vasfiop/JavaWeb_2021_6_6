@@ -81,8 +81,7 @@
   </div>
 
   <%@ include file="../footer.jsp"%>
-  <%@ include file="../modal/loginFormModal.jsp"%>
-  <%@ include file="../modal/regFormModal.jsp"%>
+  
 </body>
 
 </html>

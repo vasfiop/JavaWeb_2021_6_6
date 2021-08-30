@@ -29,7 +29,7 @@
   <script type="text/javascript">
     $(function () {
       $('#goods_items_form').submit(function () {
-    	  console.log("out side");
+        console.log("out side");
         $.post("${pageContext.request.contextPath}/goods/addCart.goods",
           $('#goods_items_form').serialize(),
           function (res) {
@@ -290,6 +290,8 @@
           <input name="goods_price" id="goods_price" value="${good.goods_discount }" type="hidden">
           <input name="goods_pic" id="goods_pic" value="${good.goods_pic }" type="hidden">
           <input name="goods_name" id="goods_name" value="${good.goods_name }" type="hidden">
+          <input name="goods_oldprice" id="goods_oldprice" value="${good.goods_price }" type="hidden">
+          <input name="goods_postalfee" id="goods_postalfee" value="${good.goods_postalfee }" type="hidden">
           <c:forEach var="i" items="${good.typetitle }" varStatus="vt">
             <div class="input-group mb-3 mt-2 radio_group">
               <div class="input-group-prepend">
@@ -366,10 +368,7 @@
   </div>
 
   <%@ include file="../footer.jsp" %>
-  <%@ include file="../modal/loginFormModal.jsp" %>
-  <%@ include file="../modal/regFormModal.jsp" %>
-  <%@ include file="../modal/cartModal.jsp" %>
-  
+
 </body>
 
 </html>

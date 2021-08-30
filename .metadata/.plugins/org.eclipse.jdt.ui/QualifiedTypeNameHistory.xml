@@ -13,9 +13,6 @@
 <fullyQualifiedTypeName name="java.lang.Boolean"/>
 <fullyQualifiedTypeName name="service.FoodService"/>
 <fullyQualifiedTypeName name="java.nio.file.Path"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.util.Base64"/>
 <fullyQualifiedTypeName name="util.Base"/>
 <fullyQualifiedTypeName name="action.user.UserSafe"/>
@@ -26,7 +23,6 @@
 <fullyQualifiedTypeName name="java.io.FileInputStream"/>
 <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
-<fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="javax.annotation.PostConstruct"/>
 <fullyQualifiedTypeName name="org.apache.catalina.startup.Tomcat.ExistingStandardWrapper"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
@@ -42,7 +38,6 @@
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
 <fullyQualifiedTypeName name="service.AdminService"/>
 <fullyQualifiedTypeName name="service.TalkService"/>
-<fullyQualifiedTypeName name="org.apache.jasper.tagplugins.jstl.core.ForEach"/>
 <fullyQualifiedTypeName name="cn.edu.neu.service.HomeService"/>
 <fullyQualifiedTypeName name="cn.edu.neu.service.ShopService"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -50,8 +45,17 @@
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="com.alibaba.fastjson.JSONObject"/>
 <fullyQualifiedTypeName name="cn.edu.neu.controller.GoodsController"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
-<fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="cn.edu.neu.service.UserService"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="cn.edu.neu.dao.DBUtil"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="cn.edu.neu.dao.TimeUtile"/>
+<fullyQualifiedTypeName name="cn.edu.neu.controller.CartController"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="cn.edu.neu.service.CartService"/>
+<fullyQualifiedTypeName name="org.apache.jasper.tagplugins.jstl.core.ForEach"/>
 </qualifiedTypeNameHistroy>

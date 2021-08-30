@@ -5,7 +5,7 @@
 <script type="text/javascript">
 
 </script>
-<form action="" method="post" role="form">
+<form action="${pageContext.request.contextPath}/cart/bugGoods.cart" method="post" role="form">
   <div class="modal fade" id="cartModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
 

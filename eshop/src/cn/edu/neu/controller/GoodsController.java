@@ -89,6 +89,8 @@ public class GoodsController extends HttpServlet {
 			String goods_pic = request.getParameter("goods_pic");
 			String goods_price = request.getParameter("goods_price");
 			String goods_count = request.getParameter("goods_count");
+			String goods_oldprice = request.getParameter("goods_oldprice");
+			String goods_postalfee = request.getParameter("goods_postalfee");
 			JSONObject json = null;
 
 			if (carts != null && carts.get(goods_id) != null) {
@@ -106,6 +108,8 @@ public class GoodsController extends HttpServlet {
 				item.put("goods_pic", goods_pic);
 				item.put("goods_price", goods_price);
 				item.put("goods_count", goods_count);
+				item.put("goods_oldprice", goods_oldprice);
+				item.put("goods_postalfee", goods_postalfee);
 				json = new JSONObject(item);
 				carts.put(goods_id, item);
 			}
@@ -164,7 +168,7 @@ public class GoodsController extends HttpServlet {
 
 			request.getSession().setAttribute("carts", carts);
 			out.flush();
-		} 
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
