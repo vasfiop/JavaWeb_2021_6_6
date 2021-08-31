@@ -1,6 +1,7 @@
 package cn.edu.neu.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
@@ -52,9 +53,10 @@ public class CartController extends HttpServlet {
 			String order_code = TimeUtile.get_order_code();
 			String user_id = String.valueOf(user.get("user_id"));
 			int order_id = new CartService().add_order(order_code, user_id, status, address_str);
-			int r = new CartService().add_order_detail(order_id, carts);
+			chack_return(new CartService().add_order_detail(order_id, carts));
 
 			String allmoney = request.getParameter("allmoney");
+			request.removeAttribute("carts");
 			request.setAttribute("orderkey", "all");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		} else if (path.equals("allorder")) {
@@ -64,7 +66,45 @@ public class CartController extends HttpServlet {
 			request.setAttribute("orders", orders);
 			request.setAttribute("orderkey", "all");
 			request.getRequestDispatcher("all_order.jsp").forward(request, response);
+		} else if (path.equals("payment")) {
+//			去付款
+			String order_id = request.getParameter("order_id");
+			chack_return(new CartService().change_order_mode(order_id, "1"));
+			request.setAttribute("orderkey", "all");
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		} else if (path.equals("cancel")) {
+//			取消订单
+			response.setContentType("text/json;charset=utf-8");
+			PrintWriter out = response.getWriter();
+
+			String order_id = request.getParameter("order_id");
+			System.out.println("TIME::" + new TimeUtile().get_Time() + " SUCCESS order_id::" + order_id);
+
+			chack_return(new CartService().change_order_mode(order_id, "3"));
+
+			out.print("{\"order_id\":" + order_id + "}");
+
+			out.flush();
+		} else if (path.equals("del")) {
+//			删除订单
+			response.setContentType("text/json;charset=utf-8");
+			PrintWriter out = response.getWriter();
+
+			String order_id = request.getParameter("order_id");
+			System.out.println("TIME::" + new TimeUtile().get_Time() + " SUCCESS order_id::" + order_id);
+			
+			chack_return(new CartService().del_orderdetail(order_id));
+			chack_return(new CartService().del_order(order_id));
+
+			out.print("{\"order_id\":" + order_id + "}");
+
+			out.flush();
 		}
+	}
+
+	private void chack_return(int r) {
+		if (r == 0)
+			System.out.println("TIME::" + new TimeUtile().get_Time() + "WARGING!::数据库修改失败");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

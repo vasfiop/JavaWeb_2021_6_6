@@ -61,4 +61,26 @@ public class CartService {
 		return orders;
 	}
 
+//	修改订单（去付款，取消订单）
+	public int change_order_mode(String order_id, String mode) {
+		String sql = "update t_order set order_status=" + mode + " where order_id =?";
+		String[] params = { order_id };
+		return db.update(sql, params);
+	}
+
+//	删除orderdatail
+	public int del_orderdetail(String order_id) {
+		String sql = "delete from t_orderdetail where order_id = ?";
+		String[] params = { order_id };
+
+		return db.update(sql, params);
+	}
+
+//	删除订单
+	public int del_order(String order_id) {
+		String sql = "delete from t_order where order_id = ?";
+		String[] params = { order_id };
+		return db.update(sql, params);
+	}
+
 }

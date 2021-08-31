@@ -13,4 +13,9 @@ public class TimeUtile {
 	public static String get_order_code() {
 		return ft.format(dNow) + rand_num;
 	}
+
+	public String get_Time() {
+		SimpleDateFormat not_time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		return not_time.format(dNow);
+	}
 }
