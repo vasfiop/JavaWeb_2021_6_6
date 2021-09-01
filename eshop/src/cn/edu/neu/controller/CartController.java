@@ -4,15 +4,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.jasper.tagplugins.jstl.core.ForEach;
-
 import cn.edu.neu.dao.TimeUtile;
 import cn.edu.neu.service.CartService;
 import cn.edu.neu.service.UserService;
@@ -55,8 +51,8 @@ public class CartController extends HttpServlet {
 			int order_id = new CartService().add_order(order_code, user_id, status, address_str);
 			chack_return(new CartService().add_order_detail(order_id, carts));
 
-			String allmoney = request.getParameter("allmoney");
-			request.removeAttribute("carts");
+			request.getSession().removeAttribute("carts");
+			request.getSession().removeAttribute("cartcount");
 			request.setAttribute("orderkey", "all");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		} else if (path.equals("allorder")) {
@@ -78,7 +74,6 @@ public class CartController extends HttpServlet {
 			PrintWriter out = response.getWriter();
 
 			String order_id = request.getParameter("order_id");
-			System.out.println("TIME::" + new TimeUtile().get_Time() + " SUCCESS order_id::" + order_id);
 
 			chack_return(new CartService().change_order_mode(order_id, "3"));
 
@@ -91,14 +86,31 @@ public class CartController extends HttpServlet {
 			PrintWriter out = response.getWriter();
 
 			String order_id = request.getParameter("order_id");
-			System.out.println("TIME::" + new TimeUtile().get_Time() + " SUCCESS order_id::" + order_id);
-			
+
 			chack_return(new CartService().del_orderdetail(order_id));
 			chack_return(new CartService().del_order(order_id));
 
 			out.print("{\"order_id\":" + order_id + "}");
 
 			out.flush();
+		} else if (path.equals("waitorder")) {
+//			代付订单
+			Map<String, Object> user = (Map<String, Object>) request.getSession().getAttribute("user");
+			String user_id = String.valueOf(user.get("user_id"));
+			List<Map<String, Object>> orders = new CartService().get_wait_orders(user_id);
+
+			request.setAttribute("orders", orders);
+			request.setAttribute("orderkey", "wait");
+			request.getRequestDispatcher("wait_order.jsp").forward(request, response);
+		} else if (path.equals("success")) {
+//			交易成功订单
+			Map<String, Object> user = (Map<String, Object>) request.getSession().getAttribute("user");
+			String user_id = String.valueOf(user.get("user_id"));
+			List<Map<String, Object>> orders = new CartService().get_success_orders(user_id);
+
+			request.setAttribute("orders", orders);
+			request.setAttribute("orderkey", "success");
+			request.getRequestDispatcher("success_order.jsp").forward(request, response);
 		}
 	}
 

@@ -12,22 +12,8 @@
           "order_id": order_id
         },
         function (res) {
-          $('#order_mode' + res.order_id).html("订单取消,交易关闭");
-          $('#order_operation_' + res.order_id).children().each(function () {
-            $(this).remove();
-          });
-          $('#order_operation_' + res.order_id).html(
-            '<div><a href="#" style="color: white;font-size:12px;" onclick="del(' + res.order_id +
-            ')">删除订单</a></div>');
+          $('#list_group_' + res.order_id).remove();
         }, "json");
-    };
-
-    function del(order_id) {
-      $.post("${pageContext.request.contextPath}/cart/del.cart", {
-        "order_id": order_id
-      }, function (res) {
-        $('#list_group_' + res.order_id).remove();
-      }, "json");
     };
   </script>
 </head>

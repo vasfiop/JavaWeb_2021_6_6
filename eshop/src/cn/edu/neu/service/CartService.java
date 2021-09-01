@@ -49,6 +49,7 @@ public class CartService {
 		return 1;
 	}
 
+//	全部订单
 	public List<Map<String, Object>> get_orders(String user_id) {
 		String sql = "SELECT * FROM t_order WHERE user_id = ?";
 		String sql_order_goods = "SELECT * FROM t_orderdetail WHERE order_id = ?";
@@ -81,6 +82,34 @@ public class CartService {
 		String sql = "delete from t_order where order_id = ?";
 		String[] params = { order_id };
 		return db.update(sql, params);
+	}
+
+//	代付订单
+	public List<Map<String, Object>> get_wait_orders(String user_id) {
+		String sql = "SELECT * FROM t_order WHERE user_id=? AND order_status =2";
+		String sql_order_goods = "SELECT * FROM t_orderdetail WHERE order_id = ?";
+		String[] params = { user_id };
+
+		List<Map<String, Object>> wait_orders = db.getList(sql, params);
+		for (Map<String, Object> map : wait_orders) {
+			int order_id = (int) map.get("order_id");
+			map.put("goods", db.getList(sql_order_goods, new Object[] { order_id }));
+		}
+		return wait_orders;
+	}
+
+//	成功订单
+	public List<Map<String, Object>> get_success_orders(String user_id) {
+		String sql = "SELECT * FROM t_order WHERE user_id=? AND order_status =1";
+		String sql_order_goods = "SELECT * FROM t_orderdetail WHERE order_id = ?";
+		String[] params = { user_id };
+
+		List<Map<String, Object>> orders = db.getList(sql, params);
+		for (Map<String, Object> map : orders) {
+			int order_id = (int) map.get("order_id");
+			map.put("goods", db.getList(sql_order_goods, new Object[] { order_id }));
+		}
+		return orders;
 	}
 
 }

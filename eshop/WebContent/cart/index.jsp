@@ -16,13 +16,11 @@
       <div class="col-md-12">
         <div class="row">
           <div class="col-md-2">
-            <div class="list-group">
-				<%@ include file="./left_nav.jsp"%>
-            </div>
+            <%@ include file="./left_nav.jsp"%>
           </div>
           <div class="col-md-10">
             <div class="row">
-				<h3>成功！</h3>
+              <h3>成功！</h3>
             </div>
           </div>
         </div>
@@ -31,7 +29,7 @@
   </div>
 
   <%@ include file="../footer.jsp"%>
-  
+
 </body>
 
 </html>

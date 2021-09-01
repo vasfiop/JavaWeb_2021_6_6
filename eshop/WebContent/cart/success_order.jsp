@@ -7,21 +7,6 @@
   <title>随意购商城首页</title>
   <%@ include file="../header.jsp"%>
   <script type="text/javascript">
-    function cancel(order_id) {
-      $.post("${pageContext.request.contextPath}/cart/cancel.cart", {
-          "order_id": order_id
-        },
-        function (res) {
-          $('#order_mode' + res.order_id).html("订单取消,交易关闭");
-          $('#order_operation_' + res.order_id).children().each(function () {
-            $(this).remove();
-          });
-          $('#order_operation_' + res.order_id).html(
-            '<div><a href="#" style="color: white;font-size:12px;" onclick="del(' + res.order_id +
-            ')">删除订单</a></div>');
-        }, "json");
-    };
-
     function del(order_id) {
       $.post("${pageContext.request.contextPath}/cart/del.cart", {
         "order_id": order_id
