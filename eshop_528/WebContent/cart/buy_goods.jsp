@@ -163,7 +163,7 @@
 
 <body>
   <%@ include file="../nav.jsp" %>
-  <form method="post" action="/eshop/cart/addCart.cart">
+  <form method="post" action="${pageContext.request.contextPath}/cart/addCart.cart">
     <div class="container">
       <div class="row">
         <div class="col-md-12 mt-2">
@@ -238,7 +238,7 @@
                     </c:if>
                     <tr data-goodsid="${j.goods_id }">
                       <td>${vs.count }</td>
-                      <td><img src="/eshop/resources${j.goods_pic }" style="height: 24px; width: 24px;" class="border">
+                      <td><img src="${pageContext.request.contextPath}/resources${j.goods_pic }" style="height: 24px; width: 24px;" class="border">
                       </td>
                       <td>${j.goods_name }</td>
                       <td>原价:￥${j.goods_oldprice }&nbsp;现售:￥${j.goods_price }</td>

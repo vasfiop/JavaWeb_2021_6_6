@@ -40,9 +40,7 @@
 <fullyQualifiedTypeName name="service.TalkService"/>
 <fullyQualifiedTypeName name="cn.edu.neu.service.HomeService"/>
 <fullyQualifiedTypeName name="cn.edu.neu.service.ShopService"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="cn.edu.neu.service.GoodsService"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="com.alibaba.fastjson.JSONObject"/>
 <fullyQualifiedTypeName name="cn.edu.neu.controller.GoodsController"/>
 <fullyQualifiedTypeName name="cn.edu.neu.service.UserService"/>
@@ -53,9 +51,11 @@
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
-<fullyQualifiedTypeName name="cn.edu.neu.controller.CartController"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="org.apache.jasper.tagplugins.jstl.core.ForEach"/>
-<fullyQualifiedTypeName name="cn.edu.neu.dao.TimeUtile"/>
 <fullyQualifiedTypeName name="cn.edu.neu.service.CartService"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="cn.edu.neu.controller.CartController"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="cn.edu.neu.dao.TimeUtile"/>
 </qualifiedTypeNameHistroy>

@@ -35,7 +35,7 @@
                   <c:set var="j" value="${i.value }" />
                   <tr data-goodsid="${j.goods_id }">
                     <td>${vs.count }</td>
-                    <td><img src="/eshop/resources${j.goods_pic }" style="height:56px;width:56px;" class="border">
+                    <td><img src="${pageContext.request.contextPath}/resources${j.goods_pic }" style="height:56px;width:56px;" class="border">
                     </td>
                     <td>${j.goods_name }</td>
                     <td>${j.goods_price }</td>

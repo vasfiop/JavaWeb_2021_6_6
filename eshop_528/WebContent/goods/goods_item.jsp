@@ -250,8 +250,8 @@
         <!-- 左侧图片展示区开始 -->
         <div id="tsShopContainer">
           <div id="tsImgS">
-            <a href="/eshop/resources${good.goods_pic }" title="Images" class="MagicZoom" id="MagicZoom"><img
-                width="350px" height="350px" src="/eshop/resources${good.goods_pic }" /></a>
+            <a href="${pageContext.request.contextPath }/resources${good.goods_pic }" title="Images" class="MagicZoom" id="MagicZoom"><img
+                width="350px" height="350px" src="${pageContext.request.contextPath }/resources${good.goods_pic }" /></a>
           </div>
           <div id="tsPicContainer">
             <div id="tsImgSArrL" onclick="tsScrollArrLeft()"></div>
@@ -265,8 +265,8 @@
             </div>
             <div id="tsImgSArrR" onclick="tsScrollArrRight()"></div>
           </div>
-          <script src="/eshop/resources/zoom/js/ShopShow.js"></script>
-          <img class="MagicZoomLoading" width="16" height="16" src="/eshop/resources/zoom/images/loading.gif"
+          <script src="${pageContext.request.contextPath }/resources/zoom/js/ShopShow.js"></script>
+          <img class="MagicZoomLoading" width="16" height="16" src="${pageContext.request.contextPath }/resources/zoom/images/loading.gif"
             alt="Loading..." />
         </div>
       </div>
@@ -352,12 +352,12 @@
             <div class="container">
 
               <div class="d-flex justify-content-center">
-                <img src="/eshop/resources${good.goods_pic }" style="width:400px;" class="mb-2">
+                <img src="${pageContext.request.contextPath }/resources${good.goods_pic }" style="width:400px;" class="mb-2">
               </div>
 
               <c:forEach var="i" items="${good.pic }">
                 <div class="d-flex justify-content-center">
-                  <img src="/eshop/resources${i.pic_url }" style="width:400px;" class="mb-2">
+                  <img src="${pageContext.request.contextPath }/resources${i.pic_url }" style="width:400px;" class="mb-2">
                 </div>
               </c:forEach>
             </div>
