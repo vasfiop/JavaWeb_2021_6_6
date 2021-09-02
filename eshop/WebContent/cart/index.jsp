@@ -4,7 +4,7 @@
 <html>
 
 <head>
-  <title>随意购商城首页</title>
+  <title>随意购商城</title>
   <%@ include file="../header.jsp"%>
 </head>
 

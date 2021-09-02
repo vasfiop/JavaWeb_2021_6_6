@@ -52,9 +52,9 @@
     <div class="list-group-item">
       <div class="d-flex justify-content-between">
         <div>
-          <button type="button" class="btn btn-info">
+          <a type="button" class="btn btn-info" href="${pageContext.request.contextPath}/cart/order_item.cart?order_id=${i.order_id }">
             查看订单详情
-          </button>
+          </a>
         </div>
         <div>总金额（含运费${i.order_postalfee }元）：￥${sum+i.order_postalfee }</div>
       </div>

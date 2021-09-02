@@ -2,6 +2,8 @@ package cn.edu.neu.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.ServletException;
@@ -16,6 +18,7 @@ import cn.edu.neu.service.UserService;
 @WebServlet("*.cart")
 public class CartController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	List<Map<String, Object>> orders = new ArrayList<Map<String, Object>>();
 
 	public CartController() {
 		super();
@@ -27,6 +30,7 @@ public class CartController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String path = request.getServletPath();
 		path = path.substring(path.lastIndexOf('/') + 1, path.indexOf('.'));
+
 		if (path.equals("bugGoods")) {
 //			确认购买页面
 			Map<String, Object> user = (Map<String, Object>) request.getSession().getAttribute("user");
@@ -58,7 +62,8 @@ public class CartController extends HttpServlet {
 		} else if (path.equals("allorder")) {
 //			 全部订单
 			Map<String, Object> user = (Map<String, Object>) request.getSession().getAttribute("user");
-			List<Map<String, Object>> orders = new CartService().get_orders(String.valueOf(user.get("user_id")));
+			orders.clear();
+			orders = new CartService().get_orders(String.valueOf(user.get("user_id")));
 			request.setAttribute("orders", orders);
 			request.setAttribute("orderkey", "all");
 			request.getRequestDispatcher("all_order.jsp").forward(request, response);
@@ -97,7 +102,9 @@ public class CartController extends HttpServlet {
 //			代付订单
 			Map<String, Object> user = (Map<String, Object>) request.getSession().getAttribute("user");
 			String user_id = String.valueOf(user.get("user_id"));
-			List<Map<String, Object>> orders = new CartService().get_wait_orders(user_id);
+
+			orders.clear();
+			orders = new CartService().get_wait_orders(user_id);
 
 			request.setAttribute("orders", orders);
 			request.setAttribute("orderkey", "wait");
@@ -106,11 +113,29 @@ public class CartController extends HttpServlet {
 //			交易成功订单
 			Map<String, Object> user = (Map<String, Object>) request.getSession().getAttribute("user");
 			String user_id = String.valueOf(user.get("user_id"));
-			List<Map<String, Object>> orders = new CartService().get_success_orders(user_id);
+
+			orders.clear();
+			orders = new CartService().get_success_orders(user_id);
 
 			request.setAttribute("orders", orders);
 			request.setAttribute("orderkey", "success");
 			request.getRequestDispatcher("success_order.jsp").forward(request, response);
+		} else if (path.equals("order_item")) {
+//			查看订单详情
+
+			String order_id = request.getParameter("order_id");
+
+			System.out.println(new TimeUtile().get_Time() + " order_id = " + order_id);
+
+			for (Map<String, Object> map : orders) {
+				String old_order_id = String.valueOf(map.get("order_id"));
+				if (old_order_id.equals(order_id)) {
+					request.setAttribute("order_item", map);
+					request.getRequestDispatcher("order_item.jsp").forward(request, response);
+					break;
+				}
+			}
+
 		}
 	}
 
